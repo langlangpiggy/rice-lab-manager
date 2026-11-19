@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
@@ -3955,6 +3955,59 @@ h3 {
   .ap-breakdown { display: none; }
   .top-text-button { padding: 5px 6px; font-size: 8px; }
 }
+/* v0.2 special candidates */
+.special-pill { display:inline-block; margin-left:4px; padding:1px 5px; border:1px solid #c7a86a; border-radius:999px; color:#8c6a30; background:#f8f1e2; font-size:7px; vertical-align:middle; }
+/* ===== community / nickname ===== */
+.login-hero { text-align:center; padding:8px 4px 12px; }
+.login-icon { width:54px;height:54px;margin:0 auto 8px;border-radius:50%;display:grid;place-items:center;background:#f3e7c8;border:1px solid #d6bd85;font-size:29px; }
+.login-title { font-family:var(--serif);font-size:24px;color:var(--ink); }
+.login-desc { color:var(--muted);font-size:9px;line-height:1.7;margin-top:5px; }
+.login-field { display:block;margin:14px 0 9px; }
+.login-field span { display:block;font-size:8px;letter-spacing:.12em;color:#8c6a30;margin-bottom:4px; }
+.login-field input { width:100%;box-sizing:border-box;padding:10px 11px;border:1px solid #d8c7ab;border-radius:5px;background:#fffaf0;color:var(--ink);font:inherit;font-size:14px;outline:none; }
+.login-field input:focus { border-color:#4f7a5e;box-shadow:0 0 0 2px #4f7a5e22; }
+.login-note { padding:8px 10px;background:#f8f1e2;border-left:3px solid #c7a86a;color:#6d5b43;font-size:8px;line-height:1.65; }
+.login-note b { color:var(--ink); }
+
+.community-toolbar { display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:9px 11px;border:1px solid var(--line);border-radius:5px;background:#faf3e3;font-size:9px;color:#6d5b43; }
+.community-toolbar b { color:var(--ink);font-size:11px; }
+.community-toolbar em { display:block;font-style:normal;margin-top:3px;color:#a25040;font-size:8px; }
+.community-note { color:var(--muted);font-size:8px;line-height:1.6;margin:7px 0 10px; }
+.community-grid { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px; }
+.community-card { border:1px solid var(--line);border-radius:6px;background:var(--paper-light);padding:9px; }
+.community-card.is-self { border-color:#9bb28e;background:#f0f6eb;box-shadow:inset 3px 0 0 #6d9361; }
+.community-card-head { display:flex;align-items:center;gap:7px; }
+.community-avatar { flex:0 0 auto;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#f3e7c8;font-size:18px; }
+.community-avatar.large { width:48px;height:48px;font-size:29px; }
+.community-card-head > div { display:flex;flex-direction:column;gap:2px;min-width:0; }
+.community-card-head b { font-size:10px;color:var(--ink); }
+.community-card-head small { font-size:7px;color:var(--muted); }
+.community-time { margin-left:auto;color:#a08a70;font-size:7px;white-space:nowrap; }
+.community-stats { display:flex;flex-wrap:wrap;gap:3px;margin:8px 0 6px; }
+.community-stats span { border:1px solid var(--line);background:#fffaf0;border-radius:3px;padding:2px 5px;font-size:7px;color:#8f7b62; }
+.community-stats b { color:var(--ink);font-size:9px; }
+.community-people { display:flex;flex-wrap:wrap;gap:3px;margin-bottom:6px; }
+.community-person { border:1px solid #e2d2b7;background:#fffaf0;border-radius:3px;padding:2px 5px;font-size:7px;color:var(--ink); }
+.community-person small { color:var(--muted);margin-left:3px;font-size:6px; }
+.community-card-bottom { display:flex;align-items:center;justify-content:space-between;gap:6px;border-top:1px solid var(--line);padding-top:6px;font-size:7px;color:var(--muted); }
+.visit-hero { display:flex;align-items:center;gap:10px;padding:12px;background:#f5ead4;border:1px solid #e0cba4;border-radius:6px; }
+.visit-kicker { font-family:var(--mono);font-size:8px;letter-spacing:.1em;color:#8c6a30; }
+.visit-title { font-family:var(--serif);font-size:22px;color:var(--ink);margin-top:2px; }
+.visit-sub { color:var(--muted);font-size:9px;margin-top:2px; }
+.visit-stats { margin-top:10px; }
+.visit-line { padding:6px 8px;background:#faf3e3;border:1px solid var(--line);border-radius:4px;font-size:9px;line-height:1.7;color:var(--ink);margin-bottom:6px; }
+.visit-line.muted { color:var(--muted);font-size:8px; }
+.visit-projects { display:flex;flex-direction:column;gap:4px; }
+.visit-project { display:flex;align-items:center;gap:7px;padding:6px 8px;border:1px solid var(--line);border-radius:4px;background:#fffaf0;font-size:9px;flex-wrap:wrap; }
+.visit-project span { flex:1;min-width:140px; }
+.visit-project b { color:#8c6a30; }
+.visit-project small { width:100%;color:var(--muted);font-size:7px; }
+.visit-people { display:flex;flex-wrap:wrap;gap:4px; }
+
+@media (max-width: 760px) {
+  .community-grid { grid-template-columns:1fr; }
+  .community-toolbar { align-items:flex-start; }
+}
 
 </style>
 </head>
@@ -3998,6 +4051,7 @@ h3 {
       <div class="top-actions">
         <button class="icon-button" data-action="save" title="手动存档" data-tip="手动保存到当前浏览器。游戏也会自动存档。" aria-label="手动存档">▣</button>
         <button class="icon-button" data-action="export-save" title="导出存档" data-tip="导出一份 JSON 存档，换电脑或清缓存前使用。" aria-label="导出存档">⤓</button>
+        <button class="top-text-button" data-action="community" title="联机大厅 / 参观其他实验室" data-tip="用昵称登录联机大厅，查看其他人的方向、进度、人员和课题。">大厅</button>
         <button class="top-text-button" data-action="help" title="玩法说明、按钮解释与存档备份" data-tip="随时打开玩法手册：学生会延毕、特质与羁绊、行动点、房间/仪器、投稿费和院士投票。">玩法</button>
         <button class="top-text-button" data-action="new-game" title="重新选择方向和研究起点" data-tip="重新选择研究方向、3 间房、2 台仪器和 2 个起步课题；当前存档会被覆盖。">重开</button>
       </div>
@@ -5055,6 +5109,37 @@ h3 {
     "Thermo Fisher"
   ];
 
+  const NAMED_PEOPLE = [
+    { name: "武越", gender: "女" },
+    { name: "林辉", gender: "女" },
+    { name: "梁迪", gender: "男" },
+    { name: "雷子耀", gender: "男" },
+    { name: "刘莎莎", gender: "女" },
+    { name: "黄力", gender: "男" },
+    { name: "牛国庆", gender: "男" },
+    { name: "吕星", gender: "女" },
+    { name: "孙鹏", gender: "男" },
+    { name: "谷清硕", gender: "男" },
+    { name: "朱德鹤", gender: "男" },
+    { name: "韩文建", gender: "男" },
+    { name: "张皓宸", gender: "男" },
+    { name: "李自强", gender: "男" },
+    { name: "张亚龙", gender: "男" },
+    { name: "李宇婕", gender: "女" },
+    { name: "沈晓鹏", gender: "男" },
+    { name: "吴炫璇", gender: "女" },
+    { name: "张立", gender: "男" },
+    { name: "刘婕", gender: "女" },
+    { name: "郭东升", gender: "男" },
+    { name: "樊祥君", gender: "男" },
+    { name: "石涛", gender: "男" },
+    { name: "戴严成", gender: "男" },
+    { name: "卢薏朵", gender: "女" },
+    { name: "明骏杰", gender: "男" },
+    { name: "罗世强", gender: "男" },
+    { name: "林镜烁", gender: "男" }
+  ];
+
   const START_PEOPLE = [
     {
       id: "p_start_tech",
@@ -5149,6 +5234,7 @@ h3 {
     JOURNALS,
     PAPER_TITLE_PARTS,
     COMPANIES,
+    NAMED_PEOPLE,
     START_PEOPLE,
     START_PROJECT,
     DEFAULT_SETUP,
@@ -5885,8 +5971,24 @@ h3 {
           100
       ) * 100
     );
-    const name = D.SURNAMES[Math.floor(rand(state) * D.SURNAMES.length)] + D.GIVEN_NAMES[Math.floor(rand(state) * D.GIVEN_NAMES.length)];
-    const avatar = rand(state) < 0.6 ? role.icon : D.AVATARS[Math.floor(rand(state) * D.AVATARS.length)];
+    let named = null;
+    const namedPool = D.NAMED_PEOPLE.filter((item) => (state.namedSeen || []).indexOf(item.name) < 0);
+    if (namedPool.length && rand(state) < 0.38) {
+      named = namedPool[Math.floor(rand(state) * namedPool.length)];
+      if (!Array.isArray(state.namedSeen)) state.namedSeen = [];
+      state.namedSeen.push(named.name);
+    }
+    const name = named
+      ? named.name
+      : D.SURNAMES[Math.floor(rand(state) * D.SURNAMES.length)] + D.GIVEN_NAMES[Math.floor(rand(state) * D.GIVEN_NAMES.length)];
+    const genderAvatars = named
+      ? (named.gender === "女"
+          ? ["👩‍🔬", "👩‍🎓", "👩‍💻", "👩‍🌾", "👩‍🏫"]
+          : ["👨‍🔬", "👨‍🎓", "👨‍💻", "👨‍🌾", "👨‍🏫"])
+      : null;
+    const avatar = named
+      ? genderAvatars[Math.floor(rand(state) * genderAvatars.length)]
+      : (rand(state) < 0.6 ? role.icon : D.AVATARS[Math.floor(rand(state) * D.AVATARS.length)]);
     const requirement = role.student ? D.STUDENT_REQUIREMENTS[role.student] : null;
     return {
       id: uid(state, "candidate"),
@@ -5895,6 +5997,9 @@ h3 {
       roleName: role.name,
       name,
       avatar,
+      gender: named ? named.gender : "",
+      special: Boolean(named),
+      specialNote: named ? "来自人员信息表的特别候选人" : "",
       rarity,
       stats,
       primaryField,
@@ -6149,6 +6254,7 @@ h3 {
       instruments: [],
       people: [],
       candidates: [],
+      namedSeen: [],
       projects: [],
       trainingOffers: [],
       trainingHistory: [],
@@ -7691,6 +7797,204 @@ h3 {
 
 </script>
   <script>
+(function (root) {
+  "use strict";
+
+  // 小范围测试用的公开 JSON 存储。它没有账号/密码，只适合公开的昵称与进度快照。
+  // 正式版请换成 Supabase / Firebase / 自建 API，并加真正的认证与权限。
+  const ENDPOINT = "https://api.npoint.io/d782638930c96b5972a6";
+  const NICK_KEY = "riceLabNicknameV1";
+  const PLAYER_KEY = "riceLabPlayerIdV1";
+  const CACHE_KEY = "riceLabCommunityCacheV1";
+
+  function getPlayerId() {
+    let id = localStorage.getItem(PLAYER_KEY);
+    if (!id) {
+      id = "player_" + Math.random().toString(36).slice(2, 10) + Date.now().toString(36);
+      localStorage.setItem(PLAYER_KEY, id);
+    }
+    return id;
+  }
+
+  function getNickname() {
+    return (localStorage.getItem(NICK_KEY) || "").trim();
+  }
+
+  function setNickname(nickname) {
+    const clean = String(nickname || "").trim().slice(0, 16);
+    if (!clean) return "";
+    localStorage.setItem(NICK_KEY, clean);
+    return clean;
+  }
+
+  function clearNickname() {
+    localStorage.removeItem(NICK_KEY);
+  }
+
+  function todayLabel(state) {
+    try {
+      return window.LabCore.monthInfo(state.month).calendar;
+    } catch (error) {
+      return `${state.month || 0} 月`;
+    }
+  }
+
+  function makeSnapshot(state, nickname) {
+    const direction = (window.LabData.RESEARCH_DIRECTIONS || []).find((item) => item.id === state.directionId);
+    const players = Array.isArray(state.people) ? state.people.filter((person) => person.status === "active") : [];
+    const projects = Array.isArray(state.projects) ? state.projects : [];
+    const papers = Array.isArray(state.papers) ? state.papers : [];
+    const instruments = Array.isArray(state.instruments) ? state.instruments : [];
+    const rooms = Array.isArray(state.rooms) ? state.rooms : [];
+    return {
+      playerId: getPlayerId(),
+      nickname: String(nickname || "").slice(0, 16),
+      direction: direction ? direction.name : "未选择",
+      directionId: state.directionId || "",
+      calendar: todayLabel(state),
+      month: state.month || 0,
+      funds: Math.round(state.funds || 0),
+      reputation: Math.round(state.reputation || 0),
+      papers: papers.length,
+      totalIF: Math.round((state.totalIF || 0) * 10) / 10,
+      academicPercent: (() => {
+        try {
+          return window.LabCore.academicianStatus(state).percent;
+        } catch (error) {
+          return 0;
+        }
+      })(),
+      peopleCount: players.length,
+      people: players.slice(0, 10).map((person) => ({
+        name: person.name,
+        role: (window.LabData.ROLES[person.roleId] || {}).name || "成员",
+        field: (window.LabData.FIELDS[person.primaryField] || {}).name || "",
+        rarity: person.rarity || "C"
+      })),
+      projects: projects
+        .filter((project) => project.status !== "completed")
+        .slice(0, 8)
+        .map((project) => ({
+          title: project.title,
+          field: (window.LabData.FIELDS[project.field] || {}).name || "",
+          tier: project.tier || "C",
+          percent: Math.round(((project.data || 0) / Math.max(1, project.dataGoal || 1)) * 100),
+          status: project.status === "draft" ? "待立项" : "进行中"
+        })),
+      rooms: rooms.slice(0, 12).map((room) => ({
+        type: room.type,
+        level: room.level || 1
+      })),
+      instruments: instruments.slice(0, 15).map((instrument) => instrument.key || ""),
+      updatedAt: Date.now()
+    };
+  }
+
+  async function request(url, options) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 12000);
+    try {
+      const response = await fetch(url, Object.assign({}, options, { signal: controller.signal, cache: "no-store" }));
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return response;
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+
+  async function readBoard() {
+    const response = await request(`${ENDPOINT}?t=${Date.now()}`);
+    const data = await response.json();
+    if (!data || typeof data !== "object") return { version: 1, players: {}, updatedAt: null };
+    if (!data.players || typeof data.players !== "object") data.players = {};
+    data.version = 1;
+    return data;
+  }
+
+  async function writeBoard(board) {
+    board.version = 1;
+    board.updatedAt = Date.now();
+    const response = await request(ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(board)
+    });
+    const result = await response.json().catch(() => null);
+    return result || board;
+  }
+
+  function cacheBoard(board) {
+    try {
+      localStorage.setItem(CACHE_KEY, JSON.stringify(board));
+    } catch (error) {
+      // ignore quota errors
+    }
+  }
+
+  function cachedBoard() {
+    try {
+      return JSON.parse(localStorage.getItem(CACHE_KEY) || "null");
+    } catch (error) {
+      return null;
+    }
+  }
+
+  async function sync(state, nickname) {
+    const clean = String(nickname || "").trim();
+    if (!clean) throw new Error("还没有昵称。");
+    const snapshot = makeSnapshot(state, clean);
+    let lastError = null;
+    for (let attempt = 0; attempt < 3; attempt += 1) {
+      try {
+        const board = await readBoard();
+        board.players[snapshot.playerId] = snapshot;
+        const saved = await writeBoard(board);
+        cacheBoard(saved);
+        return saved;
+      } catch (error) {
+        lastError = error;
+        await new Promise((resolve) => setTimeout(resolve, 400 + attempt * 700));
+      }
+    }
+    throw lastError || new Error("联机同步失败。");
+  }
+
+  async function fetchPlayers() {
+    const board = await readBoard();
+    cacheBoard(board);
+    return Object.values(board.players || {}).sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0));
+  }
+
+  function listCachedPlayers() {
+    const board = cachedBoard();
+    return Object.values((board && board.players) || {}).sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0));
+  }
+
+  function timeAgo(timestamp) {
+    if (!timestamp) return "从未同步";
+    const seconds = Math.max(0, Math.floor((Date.now() - timestamp) / 1000));
+    if (seconds < 60) return `${seconds} 秒前`;
+    if (seconds < 3600) return `${Math.floor(seconds / 60)} 分钟前`;
+    if (seconds < 86400) return `${Math.floor(seconds / 3600)} 小时前`;
+    return `${Math.floor(seconds / 86400)} 天前`;
+  }
+
+  root.LabCommunity = {
+    ENDPOINT,
+    getPlayerId,
+    getNickname,
+    setNickname,
+    clearNickname,
+    makeSnapshot,
+    sync,
+    fetchPlayers,
+    listCachedPlayers,
+    timeAgo
+  };
+})(window);
+
+</script>
+  <script>
 (function () {
   "use strict";
 
@@ -7849,6 +8153,12 @@ h3 {
     setupDraft: null,
     setupLocked: false,
     toastTimer: null,
+    nickname: "",
+    communityPlayers: [],
+    communityError: "",
+    communityLoading: false,
+    syncTimer: null,
+    loginEditing: false,
 
     init() {
       const loaded = C.loadGame();
@@ -7857,20 +8167,194 @@ h3 {
       if (loaded && !this.state.paperPreviews) {
         for (const project of this.state.projects) project.paperPreviews = project.paperPreviews || {};
       }
+      this.nickname = window.LabCommunity ? window.LabCommunity.getNickname() : "";
       this.saveGame();
       this.render();
+      if (!this.nickname) {
+        this.showLogin();
+        return;
+      }
+      this.afterLogin();
+    },
+
+    afterLogin() {
       if (!this.state.seenIntro) {
         this.showOnboarding();
       } else if (this.state.pendingEvents && this.state.pendingEvents.length) {
         this.showNextEvent();
       } else if (this.state.phase !== "playing") {
         this.showEnding();
+      } else {
+        this.scheduleCommunitySync();
       }
     },
 
     saveGame() {
       if (!this.state) return;
       C.saveGame(this.state);
+      if (this.nickname && this.state.seenIntro && this.state.phase === "playing") {
+        this.scheduleCommunitySync();
+      }
+    },
+
+    scheduleCommunitySync() {
+      if (!this.nickname || !window.LabCommunity) return;
+      if (this.syncTimer) clearTimeout(this.syncTimer);
+      this.syncTimer = setTimeout(() => {
+        this.syncTimer = null;
+        this.syncCommunity(false);
+      }, 1800);
+    },
+
+    async syncCommunity(showToast) {
+      if (!this.nickname || !window.LabCommunity) return null;
+      try {
+        await window.LabCommunity.sync(this.state, this.nickname);
+        if (showToast) this.toast("已同步到联机大厅。", "good");
+        return true;
+      } catch (error) {
+        if (showToast) this.toast(`联机同步失败：${error.message}`, "bad");
+        return false;
+      }
+    },
+
+    showLogin(editing) {
+      this.loginEditing = Boolean(editing);
+      const current = this.nickname || "";
+      const content = `
+        <div class="login-hero">
+          <div class="login-icon">🌾</div>
+          <div class="login-title">${editing ? "改一个昵称" : "报上你的名字"}</div>
+          <div class="login-desc">${editing ? "昵称会立即更新到联机大厅；本机存档不受影响。" : "这是联机大厅的显示名，不需要密码。每台电脑仍然有自己的本机存档。"}</div>
+        </div>
+        <label class="login-field"><span>昵称</span><input id="nicknameInput" maxlength="16" autocomplete="nickname" placeholder="例如：江州小满" value="${escapeHtml(current)}"></label>
+        <div class="login-note">昵称与实验室进度会以<b>公开快照</b>的形式写入共享 JSON 存储，供测试同伴参观。不要使用真实姓名、邮箱或敏感信息。</div>
+      `;
+      this.openModal({
+        type: "login",
+        panel: "login",
+        kicker: "COMMUNITY LOGIN · NICKNAME ONLY",
+        title: editing ? "修改联机昵称" : "进入联机测试版",
+        subtitle: "目前只需要一个昵称。",
+        content,
+        narrow: true,
+        locked: !editing,
+        footer: `${editing ? `<button class="button" data-action="close-modal">取消</button>` : ""}<button class="button button-primary" data-action="login-community">${editing ? "保存昵称" : "进入实验室"}</button>`
+      });
+      setTimeout(() => {
+        const input = $("#nicknameInput");
+        if (input) {
+          input.focus();
+          input.select();
+        }
+      }, 60);
+    },
+
+    openCommunity(forceRefresh) {
+      this.communityLoading = true;
+      this.communityError = "";
+      this.openModal({
+        type: "community",
+        panel: "community",
+        kicker: "COMMUNITY HALL · 联机大厅",
+        title: "别人的实验室，长什么样？",
+        subtitle: "昵称登录 · 共享快照 · 仅供小范围测试",
+        content: `<div class="empty-state" style="padding:30px;">正在连接联机大厅……</div>`,
+        locked: false,
+        wide: true
+      });
+      this.refreshCommunity(forceRefresh);
+    },
+
+    async refreshCommunity(force) {
+      if (!window.LabCommunity) {
+        this.renderCommunityModal([], "联机模块没有加载。");
+        return;
+      }
+      try {
+        const players = await window.LabCommunity.fetchPlayers();
+        this.communityPlayers = players;
+        this.communityError = "";
+      } catch (error) {
+        this.communityPlayers = window.LabCommunity.listCachedPlayers();
+        this.communityError = `联机大厅暂时连不上：${error.message}`;
+      } finally {
+        this.communityLoading = false;
+        this.renderCommunityModal(this.communityPlayers, this.communityError);
+      }
+    },
+
+    renderCommunityModal(players, error) {
+      if (!this.modal || this.modal.type !== "community") return;
+      const selfId = window.LabCommunity ? window.LabCommunity.getPlayerId() : "";
+      const sorted = (players || []).slice().sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0));
+      const cards = sorted.map((player) => {
+        const own = player.playerId === selfId;
+        return `<article class="community-card ${own ? "is-self" : ""}">
+          <div class="community-card-head"><span class="community-avatar">${own ? "🌱" : "🧑‍🌾"}</span><div><b>${escapeHtml(player.nickname || "匿名")}${own ? " · 我" : ""}</b><small>${escapeHtml(player.direction || "未选择方向")} · ${escapeHtml(player.calendar || "")}</small></div><span class="community-time">${escapeHtml(window.LabCommunity.timeAgo(player.updatedAt))}</span></div>
+          <div class="community-stats"><span><b>${player.month || 0}</b>月</span><span><b>${num(player.papers || 0)}</b>篇</span><span><b>${player.totalIF || 0}</b>IF</span><span><b>${player.reputation || 0}</b>声望</span><span><b>${player.academicPercent || 0}%</b>院士</span></div>
+          <div class="community-people">${(player.people || []).slice(0, 4).map((person) => `<span class="community-person">${escapeHtml(person.name)}<small>${escapeHtml(person.role)}</small></span>`).join("") || `<span class="community-person">还没有成员</span>`}</div>
+          <div class="community-card-bottom"><span>${num(player.funds || 0)} 经费 · ${player.peopleCount || 0} 人</span><button class="button button-small ${own ? "button-ghost" : "button-primary"}" data-action="${own ? "edit-nickname" : "visit-player"}" data-player="${player.playerId}">${own ? "修改昵称" : "参观实验室"}</button></div>
+        </article>`;
+      }).join("");
+      const content = `
+        <div class="community-toolbar">
+          <div><b>${escapeHtml(this.nickname || "")}</b><span> · ${sorted.length} 个实验室在册</span>${error ? `<em class="text-bad">${escapeHtml(error)}</em>` : ""}</div>
+          <div style="display:flex;gap:6px;"><button class="button button-small" data-action="sync-community">同步我的进度</button><button class="button button-small button-ghost" data-action="refresh-community">刷新大厅</button></div>
+        </div>
+        <div class="community-note">这是公开的 JSON 快照，不含密码、邮箱或真实身份。它只用于这一轮小范围测试；正式版会换成带账号和权限的数据库。</div>
+        ${cards ? `<div class="community-grid">${cards}</div>` : `<div class="empty-state" style="padding:26px;">还没有其他实验室。把链接发给同伴，让他们输入昵称并同步进度。</div>`}
+      `;
+      this.openModal({
+        type: "community",
+        panel: "community",
+        kicker: "COMMUNITY HALL · 联机大厅",
+        title: "别人的实验室，长什么样？",
+        subtitle: "昵称登录 · 共享快照 · 仅供小范围测试",
+        content,
+        locked: false,
+        wide: true
+      });
+    },
+
+    openVisit(playerId) {
+      const player = (this.communityPlayers || []).find((item) => item.playerId === playerId);
+      if (!player) {
+        this.toast("没有找到这个实验室的快照。", "bad");
+        return;
+      }
+      const roomMap = {};
+      for (const room of player.rooms || []) roomMap[room.type] = (roomMap[room.type] || 0) + 1;
+      const rooms = Object.entries(roomMap).map(([type, count]) => {
+        const info = D.ROOM_TYPES.find((item) => item.id === type) || { icon: "▦", name: type };
+        return `${info.icon} ${escapeHtml(info.name)} ×${count}`;
+      }).join(" · ") || "未记录";
+      const instruments = (player.instruments || []).map((key) => {
+        const info = D.INSTRUMENTS.find((item) => item.id === key) || { icon: "⚗", name: key };
+        return `${info.icon} ${escapeHtml(info.name)}`;
+      }).join(" · ") || "未记录";
+      const content = `<div class="visit-hero">
+        <div class="community-avatar large">🧑‍🌾</div>
+        <div><div class="visit-kicker">VISITING LAB · ${escapeHtml(player.calendar || "")}</div><div class="visit-title">${escapeHtml(player.nickname || "匿名")} 的实验室</div><div class="visit-sub">${escapeHtml(player.direction || "未选择方向")} · 第 ${player.month || 0} 个月</div></div>
+      </div>
+      <div class="community-stats visit-stats"><span><b>${player.peopleCount || 0}</b>成员</span><span><b>${player.papers || 0}</b>论文</span><span><b>${player.totalIF || 0}</b>累计 IF</span><span><b>${player.reputation || 0}</b>声望</span><span><b>${player.academicPercent || 0}%</b>院士提名</span><span><b>${num(player.funds || 0)}</b>经费</span></div>
+      <div class="modal-section-title">实验室空间</div><div class="visit-line">${rooms}</div><div class="visit-line muted">${instruments}</div>
+      <div class="modal-section-title">在研课题</div>
+      <div class="visit-projects">${(player.projects || []).map((project) => `<div class="visit-project"><span>${escapeHtml(project.title)}</span><b>${project.percent}%</b><small>${escapeHtml(project.tier)} 级 · ${escapeHtml(project.field)} · ${escapeHtml(project.status)}</small></div>`).join("") || `<div class="empty-state">没有在研课题。</div>`}</div>
+      <div class="modal-section-title">成员</div>
+      <div class="visit-people">${(player.people || []).map((person) => `<span class="community-person">${escapeHtml(person.name)}<small>${escapeHtml(person.role)} · ${escapeHtml(person.field)}</small></span>`).join("") || `<span class="muted">还没有成员</span>`}</div>
+      <div class="modal-section-title">实验室日志</div>
+      <div class="empty-state" style="text-align:left;">这是参观快照，不包含对方的完整本地存档、导师任务细节或操作记录。最后同步：${escapeHtml(window.LabCommunity.timeAgo(player.updatedAt))}。</div>`;
+      this.openModal({
+        type: "visit",
+        panel: "visit",
+        kicker: "LAB VISIT · 参观模式",
+        title: `${player.nickname || "匿名"} 的实验室`,
+        subtitle: "只读快照 · 不会修改对方存档",
+        content,
+        wide: true,
+        footer: `<button class="button button-primary" data-action="back-to-community">返回大厅</button>`
+      });
     },
 
     exportSave() {
@@ -8259,7 +8743,7 @@ h3 {
             <div class="detail-top">
               ${avatarHtml(person)}
               <div>
-                <div class="detail-name">${escapeHtml(person.name)}</div>
+                <div class="detail-name">${escapeHtml(person.name)} ${person.special ? `<span class="special-pill">人员表</span>` : ""}</div>
                 <div class="detail-sub"><span class="rarity-pill rarity-${person.rarity}">${rarity.id}</span>${escapeHtml(role.name)} · ${person.kind === "student" ? "培养岗" : "工作人员"}</div>
               </div>
             </div>
@@ -8621,7 +9105,7 @@ h3 {
       return `<article class="candidate-card" style="${rarityStyle(candidate.rarity)}">
         <div class="candidate-head">
           <div class="candidate-avatar" style="background:${rarity.pale};">${candidate.avatar}</div>
-          <div style="min-width:0;flex:1;"><div class="candidate-name">${escapeHtml(candidate.name)}</div><div class="candidate-role">${escapeHtml(candidate.roleName)} · ${role.kind === "student" ? (requirement ? `${requirement.label} · ${requirement.months / 12} 年` : candidate.degree) : "工作人员"}</div></div>
+          <div style="min-width:0;flex:1;"><div class="candidate-name">${escapeHtml(candidate.name)} ${candidate.special ? `<span class="special-pill">人员表</span>` : ""}</div><div class="candidate-role">${escapeHtml(candidate.roleName)} · ${role.kind === "student" ? (requirement ? `${requirement.label} · ${requirement.months / 12} 年` : candidate.degree) : "工作人员"}</div></div>
           <span class="rarity-pill rarity-${candidate.rarity} candidate-rarity">${rarity.id}</span>
         </div>
         <div class="candidate-fields">${fieldTagHtml(candidate.primaryField, false, C.fieldLevel(candidate, candidate.primaryField))}${fieldTagHtml(candidate.secondaryField, true, C.fieldLevel(candidate, candidate.secondaryField))}</div>
@@ -9216,6 +9700,52 @@ h3 {
         case "save": {
           this.saveGame();
           this.toast("进度已保存到本机。", "good");
+          return true;
+        }
+        case "community": {
+          this.openCommunity(true);
+          return true;
+        }
+        case "login-community": {
+          const input = $("#nicknameInput");
+          const nickname = window.LabCommunity.setNickname(input ? input.value : "");
+          if (!nickname) {
+            this.toast("先输入一个昵称（最多 16 个字符）。", "bad");
+            return true;
+          }
+          this.nickname = nickname;
+          this.state.nickname = nickname;
+          this.saveGame();
+          this.closeModal(true);
+          this.render();
+          if (this.loginEditing) {
+            this.loginEditing = false;
+            this.syncCommunity(true);
+            this.openCommunity(true);
+          } else {
+            this.syncCommunity(false);
+            this.afterLogin();
+          }
+          return true;
+        }
+        case "sync-community": {
+          this.syncCommunity(true).then(() => this.refreshCommunity(true));
+          return true;
+        }
+        case "refresh-community": {
+          this.refreshCommunity(true);
+          return true;
+        }
+        case "visit-player": {
+          this.openVisit(dataset.player);
+          return true;
+        }
+        case "back-to-community": {
+          this.openCommunity(true);
+          return true;
+        }
+        case "edit-nickname": {
+          this.showLogin(true);
           return true;
         }
         case "export-save": {
