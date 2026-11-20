@@ -4008,6 +4008,111 @@ h3 {
   .community-grid { grid-template-columns:1fr; }
   .community-toolbar { align-items:flex-start; }
 }
+/* ===== v0.4 additions: consumables, vendors, tender, mobile ===== */
+.consumable-grid { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-bottom:12px; }
+.consumable-card { border:1px solid var(--line);border-radius:5px;background:#faf3e3;padding:7px 8px; }
+.consumable-card.is-low { border-color:#d5a79b;background:#fbefea; }
+.consumable-top { display:flex;align-items:center;gap:5px;font-size:9px; }
+.consumable-top span { font-size:16px; }
+.consumable-top b { flex:1;min-width:0; }
+.consumable-top small { color:var(--muted);font-size:7px;white-space:nowrap; }
+.consumable-bottom { display:flex;align-items:center;justify-content:space-between;gap:5px;margin-top:5px;color:#8f7b62;font-size:7px; }
+.consumable-bottom .button { padding:2px 5px;font-size:7px; }
+.shop-card-wide { grid-column:span 1; }
+.major-pill { display:inline-block;padding:1px 4px;border-radius:3px;background:#f3dfd8;color:#954c3d;font-size:6px;margin-left:3px; }
+.vendor-offer-list { display:flex;flex-direction:column;gap:4px; }
+.vendor-offer { display:flex;align-items:center;gap:6px;border-top:1px solid var(--line);padding-top:5px; }
+.vendor-offer-copy { display:flex;flex-direction:column;gap:1px;min-width:0;flex:1; }
+.vendor-offer-copy b { font-size:8px;color:var(--ink); }
+.vendor-offer-copy small { font-size:7px;color:#8c6a30; }
+.vendor-offer-copy em { font-style:normal;font-size:7px;color:var(--muted);line-height:1.45; }
+.vendor-offer-buy { display:flex;align-items:center;gap:4px;flex:0 0 auto; }
+.vendor-offer-buy > b { font-size:9px;color:#8c6a30;white-space:nowrap; }
+.tender-list { display:flex;flex-direction:column;gap:6px;margin-top:11px; }
+.tender-bid { display:flex;justify-content:space-between;gap:10px;align-items:center;border:1px solid var(--line);border-radius:5px;background:#fffaf0;padding:8px 9px; }
+.tender-bid > div { display:flex;flex-direction:column;gap:2px;min-width:0; }
+.tender-bid b { font-size:9px;color:var(--ink); }
+.tender-bid small { font-size:7px;color:var(--muted); }
+.tender-bid em { font-style:normal;font-size:7px;color:#8c6a30; }
+.tender-bid > div:last-child { align-items:flex-end; }
+.mobile-dock { display:none; }
+
+@media (max-width: 900px) {
+  html, body { min-width:0; }
+  .game-shell { min-height:100vh; }
+  .topbar { flex-wrap:wrap;gap:7px;padding:8px;height:auto; }
+  .brand-block { flex:1 1 100%; }
+  .date-block { flex:1 1 180px; }
+  .top-resources { flex:1 1 100%; overflow-x:auto; padding-bottom:2px; }
+  .top-resources .academic-mini { min-width:150px; }
+  .top-actions { display:none; }
+  .main-shell { display:block; }
+  .side-rail { width:auto;position:static;display:flex;flex-wrap:wrap;gap:6px;padding:7px;border-right:0;border-bottom:1px solid var(--line); }
+  .supervisor-card { flex:1 1 100%; max-height:none; }
+  .nav-list { display:flex;overflow-x:auto;width:100%;gap:4px;padding-bottom:3px; }
+  .nav-item { flex:0 0 auto;min-width:78px;padding:6px 7px; }
+  .nav-item small { display:none; }
+  .rail-note { flex:1 1 100%; }
+  .rail-note .button { width:auto; }
+  .rail-footer { display:none; }
+  .workspace { padding:8px;overflow:visible; }
+  .lab-heading { margin-bottom:6px; }
+  .lab-heading h1 { font-size:22px; }
+  .lab-heading-right { display:none; }
+  .lab-direction { font-size:8px; }
+  .lab-map { grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;min-height:0; }
+  .room-card { min-height:145px; }
+  .map-footer { align-items:flex-start; }
+  .people-strip { display:none; }
+  .mini-projects { grid-template-columns:1fr; }
+  .mini-project.is-empty { display:none; }
+  .inspector { width:auto;padding:8px;border-left:0;border-top:1px solid var(--line);overflow:visible; }
+  .actionbar { position:sticky;bottom:0;z-index:20;flex-wrap:wrap;gap:6px;padding:7px 8px; }
+  .ap-block { min-width:150px; }
+  .ap-breakdown { display:none; }
+  .action-hint { order:3;flex-basis:100%;white-space:normal;font-size:8px; }
+  .action-buttons { margin-left:auto; }
+  .mobile-dock { display:flex;position:fixed;right:8px;bottom:78px;z-index:60;gap:3px;padding:3px;background:rgba(36,55,45,.94);border:1px solid rgba(247,231,198,.25);border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.2); }
+  .mobile-dock button { border:0;background:transparent;color:#f7edd9;font:inherit;font-size:8px;padding:5px 6px;border-radius:3px; }
+  .mobile-dock button:hover { background:rgba(247,231,198,.14); }
+  .modal-backdrop { padding:6px; }
+  .modal { max-height:94vh; }
+  .modal-header { padding:11px 12px; }
+  .modal-body { padding:11px 12px; }
+  .modal-footer { padding:8px 10px; }
+  .setup-grid,.direction-grid,.room-grid,.instrument-grid,.project-grid,.platform-grid,.community-grid,.consumable-grid { grid-template-columns:1fr; }
+  .stat-list-six { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .journal-options { grid-template-columns:1fr; }
+  .onboarding-steps { grid-template-columns:1fr; }
+  .onboarding-hero { align-items:flex-start;padding:14px; }
+  .onboarding-portrait { width:50px;height:50px;font-size:28px; }
+  .onboarding-title { font-size:21px; }
+  .ending-stats { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .tender-bid { align-items:flex-start;flex-direction:column; }
+  .tender-bid > div:last-child { width:100%;flex-direction:row;justify-content:space-between;align-items:center; }
+}
+html.fit-ui body { zoom:0.86; }
+@media (min-width: 901px) {
+  html.fit-ui body { zoom:1; }
+}
+@media (max-width: 900px) {
+  .side-rail { flex-direction:column; align-items:stretch; }
+  .nav-list { display:flex !important; flex-direction:row !important; flex-wrap:nowrap !important; overflow-x:auto; width:100%; gap:4px; }
+  .nav-item { flex:0 0 auto !important; width:auto !important; min-width:72px; display:flex; align-items:center; justify-content:center; gap:3px; }
+  .nav-item .nav-icon { font-size:12px; }
+  .nav-item span { font-size:9px; white-space:nowrap; }
+  .rail-note { display:none; }
+  .actionbar { position:fixed !important; bottom:0; left:0; right:0; z-index:35; background:var(--paper-light); border-top:1px solid var(--line); box-shadow:0 -3px 12px rgba(36,55,45,.08); padding-bottom:calc(7px + env(safe-area-inset-bottom)); }
+  body { padding-bottom:104px; }
+  .mobile-dock { display:flex !important; position:fixed; right:8px; bottom:calc(76px + env(safe-area-inset-bottom)); z-index:45; }
+  .inspector { padding-bottom:20px; }
+}
+@media (max-width: 900px) {
+  .mobile-dock button { font-size:9px; padding:6px 7px; min-width:32px; }
+}
+@media (hover: none) {
+  .hover-tip { display:none !important; }
+}
 
 </style>
 </head>
@@ -4080,7 +4185,7 @@ h3 {
         </section>
 
         <div class="rail-footer">
-          <span>V0.3 · 联机测试</span>
+          <span>V0.4 · 联机测试</span>
           <span>H5 · 可保存</span>
         </div>
       </aside>
@@ -4133,12 +4238,23 @@ h3 {
     </footer>
   </div>
 
+  <nav class="mobile-dock" aria-label="移动端快捷操作">
+    <button data-action="community">大厅</button>
+    <button data-action="help">玩法</button>
+    <button data-action="save">存档</button>
+    <button data-action="export-save">下载</button>
+    <button data-action="new-game">重开</button>
+    <button data-action="fit-screen">适屏</button>
+  </nav>
+
   <div id="modalRoot"></div>
   <div id="toastRoot" class="toast-root" aria-live="polite"></div>
   <div id="hoverTip" class="hover-tip"></div>
   <input id="importSaveInput" type="file" accept="application/json,.json" hidden>
+  <input id="customPeopleInput" type="file" accept=".xlsx,.xls,.csv,.txt" hidden>
   <noscript><div class="noscript">请启用 JavaScript 后再进入实验室。</div></noscript>
 
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
   <script>
 (function (root, factory) {
   if (typeof module === "object" && module.exports) module.exports = factory();
@@ -4191,6 +4307,24 @@ h3 {
       color: "#8461a0",
       pale: "#ecdef3",
       desc: "蛋白互作、信号通路与功能验证"
+    },
+    immunology: {
+      id: "immunology",
+      name: "免疫学",
+      short: "免疫",
+      icon: "🛡️",
+      color: "#a35d62",
+      pale: "#f3dfe0",
+      desc: "小鼠免疫、细胞因子、流式与感染模型"
+    },
+    microbiology: {
+      id: "microbiology",
+      name: "微生物学",
+      short: "微生物",
+      icon: "🧫",
+      color: "#5f8a74",
+      pale: "#dfefe5",
+      desc: "细菌、噬菌体、发酵与抗菌筛选"
     }
   };
 
@@ -4508,6 +4642,32 @@ h3 {
       upkeep: 2800,
       color: "#e1eef0",
       desc: "菌株、DNA 和种子资源的长期保藏。"
+    },
+    {
+      id: "animal",
+      name: "SPF 动物房",
+      icon: "🐭",
+      cost: 520000,
+      upgradeCost: 360000,
+      capacity: 2,
+      field: "immunology",
+      bonus: 0.16,
+      upkeep: 6800,
+      color: "#f0dfe0",
+      desc: "SPF 屏障、IVC 笼架、动物伦理与感染实验。需要流式/成像等设备。"
+    },
+    {
+      id: "microbe",
+      name: "微生物培养室",
+      icon: "🧫",
+      cost: 240000,
+      upgradeCost: 180000,
+      capacity: 2,
+      field: "microbiology",
+      bonus: 0.12,
+      upkeep: 3200,
+      color: "#e1efe6",
+      desc: "无菌台、恒温摇床、发酵罐和噬菌体操作。"
     }
   ];
 
@@ -4565,7 +4725,8 @@ h3 {
       paperBonus: 0.06,
       slots: 2,
       upkeep: 16000,
-      buff: "基因组项目大幅加速；论文质量 +6%。",
+      major: true,
+      buff: "基因组项目大幅加速；论文质量 +6%。大型设备需招标。",
       desc: "一台机器，一堆数据，一张大论文。"
     },
     {
@@ -4593,7 +4754,8 @@ h3 {
       paperBonus: 0.07,
       slots: 2,
       upkeep: 11000,
-      buff: "分子机制项目强加成；论文质量 +7%。",
+      major: true,
+      buff: "分子机制项目强加成；论文质量 +7%。大型设备需招标。",
       desc: "一张好图，顶半篇好文章。"
     },
     {
@@ -4637,6 +4799,94 @@ h3 {
       upkeep: 2200,
       buff: "田间/温室项目加成；支持标准化病级调查。",
       desc: "自动称重、拍照、记录病级。"
+    },
+    {
+      id: "flow",
+      name: "流式细胞仪",
+      icon: "🛡️",
+      price: 480000,
+      field: "immunology",
+      requiresRoom: "animal",
+      bonus: 14,
+      paperBonus: 0.06,
+      slots: 1,
+      upkeep: 9000,
+      major: true,
+      buff: "免疫细胞分群、因子检测；论文质量 +6%。大型设备需招标。",
+      desc: "把免疫细胞从混合物里一个个点出来。"
+    },
+    {
+      id: "incubator",
+      name: "CO₂ 恒温培养箱",
+      icon: "🧫",
+      price: 120000,
+      field: "microbiology",
+      requiresRoom: "microbe",
+      bonus: 6,
+      paperBonus: 0.02,
+      slots: 2,
+      upkeep: 1800,
+      buff: "微生物/细胞培养基础加成。",
+      desc: "温度、湿度和 CO₂ 都稳定，菌和细胞才肯长。"
+    },
+    {
+      id: "plate_reader",
+      name: "多功能酶标仪",
+      icon: "📊",
+      price: 160000,
+      field: "microbiology",
+      requiresRoom: "microbe",
+      bonus: 7,
+      paperBonus: 0.03,
+      slots: 1,
+      upkeep: 2200,
+      buff: "高通量抗菌/酶活/ELISA 读数；论文质量 +3%。",
+      desc: "一板一板地读，筛选速度取决于它。"
+    },
+    {
+      id: "bioreactor",
+      name: "台式生物反应器",
+      icon: "⚗️",
+      price: 320000,
+      field: "microbiology",
+      requiresRoom: "microbe",
+      bonus: 12,
+      paperBonus: 0.05,
+      slots: 1,
+      upkeep: 6200,
+      major: true,
+      buff: "发酵/噬菌体扩增项目强加成；大型设备需招标。",
+      desc: "把微生物养到工业规模，也把污染风险放大。"
+    },
+    {
+      id: "animal_imaging",
+      name: "小动物活体成像",
+      icon: "🐭",
+      price: 620000,
+      field: "immunology",
+      requiresRoom: "animal",
+      bonus: 16,
+      paperBonus: 0.08,
+      slots: 1,
+      upkeep: 12000,
+      major: true,
+      buff: "免疫/感染模型成像；论文质量 +8%。大型设备需招标。",
+      desc: "不用解剖，也能看到免疫细胞在动物体内去哪。"
+    },
+    {
+      id: "plant_scanner",
+      name: "植物表型成像台",
+      icon: "🌿",
+      price: 260000,
+      field: "field",
+      requiresRoom: "greenhouse",
+      bonus: 11,
+      paperBonus: 0.04,
+      slots: 1,
+      upkeep: 4800,
+      major: true,
+      buff: "植物/作物表型批量成像；大型设备需招标。",
+      desc: "从叶面积到病斑，一次扫描全记录。"
     }
   ];
 
@@ -4876,6 +5126,266 @@ h3 {
       requiredRoom: "greenhouse",
       requiredInstrument: "drone",
       desc: "把抗病、耐热和产量性状一起放进多点试验，做真正能下地的品系。"
+    },
+    {
+      id: "wheat_nursery",
+      title: "小麦抗病苗期筛选",
+      field: "field",
+      tier: "C",
+      dataGoal: 95,
+      teamCap: 2,
+      difficulty: 0.88,
+      baseIF: 3.0,
+      grant: 55000,
+      minRep: 0,
+      starter: true,
+      directions: ["wheat"],
+      requiredRoom: null,
+      requiredInstrument: null,
+      desc: "在温室里做小麦苗期接种和病级调查，先建立抗性表型基线。"
+    },
+    {
+      id: "wheat_rust",
+      title: "小麦条锈菌抗性鉴定",
+      field: "field",
+      tier: "B",
+      dataGoal: 135,
+      teamCap: 3,
+      difficulty: 1.0,
+      baseIF: 4.8,
+      grant: 130000,
+      minRep: 10,
+      directions: ["wheat"],
+      requiredRoom: "greenhouse",
+      requiredInstrument: "climate",
+      desc: "在控温温室里接种条锈菌，评价不同品系的抗性级别和抗谱。"
+    },
+    {
+      id: "wheat_gwas",
+      title: "小麦抗锈病全基因组关联分析",
+      field: "bioinfo",
+      tier: "A",
+      dataGoal: 205,
+      teamCap: 4,
+      difficulty: 1.3,
+      baseIF: 7.1,
+      grant: 260000,
+      minRep: 26,
+      directions: ["wheat", "genomics"],
+      requiredRoom: "omics",
+      requiredInstrument: "server",
+      desc: "整合小麦种质重测序与多点锈病表型，定位抗性位点。"
+    },
+    {
+      id: "wheat_breeding",
+      title: "抗锈病小麦品系多点试验",
+      field: "field",
+      tier: "B",
+      dataGoal: 165,
+      teamCap: 3,
+      difficulty: 1.1,
+      baseIF: 5.2,
+      grant: 170000,
+      minRep: 20,
+      directions: ["wheat"],
+      requiredRoom: "greenhouse",
+      requiredInstrument: "drone",
+      desc: "在不同生态点布置小区，记录锈病、产量和株型，为品种审定积累数据。"
+    },
+    {
+      id: "tomato_nursery",
+      title: "番茄青枯病抗性苗期鉴定",
+      field: "molecular",
+      tier: "C",
+      dataGoal: 90,
+      teamCap: 2,
+      difficulty: 0.9,
+      baseIF: 3.1,
+      grant: 55000,
+      minRep: 0,
+      starter: true,
+      directions: ["tomato"],
+      requiredRoom: null,
+      requiredInstrument: null,
+      desc: "用伤根接种法筛选番茄材料，记录青枯病发病率和病情指数。"
+    },
+    {
+      id: "tomato_wilt",
+      title: "番茄抗青枯病机制解析",
+      field: "molecular",
+      tier: "B",
+      dataGoal: 145,
+      teamCap: 3,
+      difficulty: 1.1,
+      baseIF: 5.4,
+      grant: 145000,
+      minRep: 14,
+      directions: ["tomato"],
+      requiredRoom: "cell",
+      requiredInstrument: "confocal",
+      desc: "结合根际定殖、ROS 爆发和转录组，解析番茄抗青枯病的早期响应。"
+    },
+    {
+      id: "tomato_gwas",
+      title: "番茄抗病种质基因组关联",
+      field: "genomics",
+      tier: "A",
+      dataGoal: 195,
+      teamCap: 4,
+      difficulty: 1.28,
+      baseIF: 6.9,
+      grant: 245000,
+      minRep: 25,
+      directions: ["tomato", "genomics"],
+      requiredRoom: "omics",
+      requiredInstrument: "sequencer",
+      desc: "对番茄抗病核心种质做重测序和 GWAS，寻找稳定抗性位点。"
+    },
+    {
+      id: "tomato_breeding",
+      title: "抗青枯病番茄组合力测试",
+      field: "field",
+      tier: "B",
+      dataGoal: 150,
+      teamCap: 3,
+      difficulty: 1.02,
+      baseIF: 4.7,
+      grant: 135000,
+      minRep: 12,
+      directions: ["tomato"],
+      requiredRoom: "greenhouse",
+      requiredInstrument: "plant_scanner",
+      desc: "比较不同亲本配组的抗性、产量和果实品质，为育种组合提供依据。"
+    },
+    {
+      id: "mouse_assay",
+      title: "小鼠免疫细胞基线表型",
+      field: "immunology",
+      tier: "C",
+      dataGoal: 95,
+      teamCap: 2,
+      difficulty: 0.95,
+      baseIF: 3.5,
+      grant: 65000,
+      minRep: 0,
+      starter: true,
+      directions: ["animal"],
+      requiredRoom: "animal",
+      requiredInstrument: "flow",
+      desc: "建立 SPF 小鼠的免疫细胞基线，练习流式门控和动物伦理流程。"
+    },
+    {
+      id: "mouse_immunity",
+      title: "小鼠抗感染免疫应答",
+      field: "immunology",
+      tier: "A",
+      dataGoal: 200,
+      teamCap: 3,
+      difficulty: 1.35,
+      baseIF: 7.4,
+      grant: 280000,
+      minRep: 28,
+      directions: ["animal"],
+      requiredRoom: "animal",
+      requiredInstrument: "flow",
+      desc: "用细菌感染模型追踪固有免疫和适应性免疫，寻找保护性细胞亚群。"
+    },
+    {
+      id: "mouse_microbiome",
+      title: "肠道菌群与小鼠免疫训练",
+      field: "immunology",
+      tier: "A",
+      dataGoal: 210,
+      teamCap: 4,
+      difficulty: 1.4,
+      baseIF: 7.6,
+      grant: 290000,
+      minRep: 32,
+      directions: ["animal", "microbe"],
+      requiredRoom: "animal",
+      requiredInstrument: "sequencer",
+      desc: "比较不同菌群背景小鼠的免疫表型，结合 16S/宏基因组寻找关键菌。"
+    },
+    {
+      id: "mouse_imaging",
+      title: "小动物活体免疫成像",
+      field: "immunology",
+      tier: "S",
+      dataGoal: 290,
+      teamCap: 3,
+      difficulty: 1.6,
+      baseIF: 10.5,
+      grant: 420000,
+      minRep: 45,
+      directions: ["animal"],
+      requiredRoom: "animal",
+      requiredInstrument: "animal_imaging",
+      desc: "用报告基因和活体成像追踪免疫细胞在感染组织中的迁移。"
+    },
+    {
+      id: "microbe_culture",
+      title: "土壤拮抗菌分离与培养",
+      field: "microbiology",
+      tier: "C",
+      dataGoal: 95,
+      teamCap: 2,
+      difficulty: 0.9,
+      baseIF: 3.2,
+      grant: 60000,
+      minRep: 0,
+      starter: true,
+      directions: ["microbe"],
+      requiredRoom: "microbe",
+      requiredInstrument: "incubator",
+      desc: "从土壤样品分离细菌/放线菌，建立菌种库和基础抑菌实验。"
+    },
+    {
+      id: "microbe_screen",
+      title: "抗菌活性高通量筛选",
+      field: "microbiology",
+      tier: "B",
+      dataGoal: 150,
+      teamCap: 3,
+      difficulty: 1.08,
+      baseIF: 5.3,
+      grant: 150000,
+      minRep: 16,
+      directions: ["microbe"],
+      requiredRoom: "microbe",
+      requiredInstrument: "plate_reader",
+      desc: "用 96 孔板筛选上千个发酵样品，找对耐药菌有活性的代谢物。"
+    },
+    {
+      id: "phage",
+      title: "噬菌体分离与抗菌评价",
+      field: "microbiology",
+      tier: "A",
+      dataGoal: 200,
+      teamCap: 3,
+      difficulty: 1.3,
+      baseIF: 7.0,
+      grant: 260000,
+      minRep: 30,
+      directions: ["microbe"],
+      requiredRoom: "microbe",
+      requiredInstrument: "bioreactor",
+      desc: "分离裂解性噬菌体，做宿主谱、扩增和体外抗菌评价。"
+    },
+    {
+      id: "microbe_genomics",
+      title: "耐药菌基因组与进化",
+      field: "microbiology",
+      tier: "A",
+      dataGoal: 210,
+      teamCap: 4,
+      difficulty: 1.35,
+      baseIF: 7.3,
+      grant: 275000,
+      minRep: 34,
+      directions: ["microbe", "genomics"],
+      requiredRoom: "microbe",
+      requiredInstrument: "sequencer",
+      desc: "对临床/环境耐药菌做全基因组测序，追踪耐药基因和传播克隆。"
     }
   ];
 
@@ -4915,11 +5425,55 @@ h3 {
       color: "#a47e2f",
       desc: "把实验室的抗性真正做进品种，和企业、田块打交道。",
       startingProjects: ["seed_purity", "field_trial", "seed_industry", "climate_smart"]
+    },
+    {
+      id: "wheat",
+      name: "小麦抗病",
+      icon: "🌾",
+      organism: "小麦",
+      kingdom: "植物",
+      fields: ["field", "genomics"],
+      color: "#b18b3c",
+      desc: "小麦条锈病、赤霉病和抗病育种；温室与多点试验并重。",
+      startingProjects: ["wheat_nursery", "wheat_rust", "wheat_gwas", "wheat_breeding"]
+    },
+    {
+      id: "tomato",
+      name: "番茄抗病",
+      icon: "🍅",
+      organism: "番茄",
+      kingdom: "植物",
+      fields: ["molecular", "field"],
+      color: "#b45f4e",
+      desc: "番茄青枯病、根际互作和抗病育种；分子与温室结合。",
+      startingProjects: ["tomato_nursery", "tomato_wilt", "tomato_gwas", "tomato_breeding"]
+    },
+    {
+      id: "animal",
+      name: "小鼠免疫",
+      icon: "🐭",
+      organism: "小鼠",
+      kingdom: "动物",
+      fields: ["immunology", "molecular"],
+      color: "#a35d62",
+      desc: "SPF 小鼠、感染免疫、流式与活体成像；伦理和设施要求高。",
+      startingProjects: ["mouse_assay", "mouse_immunity", "mouse_microbiome", "mouse_imaging"]
+    },
+    {
+      id: "microbe",
+      name: "微生物与抗菌",
+      icon: "🧫",
+      organism: "细菌/噬菌体",
+      kingdom: "微生物",
+      fields: ["microbiology", "bioinfo"],
+      color: "#5f8a74",
+      desc: "土壤微生物、抗菌筛选、噬菌体和耐药基因组；培养室是核心。",
+      startingProjects: ["microbe_culture", "microbe_screen", "phage", "microbe_genomics"]
     }
   ];
 
   const STARTING_ROOM_POOL = ROOM_TYPES.map((room) => room.id);
-  const STARTING_INSTRUMENT_POOL = ["pcr", "microscope", "climate", "server"];
+  const STARTING_INSTRUMENT_POOL = ["pcr", "microscope", "climate", "server", "flow", "incubator", "plate_reader"];
 
   const TRAINING = [
     {
@@ -4993,6 +5547,32 @@ h3 {
       effects: { res: 7, eq: 3, management: 1 },
       reputation: 1,
       favor: 4
+    },
+    {
+      id: "style_respec",
+      name: "学术风格重塑工作坊",
+      icon: "🎭",
+      kind: "respec",
+      field: "all",
+      cost: 45000,
+      weeks: 1,
+      desc: "离开实验室一周，重新审视自己的科研风格和合作方式。",
+      effects: { eq: 2, res: 2 },
+      reputation: 0,
+      favor: 4
+    },
+    {
+      id: "role_respec",
+      name: "团队角色再定位辅导",
+      icon: "🧭",
+      kind: "respec",
+      field: "all",
+      cost: 30000,
+      weeks: 1,
+      desc: "和职业教练聊清楚：你到底适合做实验、写论文，还是带人。",
+      effects: { eq: 3, innovation: 2 },
+      reputation: 0,
+      favor: 3
     }
   ];
 
@@ -5062,6 +5642,54 @@ h3 {
       fee: 90000,
       minTier: "S",
       minMilestone: 100
+    },
+    {
+      id: "front_immunol",
+      name: "Frontiers in Immunology",
+      tier: 1,
+      acceptance: 0.42,
+      multiplier: 1.0,
+      color: "#9c6368",
+      fee: 18000,
+      minTier: "C",
+      minMilestone: 30,
+      fields: ["immunology"]
+    },
+    {
+      id: "cell_host_microbe",
+      name: "Cell Host & Microbe",
+      tier: 3,
+      acceptance: 0.08,
+      multiplier: 1.5,
+      color: "#5f7f95",
+      fee: 65000,
+      minTier: "A",
+      minMilestone: 60,
+      fields: ["immunology", "microbiology", "bioinfo"]
+    },
+    {
+      id: "nature_micro",
+      name: "Nature Microbiology",
+      tier: 3,
+      acceptance: 0.05,
+      multiplier: 1.6,
+      color: "#4f7f70",
+      fee: 85000,
+      minTier: "S",
+      minMilestone: 100,
+      fields: ["microbiology"]
+    },
+    {
+      id: "front_microbiol",
+      name: "Frontiers in Microbiology",
+      tier: 1,
+      acceptance: 0.46,
+      multiplier: 0.95,
+      color: "#6d927d",
+      fee: 16000,
+      minTier: "C",
+      minMilestone: 30,
+      fields: ["microbiology"]
     }
   ];
 
@@ -5095,6 +5723,18 @@ h3 {
       "稻瘟菌效应子靶向水稻感病基因的分子机制",
       "CRISPR 编辑感病基因创制广谱抗病材料",
       "泛素化修饰调控抗病蛋白稳态的机制"
+    ],
+    immunology: [
+      "小鼠抗感染免疫中保护性细胞亚群的时空动态",
+      "肠道菌群训练对小鼠固有免疫的影响",
+      "活体成像揭示免疫细胞向感染灶的迁移",
+      "SPF 小鼠免疫基线及流式门控标准化"
+    ],
+    microbiology: [
+      "土壤拮抗菌对耐药病原的体外活性筛选",
+      "裂解性噬菌体的宿主谱与抗菌评价",
+      "耐药菌全基因组与传播克隆解析",
+      "微生物次级代谢产物的抑菌机制"
     ]
   };
 
@@ -5108,6 +5748,94 @@ h3 {
     "Oxford Nanopore",
     "Thermo Fisher"
   ];
+
+  const CONSUMABLES = [
+    { id: "tips", name: "无菌枪头", icon: "🧫", unit: "盒", basePrice: 1200, startStock: 8, capacity: 30, perProject: 0.8, perPerson: 0.2, desc: "10–200 µL / 1000 µL 枪头，移液器的空气。" },
+    { id: "dishes", name: "培养皿", icon: "🧾", unit: "包", basePrice: 900, startStock: 6, capacity: 24, perProject: 0.55, perPerson: 0.08, desc: "细菌、真菌和细胞培养的基础耗材。" },
+    { id: "tubes", name: "离心管 / PCR 管", icon: "🧪", unit: "包", basePrice: 700, startStock: 7, capacity: 28, perProject: 0.5, perPerson: 0.12, desc: "1.5 mL 离心管、0.2 mL PCR 管。" },
+    { id: "medium", name: "培养基 / 试剂", icon: "🧴", unit: "瓶", basePrice: 2400, startStock: 5, capacity: 20, perProject: 0.45, perPerson: 0.06, desc: "LB、PDA、细胞培养基和常用缓冲液。" },
+    { id: "gloves", name: "手套 / 防护", icon: "🧤", unit: "盒", basePrice: 500, startStock: 10, capacity: 36, perProject: 0.15, perPerson: 0.22, desc: "丁腈手套、口罩和实验服清洗。" }
+  ];
+
+  const VENDORS = [
+    { id: "bio_rad", name: "Bio-Rad 伯乐", type: "分子与蛋白", icon: "🧪", desc: "PCR、电泳和蛋白纯化，售后稳，价格中上。" },
+    { id: "eppendorf", name: "Eppendorf", type: "移液与培养", icon: "🧫", desc: "移液器、离心机和培养设备，做工细，耗材贵。" },
+    { id: "zeiss", name: "ZEISS 蔡司", type: "显微成像", icon: "🔬", desc: "共聚焦、活细胞成像和图像分析，高端但维护贵。" },
+    { id: "leica", name: "Leica 徕卡", type: "显微成像", icon: "✨", desc: "共聚焦与病理成像，软件生态强。" },
+    { id: "bgi", name: "华大智造 MGI", type: "测序", icon: "🧬", desc: "国产高通量测序，试剂成本低，平台封闭。" },
+    { id: "illumina", name: "Illumina", type: "测序", icon: "🧬", desc: "全球主流测序平台，数据质量稳，机器和试剂都贵。" },
+    { id: "nanopore", name: "Oxford Nanopore", type: "测序", icon: "🧬", desc: "长读长、便携，适合基因组组装和现场检测。" },
+    { id: "thermo", name: "Thermo Fisher", type: "通用科学", icon: "⚗️", desc: "从培养箱到酶标仪，一站式采购，谈判空间小。" },
+    { id: "top", name: "托普云农", type: "农业表型", icon: "🌾", desc: "温室、田间表型和农业物联网，懂作物但不便宜。" },
+    { id: "dji", name: "DJI 大疆", type: "田间表型", icon: "🛰️", desc: "无人机和遥感，飞得稳，售后网点多。" },
+    { id: "sartorius", name: "Sartorius", type: "生物工艺", icon: "⚗️", desc: "生物反应器和过滤系统，适合微生物/细胞工艺。" },
+    { id: "bd", name: "BD Biosciences", type: "免疫流式", icon: "🛡️", desc: "流式细胞仪和抗体，免疫学实验室常客。" }
+  ];
+
+  const INSTRUMENT_VARIANTS = {
+    pcr: [
+      { id: "pcr_biorad", vendorId: "bio_rad", name: "Bio-Rad T100", price: 76000, bonus: 5, paperBonus: 0.01, buff: "梯度稳定，适合常规 PCR。" },
+      { id: "pcr_eppendorf", vendorId: "eppendorf", name: "Eppendorf Mastercycler X50", price: 88000, bonus: 4, paperBonus: 0.02, buff: "温控精准，适合高重复性实验。" }
+    ],
+    microscope: [
+      { id: "micro_zeiss", vendorId: "zeiss", name: "ZEISS Axio Imager", price: 168000, bonus: 7, paperBonus: 0.04, buff: "图版质量高，适合论文图。" },
+      { id: "micro_nikon", vendorId: "leica", name: "Leica DMi8", price: 150000, bonus: 6, paperBonus: 0.035, buff: "活细胞成像友好。" }
+    ],
+    climate: [
+      { id: "climate_top", vendorId: "top", name: "托普 RTOP 气候箱", price: 122000, bonus: 6, paperBonus: 0.015, buff: "适合植物/病原接种。" },
+      { id: "climate_thermo", vendorId: "thermo", name: "Thermo Forma 气候箱", price: 112000, bonus: 5, paperBonus: 0.02, buff: "温湿度稳定。" }
+    ],
+    sequencer: [
+      { id: "seq_mgi", vendorId: "bgi", name: "MGI DNBSEQ-T7", price: 900000, bonus: 20, paperBonus: 0.07, buff: "国产高通量，试剂成本低。" },
+      { id: "seq_illumina", vendorId: "illumina", name: "Illumina NovaSeq X", price: 1120000, bonus: 22, paperBonus: 0.08, buff: "数据质量与通量顶级，维护昂贵。" },
+      { id: "seq_nanopore", vendorId: "nanopore", name: "Oxford Nanopore PromethION", price: 780000, bonus: 16, paperBonus: 0.05, buff: "长读长组装和结构变异。" }
+    ],
+    server: [
+      { id: "server_inspur", vendorId: "thermo", name: "浪潮 NF5280M", price: 258000, bonus: 11, paperBonus: 0.05, buff: "CPU 集群，跑 GWAS。" },
+      { id: "server_dell", vendorId: "thermo", name: "Dell PowerEdge", price: 238000, bonus: 10, paperBonus: 0.04, buff: "稳定通用计算节点。" }
+    ],
+    confocal: [
+      { id: "conf_zeiss", vendorId: "zeiss", name: "ZEISS LSM 900", price: 720000, bonus: 16, paperBonus: 0.08, buff: "顶级共聚焦，适合机制论文。" },
+      { id: "conf_leica", vendorId: "leica", name: "Leica STELLARIS", price: 680000, bonus: 15, paperBonus: 0.07, buff: "光谱成像和活细胞。" }
+    ],
+    drone: [
+      { id: "drone_dji", vendorId: "dji", name: "DJI Mavic 3 Multispectral", price: 210000, bonus: 10, paperBonus: 0.02, buff: "多光谱田间表型。" },
+      { id: "drone_xag", vendorId: "dji", name: "极飞 P100 农业无人机", price: 180000, bonus: 9, paperBonus: 0.015, buff: "大田作业与表型。" }
+    ],
+    protein: [
+      { id: "protein_cytiva", vendorId: "sartorius", name: "Cytiva ÄKTA pure", price: 390000, bonus: 11, paperBonus: 0.05, buff: "蛋白纯化金标准。" },
+      { id: "protein_biorad", vendorId: "bio_rad", name: "Bio-Rad NGC", price: 330000, bonus: 9, paperBonus: 0.03, buff: "灵活的中低压纯化。" }
+    ],
+    greenhouse_bench: [
+      { id: "bench_top", vendorId: "top", name: "托普温室表型台", price: 170000, bonus: 8, paperBonus: 0.02, buff: "自动病级与株型记录。" },
+      { id: "bench_agri", vendorId: "top", name: "南京农大定制表型台", price: 155000, bonus: 7, paperBonus: 0.02, buff: "性价比高。" }
+    ],
+    flow: [
+      { id: "flow_bd", vendorId: "bd", name: "BD FACSCelesta", price: 520000, bonus: 15, paperBonus: 0.07, buff: "免疫分群稳定。" },
+      { id: "flow_cytek", vendorId: "bd", name: "Cytek Aurora", price: 580000, bonus: 16, paperBonus: 0.08, buff: "全光谱流式，panel 更灵活。" },
+      { id: "flow_beckman", vendorId: "thermo", name: "Beckman CytoFLEX", price: 460000, bonus: 14, paperBonus: 0.06, buff: "紧凑型，适合日常检测。" }
+    ],
+    incubator: [
+      { id: "inc_thermo", vendorId: "thermo", name: "Thermo Forma CO₂", price: 130000, bonus: 7, paperBonus: 0.03, buff: "污染控制好。" },
+      { id: "inc_yiheng", vendorId: "eppendorf", name: "上海一恒 CO₂", price: 110000, bonus: 6, paperBonus: 0.02, buff: "性价比高。" }
+    ],
+    plate_reader: [
+      { id: "plate_tecan", vendorId: "thermo", name: "Tecan Spark", price: 180000, bonus: 8, paperBonus: 0.04, buff: "多模式读板，灵敏。" },
+      { id: "plate_md", vendorId: "thermo", name: "Molecular Devices SpectraMax", price: 158000, bonus: 7, paperBonus: 0.03, buff: "吸收/荧光/发光。" }
+    ],
+    bioreactor: [
+      { id: "bio_sartorius", vendorId: "sartorius", name: "Sartorius Biostat B", price: 350000, bonus: 13, paperBonus: 0.06, buff: "发酵参数控制精细。" },
+      { id: "bio_eppendorf", vendorId: "eppendorf", name: "Eppendorf BioFlo 120", price: 310000, bonus: 12, paperBonus: 0.05, buff: "台式，适合小体积。" }
+    ],
+    animal_imaging: [
+      { id: "animal_bruker", vendorId: "thermo", name: "Bruker In-Vivo Xtreme", price: 680000, bonus: 17, paperBonus: 0.09, buff: "高灵敏活体成像。" },
+      { id: "animal_perkin", vendorId: "thermo", name: "PerkinElmer IVIS Spectrum", price: 620000, bonus: 16, paperBonus: 0.08, buff: "经典小动物成像平台。" }
+    ],
+    plant_scanner: [
+      { id: "plant_top", vendorId: "top", name: "托普植物表型成像", price: 280000, bonus: 12, paperBonus: 0.05, buff: "高通量表型。" },
+      { id: "plant_pheno", vendorId: "top", name: "Phenospex PlantEye", price: 250000, bonus: 11, paperBonus: 0.04, buff: "3D 表型与叶面积。" }
+    ]
+  };
 
   const NAMED_PEOPLE = [
     { name: "武越", gender: "女" },
@@ -5225,7 +5953,10 @@ h3 {
     AVATARS,
     ROOM_TYPES,
     INSTRUMENTS,
+    INSTRUMENT_VARIANTS,
+    VENDORS,
     EXTERNAL_PLATFORM,
+    CONSUMABLES,
     PROJECT_TEMPLATES,
     RESEARCH_DIRECTIONS,
     STARTING_ROOM_POOL,
@@ -5250,6 +5981,7 @@ h3 {
   };
 });
 
+
 </script>
   <script>
 (function (root, factory) {
@@ -5264,6 +5996,21 @@ h3 {
   const MONTH_NAMES = ["9月", "10月", "11月", "12月", "1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月"];
   const ACADEMIC_YEAR_NAMES = ["一", "二", "三", "四", "五"];
   const MILESTONES = [30, 60, 100];
+  const SAVE_VERSION = 3;
+
+  function defaultConsumables() {
+    const result = {};
+    for (const item of D.CONSUMABLES || []) {
+      result[item.id] = { stock: item.startStock, capacity: item.capacity };
+    }
+    return result;
+  }
+
+  function defaultConsumablePrices() {
+    const result = {};
+    for (const item of D.CONSUMABLES || []) result[item.id] = item.basePrice;
+    return result;
+  }
 
   function clamp(value, min, max) {
     return Math.max(min, Math.min(max, value));
@@ -5415,6 +6162,8 @@ h3 {
     if (first === second || second === "all" || first === "all") return true;
     if ((first === "blast" && second === "field") || (first === "field" && second === "blast")) return true;
     if ((first === "genomics" && second === "bioinfo") || (first === "bioinfo" && second === "genomics")) return true;
+    if ((first === "immunology" && second === "molecular") || (first === "molecular" && second === "immunology")) return true;
+    if ((first === "microbiology" && second === "bioinfo") || (first === "bioinfo" && second === "microbiology")) return true;
     return false;
   }
 
@@ -5505,8 +6254,24 @@ h3 {
     return D.ROOM_TYPES.find((type) => type.id === room.type) || D.ROOM_TYPES[0];
   }
 
+  function instrumentVariants(key) {
+    return (D.INSTRUMENT_VARIANTS && D.INSTRUMENT_VARIANTS[key]) || [];
+  }
+
   function instrumentInfo(instrument) {
-    return D.INSTRUMENTS.find((item) => item.id === instrument.key) || D.INSTRUMENTS[0];
+    const base = D.INSTRUMENTS.find((item) => item.id === instrument.key) || D.INSTRUMENTS[0];
+    if (!instrument.variantId) return base;
+    const variant = instrumentVariants(instrument.key).find((item) => item.id === instrument.variantId);
+    if (!variant) return base;
+    return Object.assign({}, base, variant, {
+      requiresRoom: base.requiresRoom,
+      major: variant.major !== undefined ? variant.major : base.major,
+      upkeep: variant.upkeep || base.upkeep
+    });
+  }
+
+  function vendorInfo(vendorId) {
+    return (D.VENDORS || []).find((item) => item.id === vendorId) || null;
   }
 
   function labScale(state) {
@@ -5814,7 +6579,7 @@ h3 {
     const teamBonus = 1 + Math.max(0, people.length - 1) * 0.06;
     const bondProgress = projectBonds(state, project).reduce((sum, bond) => sum + (bond.effects.progress || 0), 0);
     const bondMultiplier = 1 + bondProgress;
-    const power = total * equip * teamBonus * bondMultiplier * researchMultiplier(state);
+    const power = total * equip * teamBonus * bondMultiplier * researchMultiplier(state) * (state.supplyPenalty || 1);
     const avgStat = people.reduce((sum, person) => {
       return sum +
         effectiveStat(person, "int") * 0.28 +
@@ -5871,7 +6636,52 @@ h3 {
   }
 
   function generateTrainingOffers(state, count) {
-    return shuffle(state, D.TRAINING).slice(0, count || 3);
+    const size = count || 3;
+    const respecOffers = shuffle(state, D.TRAINING.filter((offer) => offer.kind === "respec")).slice(0, 1);
+    const statOffers = shuffle(state, D.TRAINING.filter((offer) => offer.kind !== "respec")).slice(0, Math.max(0, size - respecOffers.length));
+    return shuffle(state, respecOffers.concat(statOffers)).slice(0, size);
+  }
+
+  function makeTrainingChoiceEvent(state, person, offer) {
+    const isRespec = offer.kind === "respec";
+    let options = [];
+    if (isRespec) {
+      const existing = new Set(person.traits || []);
+      const pool = shuffle(state, D.TRAITS.filter((trait) => !existing.has(trait.id))).slice(0, 3);
+      options = pool.map((trait) => {
+        const chance = trait.tone === "good" ? 0.68 : trait.tone === "bad" ? 0.42 : 0.55;
+        return {
+          id: `trait_${trait.id}`,
+          label: `洗成「${trait.name}」`,
+          desc: `${trait.tone === "good" ? "增益" : trait.tone === "bad" ? "减益" : "双刃"} · 成功率 ${Math.round(chance * 100)}%；失败会换成负面特质。`,
+          tone: trait.tone === "good" ? "good" : "bad",
+          traitId: trait.id,
+          chance
+        };
+      });
+    } else {
+      const keys = shuffle(state, D.STAT_KEYS.slice()).slice(0, 3);
+      options = keys.map((key) => ({
+        id: `stat_${key}`,
+        label: `${D.ABILITIES[key].name} +6`,
+        desc: "培训结束后把这次成长加到这项基础能力上。",
+        tone: "good",
+        statKey: key,
+        value: 6
+      }));
+    }
+    return {
+      id: uid(state, "event"),
+      type: "training_choice",
+      category: "people",
+      personId: person.id,
+      offerId: offer.id,
+      title: `${person.name}培训结束，选择成长方向`,
+      desc: isRespec
+        ? `${person.name}从「${offer.name}」回来，科研风格有了松动的空间。选择一个候选特质尝试替换，成功与否有概率。`
+        : `${person.name}从「${offer.name}」回来，基础能力有了一次额外成长。选择要加到哪一项。`,
+      options
+    };
   }
 
   function trainingOfferById(offerId) {
@@ -5978,15 +6788,25 @@ h3 {
       if (!Array.isArray(state.namedSeen)) state.namedSeen = [];
       state.namedSeen.push(named.name);
     }
-    const name = named
-      ? named.name
+    let uploaded = null;
+    if (!named) {
+      const customPool = (state.customPeople || []).filter((item) => (state.customSeen || []).indexOf(item.name) < 0);
+      if (customPool.length && rand(state) < 0.28) {
+        uploaded = customPool[Math.floor(rand(state) * customPool.length)];
+        if (!Array.isArray(state.customSeen)) state.customSeen = [];
+        state.customSeen.push(uploaded.name);
+      }
+    }
+    const specialPerson = named || uploaded;
+    const name = specialPerson
+      ? specialPerson.name
       : D.SURNAMES[Math.floor(rand(state) * D.SURNAMES.length)] + D.GIVEN_NAMES[Math.floor(rand(state) * D.GIVEN_NAMES.length)];
-    const genderAvatars = named
-      ? (named.gender === "女"
+    const genderAvatars = specialPerson
+      ? (specialPerson.gender === "女"
           ? ["👩‍🔬", "👩‍🎓", "👩‍💻", "👩‍🌾", "👩‍🏫"]
           : ["👨‍🔬", "👨‍🎓", "👨‍💻", "👨‍🌾", "👨‍🏫"])
       : null;
-    const avatar = named
+    const avatar = specialPerson
       ? genderAvatars[Math.floor(rand(state) * genderAvatars.length)]
       : (rand(state) < 0.6 ? role.icon : D.AVATARS[Math.floor(rand(state) * D.AVATARS.length)]);
     const requirement = role.student ? D.STUDENT_REQUIREMENTS[role.student] : null;
@@ -5997,9 +6817,13 @@ h3 {
       roleName: role.name,
       name,
       avatar,
-      gender: named ? named.gender : "",
-      special: Boolean(named),
-      specialNote: named ? "来自人员信息表的特别候选人" : "",
+      gender: specialPerson ? specialPerson.gender : "",
+      special: Boolean(specialPerson),
+      specialNote: named
+        ? "来自人员信息表的特别候选人"
+        : uploaded
+          ? "来自玩家上传名单的特别候选人"
+          : "",
       rarity,
       stats,
       primaryField,
@@ -6190,6 +7014,18 @@ h3 {
     if (uniqueProjects.size !== 2 || normalized.projectIds.some((id) => direction.startingProjects.indexOf(id) < 0)) {
       errors.push("请从该方向的课题池里选择 2 个不同课题。");
     }
+    if (!errors.length) {
+      const viable = normalized.projectIds.some((id) => {
+        const template = D.PROJECT_TEMPLATES.find((item) => item.id === id);
+        if (!template) return false;
+        const roomOk = !template.requiredRoom || normalized.roomTypes.indexOf(template.requiredRoom) >= 0;
+        const instrumentOk = !template.requiredInstrument || normalized.instrumentKeys.indexOf(template.requiredInstrument) >= 0;
+        return roomOk && instrumentOk;
+      });
+      if (!viable) {
+        errors.push("至少要有 1 个起步课题的房间/仪器要求能在开局配置中满足，否则第一年无法推进。");
+      }
+    }
     return { ok: errors.length === 0, errors, setup: normalized, direction };
   }
 
@@ -6233,7 +7069,7 @@ h3 {
     const direction = directionInfo(chosen.directionId);
     const actualSeed = (Number(seed) || Math.floor(Math.random() * 1e9)) >>> 0;
     const state = {
-      version: 2,
+      version: SAVE_VERSION,
       seed: actualSeed,
       rng: actualSeed,
       createdAt: Date.now(),
@@ -6255,6 +7091,11 @@ h3 {
       people: [],
       candidates: [],
       namedSeen: [],
+      customPeople: [],
+      customSeen: [],
+      consumables: defaultConsumables(),
+      consumablePrices: defaultConsumablePrices(),
+      supplyPenalty: 1,
       projects: [],
       trainingOffers: [],
       trainingHistory: [],
@@ -6462,12 +7303,24 @@ h3 {
     return roomInfo(room).capacity + Math.max(0, room.level - 1);
   }
 
-  function buyInstrument(state, key, preferredSlot) {
+  function buyInstrument(state, key, preferredSlot, variantId, options) {
     if (state.phase !== "playing") return { ok: false, message: "这局已经结束。" };
-    const info = D.INSTRUMENTS.find((instrument) => instrument.id === key);
-    if (!info) return { ok: false, message: "没有这件仪器。" };
-    if (state.ap < 1) return { ok: false, message: "采购需要 1 点行动点。" };
-    if (!canAfford(state, info.price)) return { ok: false, message: `这台仪器需要 ¥${info.price.toLocaleString()}。` };
+    const base = D.INSTRUMENTS.find((instrument) => instrument.id === key);
+    if (!base) return { ok: false, message: "没有这件仪器。" };
+    const variant = variantId ? instrumentVariants(key).find((item) => item.id === variantId) : null;
+    const info = Object.assign({}, base, variant || {}, {
+      requiresRoom: base.requiresRoom,
+      major: base.major || (variant && variant.major)
+    });
+    const isMajor = Boolean(info.major);
+    const tender = Boolean(options && options.tender);
+    if (isMajor && !tender) return { ok: false, message: `${info.name}属于大型仪器，需要先发起招标。` };
+    const apCost = isMajor ? 2 : 1;
+    const tenderFee = isMajor ? 5000 : 0;
+    const catalogPrice = options && options.price != null ? Number(options.price) : info.price;
+    const totalCost = catalogPrice + tenderFee;
+    if (state.ap < apCost) return { ok: false, message: `${isMajor ? "招标采购" : "采购"}需要 ${apCost} 点行动点。` };
+    if (!canAfford(state, totalCost)) return { ok: false, message: `这台仪器需要 ¥${totalCost.toLocaleString()}${tenderFee ? "（含招标服务费）" : ""}。` };
     let targetRoom = null;
     if (preferredSlot != null) {
       const candidate = getRoom(state, preferredSlot);
@@ -6490,19 +7343,133 @@ h3 {
       const roomName = D.ROOM_TYPES.find((room) => room.id === info.requiresRoom)?.name || "对应房间";
       return { ok: false, message: `${info.name}需要放在${roomName}，且有空余仪器位；先扩建或升级。` };
     }
-    spend(state, info.price);
-    spendAP(state, 1);
+    spend(state, totalCost);
+    spendAP(state, apCost);
     const instrument = {
       id: uid(state, "instrument"),
-      key: info.id,
-      roomSlot: targetRoom.slot
+      key: base.id,
+      roomSlot: targetRoom.slot,
+      variantId: variant ? variant.id : null,
+      vendorId: variant ? variant.vendorId : null,
+      name: info.name
     };
     state.instruments.push(instrument);
     const beforeMax = state.maxAp;
     refreshMaxAp(state);
     if (state.maxAp > beforeMax) state.ap += state.maxAp - beforeMax;
-    log(state, `购入${info.name}，安置在${targetRoom.name}。`, "good");
-    return { ok: true, instrument, room: targetRoom, cost: info.price };
+    log(state, `购入${info.name}${variant ? `（${vendorInfo(variant.vendorId)?.name || "厂商"}）` : ""}，安置在${targetRoom.name}。`, "good");
+    return { ok: true, instrument, room: targetRoom, cost: totalCost, tenderFee, info };
+  }
+
+  function instrumentBids(state, key) {
+    const base = D.INSTRUMENTS.find((item) => item.id === key);
+    if (!base) return { ok: false, message: "没有这件仪器。" };
+    const variants = instrumentVariants(key);
+    const pool = variants.length ? variants : [Object.assign({}, base, { id: `${key}_standard`, vendorId: null, name: base.name })];
+    const bids = shuffle(state, pool).slice(0, Math.min(3, pool.length)).map((variant, index) => {
+      const repDiscount = clamp(1 - state.reputation * 0.0015, 0.9, 1.04);
+      const price = Math.round((variant.price || base.price) * repDiscount / 1000) * 1000;
+      return {
+        id: variant.id,
+        variantId: variant.id,
+        name: variant.name || base.name,
+        vendorId: variant.vendorId,
+        vendorName: vendorInfo(variant.vendorId)?.name || "设备供应商",
+        price,
+        bonus: variant.bonus || base.bonus,
+        paperBonus: variant.paperBonus || base.paperBonus || 0,
+        delivery: 1 + Math.floor(rand(state) * 3),
+        score: Math.round((variant.bonus || base.bonus) * 4 + (variant.paperBonus || 0) * 100 + rand(state) * 10),
+        reason: index === 0 ? "综合评分最高" : index === 1 ? "交付最快" : "价格最低"
+      };
+    });
+    return { ok: true, base, bids };
+  }
+
+  function consumableInfo(id) {
+    return (D.CONSUMABLES || []).find((item) => item.id === id) || null;
+  }
+
+  function consumablePrice(state, id) {
+    const base = consumableInfo(id);
+    if (!base) return 0;
+    return Math.round((state.consumablePrices && state.consumablePrices[id]) || base.basePrice);
+  }
+
+  function consumableStatus(state) {
+    return (D.CONSUMABLES || []).map((item) => {
+      const stock = (state.consumables && state.consumables[item.id] && state.consumables[item.id].stock) || 0;
+      const capacity = (state.consumables && state.consumables[item.id] && state.consumables[item.id].capacity) || item.capacity;
+      return {
+        id: item.id,
+        name: item.name,
+        icon: item.icon,
+        unit: item.unit,
+        stock,
+        capacity,
+        price: consumablePrice(state, item.id),
+        low: stock <= Math.max(1, capacity * 0.2)
+      };
+    });
+  }
+
+  function buyConsumable(state, id, packs) {
+    if (state.phase !== "playing") return { ok: false, message: "这局已经结束。" };
+    const item = consumableInfo(id);
+    if (!item) return { ok: false, message: "没有这个耗材。" };
+    const quantity = Math.max(1, Math.floor(Number(packs) || 1));
+    const current = state.consumables[id] || { stock: 0, capacity: item.capacity };
+    const roomLeft = Math.max(0, current.capacity - current.stock);
+    if (roomLeft <= 0) return { ok: false, message: `${item.name}已经堆满，先消耗一些。` };
+    const buyQuantity = Math.min(quantity, roomLeft);
+    const price = consumablePrice(state, id) * buyQuantity;
+    if (!canAfford(state, price)) return { ok: false, message: `采购${item.name}需要 ¥${price.toLocaleString()}。` };
+    spend(state, price);
+    current.stock += buyQuantity;
+    state.consumables[id] = current;
+    log(state, `采购${item.name} ${buyQuantity} ${item.unit}，支出 ¥${price.toLocaleString()}。`, "normal");
+    return { ok: true, item, quantity: buyQuantity, cost: price, stock: current.stock };
+  }
+
+  function consumeSupplies(state) {
+    const projects = state.projects.filter((project) => project.status === "active");
+    const people = activePeople(state);
+    const result = { shortages: [], consumed: [], penalty: 1 };
+    for (const item of D.CONSUMABLES || []) {
+      const need = Math.ceil(projects.length * item.perProject + people.length * item.perPerson);
+      const current = state.consumables[item.id] || { stock: 0, capacity: item.capacity };
+      const used = Math.min(current.stock, need);
+      current.stock -= used;
+      state.consumables[item.id] = current;
+      if (used < need) {
+        result.shortages.push({
+          id: item.id,
+          name: item.name,
+          need,
+          used,
+          missing: need - used
+        });
+      }
+      if (used > 0) result.consumed.push({ id: item.id, name: item.name, used });
+    }
+    if (result.shortages.length) {
+      result.penalty = clamp(1 - result.shortages.length * 0.12, 0.45, 0.9);
+      state.lab.conflicts = clamp((state.lab.conflicts || 0) + 0.25, 0, 4);
+      log(state, `耗材不足：${result.shortages.map((item) => item.name).join("、")}。本月课题推进效率下降。`, "bad");
+    }
+    state.supplyPenalty = result.penalty;
+    return result;
+  }
+
+  function fluctuateConsumablePrices(state) {
+    state.consumablePrices = state.consumablePrices || defaultConsumablePrices();
+    for (const item of D.CONSUMABLES || []) {
+      const base = item.basePrice;
+      const current = Number(state.consumablePrices[item.id]) || base;
+      const drift = (rand(state) - 0.5) * 0.16;
+      const pull = (base - current) / base * 0.12;
+      state.consumablePrices[item.id] = Math.round(clamp(current * (1 + drift + pull), base * 0.78, base * 1.28));
+    }
   }
 
   function bookExternalInstrument(state, projectId, instrumentKey) {
@@ -7009,6 +7976,95 @@ h3 {
     };
   }
 
+  function makeVendorEvent(state) {
+    const candidates = [];
+    for (const instrument of D.INSTRUMENTS) {
+      if (instrument.major) continue;
+      for (const variant of instrumentVariants(instrument.id)) {
+        candidates.push({ instrument, variant });
+      }
+    }
+    if (!candidates.length) return null;
+    const entry = pick(state, candidates);
+    const vendor = vendorInfo(entry.variant.vendorId);
+    const discount = 0.92 + rand(state) * 0.04;
+    const price = Math.round((entry.variant.price || entry.instrument.price) * discount / 1000) * 1000;
+    return {
+      id: uid(state, "event"),
+      type: "vendor",
+      category: "market",
+      instrumentKey: entry.instrument.id,
+      variantId: entry.variant.id,
+      title: `${vendor ? vendor.name : "设备厂商"}的销售来了`,
+      desc: `${vendor ? vendor.name : "一家设备厂商"}的销售带着 ${entry.variant.name} 的资料来到实验室，报价 ¥${price.toLocaleString()}。他说本月签单可以再谈。`,
+      options: [
+        { id: "buy", label: "直接买下", desc: `支付 ¥${price.toLocaleString()} + 1AP，仪器需有对应房间。`, tone: "good" },
+        { id: "negotiate", label: "坐下来谈价格", desc: "进入下一轮谈判，可能再便宜，也可能失去优惠。", tone: "normal" },
+        { id: "decline", label: "婉拒", desc: "不买，销售留下资料离开。", tone: "normal" }
+      ],
+      price
+    };
+  }
+
+  function makeVendorCounterEvent(state, event) {
+    const variant = instrumentVariants(event.instrumentKey).find((item) => item.id === event.variantId);
+    const vendor = variant ? vendorInfo(variant.vendorId) : null;
+    const counter = Math.round(event.price * (0.88 + rand(state) * 0.07) / 1000) * 1000;
+    return {
+      id: uid(state, "event"),
+      type: "vendor_counter",
+      category: "market",
+      instrumentKey: event.instrumentKey,
+      variantId: event.variantId,
+      title: `${vendor ? vendor.name : "销售"}让了一步`,
+      desc: `销售说：“我去申请一下。”几分钟后回来，报价降到 ¥${counter.toLocaleString()}，但要求本月内装机。`,
+      options: [
+        { id: "buy", label: `接受 ¥${counter.toLocaleString()}`, desc: "支付仪器款 + 1AP，完成采购。", tone: "good" },
+        { id: "bundle", label: "再要一套耗材/维保", desc: "继续压价，成功率一般；失败则按原价。", tone: "normal" },
+        { id: "decline", label: "还是不买", desc: "结束这次推销。", tone: "normal" }
+      ],
+      price: counter,
+      originalPrice: event.price
+    };
+  }
+
+  function makeBiosafetyEvent(state) {
+    const hasSensitiveRoom = state.rooms.some((room) => room.type === "animal" || room.type === "microbe");
+    const sensitiveField = (state.researchFields || []).some((field) => field === "immunology" || field === "microbiology");
+    if (!hasSensitiveRoom && !sensitiveField) return null;
+    return {
+      id: uid(state, "event"),
+      type: "biosafety",
+      category: "compliance",
+      title: "学院来做生物安全抽查",
+      desc: "检查员站在动物房/微生物室门口，要求你解释近期的废弃物记录、菌种保存和人员培训。组里有人忘了登记。",
+      options: [
+        { id: "seal", label: "立即封存并如实上报", desc: "进入下一步整改流程；可能花钱，但风险最低。", tone: "good" },
+        { id: "clean", label: "先自行消毒补记录", desc: "尝试把问题压到内部；进入下一步，有被识破的风险。", tone: "normal" },
+        { id: "hide", label: "把记录先收起来", desc: "声望和氛围受损，后续风险更高。", tone: "bad" }
+      ]
+    };
+  }
+
+  function makeBiosafetyFollowUp(state, first, mode) {
+    const cost = 30000 + Math.round(rand(state) * 30000);
+    return {
+      id: uid(state, "event"),
+      type: "biosafety_followup",
+      category: "compliance",
+      title: mode === "seal" ? "整改通知单已经开出来了" : "检查员要求复查",
+      desc: mode === "seal"
+        ? `封存和上报没有让事情结束。学院要求一周内完成整改，预算约 ¥${cost.toLocaleString()}。`
+        : "自行处理留下了记录不一致的痕迹。检查员说下周还会再来一次，你要决定怎么收场。",
+      options: [
+        { id: "rectify", label: "全面整改", desc: `支付 ¥${cost.toLocaleString()}，消除风险，声望 +1。`, tone: "good" },
+        { id: "pause", label: "暂停相关课题", desc: "本月相关课题数据 -15，声望 -2，但合规通过。", tone: "normal" },
+        { id: "risk", label: "继续冒险", desc: "不花钱，但氛围 -8，声望 -4，之后更容易出事故。", tone: "bad" }
+      ],
+      cost
+    };
+  }
+
   function eventChance(state, threshold) {
     return rand(state) < threshold;
   }
@@ -7038,6 +8094,12 @@ h3 {
     } else if (eventChance(state, 0.06)) {
       const collab = makeCollaborationEvent(state);
       if (collab) events.push(collab);
+    } else if (eventChance(state, 0.08)) {
+      const vendor = makeVendorEvent(state);
+      if (vendor) events.push(vendor);
+    } else if (eventChance(state, 0.06)) {
+      const biosafety = makeBiosafetyEvent(state);
+      if (biosafety) events.push(biosafety);
     }
     return events;
   }
@@ -7050,7 +8112,49 @@ h3 {
     if (!option) return { ok: false, message: "这个选项不存在。" };
     let resolution = "";
 
-    if (event.type === "graduation") {
+    if (event.type === "training_choice") {
+      const person = getPerson(state, event.personId);
+      if (!person) {
+        state.pendingEvents.splice(index, 1);
+        return { ok: true, message: "这位成员已经不在实验室。" };
+      }
+      if (option.statKey) {
+        const value = Number(option.value) || 6;
+        person.stats[option.statKey] = clamp((person.stats[option.statKey] || 0) + value, 1, 99);
+        resolution = `${person.name}的${D.ABILITIES[option.statKey].name} +${value}。`;
+        log(state, resolution, "good");
+      } else if (option.traitId) {
+        const trait = D.TRAITS.find((item) => item.id === option.traitId);
+        if (trait) {
+          const success = rand(state) < (Number(option.chance) || 0.5);
+          if (!Array.isArray(person.traits)) person.traits = [];
+          if (success) {
+            if (person.traits.length) {
+              const replaceIndex = Math.floor(rand(state) * person.traits.length);
+              person.traits[replaceIndex] = trait.id;
+            } else {
+              person.traits.push(trait.id);
+            }
+            person.trait = person.traits[0];
+            resolution = `${person.name}洗点成功，获得「${trait.name}」。`;
+            log(state, resolution, "good");
+          } else {
+            const bad = shuffle(state, D.TRAITS.filter((item) => item.tone === "bad"))[0] || trait;
+            if (person.traits.length) {
+              const replaceIndex = Math.floor(rand(state) * person.traits.length);
+              person.traits[replaceIndex] = bad.id;
+            } else {
+              person.traits.push(bad.id);
+            }
+            person.trait = person.traits[0];
+            person.morale = clamp(person.morale - 6, 0, 100);
+            person.favor = clamp(person.favor - 2, 0, 100);
+            resolution = `${person.name}洗点失败，反而背上了「${bad.name}」。`;
+            log(state, resolution, "bad");
+          }
+        }
+      }
+    } else if (event.type === "graduation") {
       const person = getPerson(state, event.personId);
       if (!person) {
         state.pendingEvents.splice(index, 1);
@@ -7218,6 +8322,51 @@ h3 {
         state.reputation = clamp(state.reputation + 1, 0, 100);
         resolution = "你祝福了对方。办公室空了一格，但圈子不大，日后好相见。";
       }
+    } else if (event.type === "biosafety") {
+      if (optionId === "hide") {
+        state.reputation = clamp(state.reputation - 3, 0, 100);
+        state.lab.conflicts = clamp((state.lab.conflicts || 0) + 1, 0, 4);
+        resolution = "你把记录收了起来，检查员暂时走了，但实验室里所有人都看到了。";
+      } else {
+        const next = makeBiosafetyFollowUp(state, event, optionId);
+        state.pendingEvents.push(next);
+        resolution = optionId === "seal"
+          ? "你选择封存并上报。整改通知单很快放到了桌上。"
+          : "你先做了一次内部消毒，检查员却要求复查。";
+      }
+      log(state, resolution, optionId === "seal" ? "normal" : "bad");
+    } else if (event.type === "biosafety_followup") {
+      if (optionId === "rectify") {
+        if (!spend(state, event.cost)) return { ok: false, message: `整改需要 ¥${event.cost.toLocaleString()}，经费不够。` };
+        state.reputation = clamp(state.reputation + 1, 0, 100);
+        resolution = "整改完成，检查员在记录上签了字。";
+        log(state, resolution, "good");
+      } else if (optionId === "pause") {
+        for (const project of state.projects) {
+          if (project.status === "active") project.data = Math.max(0, project.data - 15);
+        }
+        state.reputation = clamp(state.reputation - 2, 0, 100);
+        resolution = "相关课题暂停一个月，数据损失了，但合规风险暂时解除。";
+        log(state, resolution, "normal");
+      } else {
+        state.lab.conflicts = clamp((state.lab.conflicts || 0) + 2, 0, 4);
+        state.reputation = clamp(state.reputation - 4, 0, 100);
+        resolution = "你选择继续冒险。检查员走了，实验室里却多了一层不安。";
+        log(state, resolution, "bad");
+      }
+    } else if (event.type === "vendor" || event.type === "vendor_counter") {
+      if (optionId === "decline") {
+        resolution = "你婉拒了这次推销，销售留下资料离开了。";
+      } else if (optionId === "negotiate") {
+        const next = makeVendorCounterEvent(state, event);
+        state.pendingEvents.push(next);
+        resolution = "你没有马上答应，销售回去申请了一个新价格。";
+      } else {
+        const purchase = buyInstrument(state, event.instrumentKey, null, event.variantId, { price: event.price });
+        if (!purchase.ok) return { ok: false, message: purchase.message };
+        resolution = `你以 ¥${event.price.toLocaleString()} 买下了 ${purchase.info.name}，安置在${purchase.room.name}。`;
+        log(state, resolution, "good");
+      }
     }
 
     state.pendingEvents.splice(index, 1);
@@ -7317,8 +8466,12 @@ h3 {
       events: [],
       taskUpdate: null,
       logStart: state.log.length,
-      completedProjects: []
+      completedProjects: [],
+      supply: null
     };
+
+    const supply = consumeSupplies(state);
+    report.supply = supply;
 
     for (const project of state.projects) {
       if (project.status !== "active") continue;
@@ -7384,6 +8537,7 @@ h3 {
     report.net = income - expenses;
 
     state.month += 1;
+    fluctuateConsumablePrices(state);
     const completedTraining = finishTraining(state);
     report.trainingCompleted = completedTraining.map((item) => ({
       personName: item.person.name,
@@ -7403,7 +8557,8 @@ h3 {
     }
     refreshMaxAp(state);
     state.ap = state.maxAp;
-    const events = generateMonthlyEvents(state);
+    const trainingEvents = completedTraining.map((item) => makeTrainingChoiceEvent(state, item.person, item.offer));
+    const events = trainingEvents.concat(generateMonthlyEvents(state));
     state.pendingEvents = events;
     report.events = events;
     report.fundsAfter = state.funds;
@@ -7456,19 +8611,36 @@ h3 {
     const milestoneFactor = milestoneValue >= 100 ? 1.12 : milestoneValue >= 60 ? 0.9 : 0.58;
     const baseIF = project.baseIF * milestoneFactor * (0.5 + quality / 100 * 0.9);
     const tierIndex = { C: 0, B: 1, A: 2, S: 3 };
-    const journalInfo = [
-      { journal: D.JOURNALS[0], style: "稳妥", styleTone: "safe" },
-      {
-        journal: project.tierLevel >= 2 ? D.JOURNALS[3] : D.JOURNALS[2],
-        style: "主投",
-        styleTone: "standard"
-      },
-      {
-        journal: project.tierLevel >= 3 ? D.JOURNALS[5] : D.JOURNALS[4],
-        style: "冲刺",
-        styleTone: "stretch"
-      }
-    ];
+    const journalById = (id) => D.JOURNALS.find((item) => item.id === id);
+    let journalInfo;
+    if (project.field === "immunology") {
+      journalInfo = [
+        { journal: journalById("front_immunol"), style: "稳妥", styleTone: "safe" },
+        { journal: journalById("cell_host_microbe"), style: "主投", styleTone: "standard" },
+        { journal: journalById("nature_micro"), style: "冲刺", styleTone: "stretch" }
+      ];
+    } else if (project.field === "microbiology") {
+      journalInfo = [
+        { journal: journalById("front_microbiol"), style: "稳妥", styleTone: "safe" },
+        { journal: journalById("cell_host_microbe"), style: "主投", styleTone: "standard" },
+        { journal: journalById("nature_micro"), style: "冲刺", styleTone: "stretch" }
+      ];
+    } else {
+      journalInfo = [
+        { journal: D.JOURNALS[0], style: "稳妥", styleTone: "safe" },
+        {
+          journal: project.tierLevel >= 2 ? D.JOURNALS[3] : D.JOURNALS[2],
+          style: "主投",
+          styleTone: "standard"
+        },
+        {
+          journal: project.tierLevel >= 3 ? D.JOURNALS[5] : D.JOURNALS[4],
+          style: "冲刺",
+          styleTone: "stretch"
+        }
+      ];
+    }
+    journalInfo = journalInfo.filter((entry) => entry.journal);
     const options = journalInfo.map((entry) => {
       const journal = entry.journal;
       const tierOk = (tierIndex[project.tier] || 0) >= (tierIndex[journal.minTier] || 0);
@@ -7629,11 +8801,75 @@ h3 {
     };
   }
 
+  function migrateState(raw) {
+    if (!raw || typeof raw !== "object") return null;
+    if (Number(raw.version) !== 2 && Number(raw.version) !== 3) return null;
+    let state;
+    try {
+      state = JSON.parse(JSON.stringify(raw));
+    } catch (error) {
+      return null;
+    }
+    state.version = SAVE_VERSION;
+    state.people = Array.isArray(state.people) ? state.people : [];
+    state.projects = Array.isArray(state.projects) ? state.projects : [];
+    state.rooms = Array.isArray(state.rooms) ? state.rooms : [];
+    state.instruments = Array.isArray(state.instruments) ? state.instruments : [];
+    state.candidates = Array.isArray(state.candidates) ? state.candidates : [];
+    state.papers = Array.isArray(state.papers) ? state.papers : [];
+    state.pendingEvents = Array.isArray(state.pendingEvents) ? state.pendingEvents : [];
+    state.externalBookings = Array.isArray(state.externalBookings) ? state.externalBookings : [];
+    state.namedSeen = Array.isArray(state.namedSeen) ? state.namedSeen : [];
+    state.customPeople = Array.isArray(state.customPeople) ? state.customPeople : [];
+    state.customSeen = Array.isArray(state.customSeen) ? state.customSeen : [];
+    state.consumables = state.consumables && typeof state.consumables === "object"
+      ? Object.assign(defaultConsumables(), state.consumables)
+      : defaultConsumables();
+    state.consumablePrices = state.consumablePrices && typeof state.consumablePrices === "object"
+      ? Object.assign(defaultConsumablePrices(), state.consumablePrices)
+      : defaultConsumablePrices();
+    state.freeRefreshLeft = Number.isFinite(state.freeRefreshLeft) ? state.freeRefreshLeft : 2;
+    state.voteFailures = Number(state.voteFailures) || 0;
+    state.votePenalty = Number(state.votePenalty) || 0;
+    state.voteCooldownUntil = Number.isFinite(state.voteCooldownUntil) ? state.voteCooldownUntil : -1;
+    state.directionId = state.directionId || (state.setup && state.setup.directionId) || "resistance";
+    const direction = directionInfo(state.directionId);
+    state.directionName = state.directionName || direction.name;
+    state.coreFields = Array.isArray(state.coreFields) && state.coreFields.length ? state.coreFields : direction.fields.slice();
+    if (!Array.isArray(state.researchFields) || !state.researchFields.length) {
+      state.researchFields = researchFields(state);
+    }
+    state.lab = state.lab && typeof state.lab === "object" ? state.lab : { atmosphere: 66, conflicts: 0 };
+    state.lab.conflicts = Number(state.lab.conflicts) || 0;
+    for (const person of state.people) {
+      person.traits = Array.isArray(person.traits) ? person.traits : (person.trait ? [person.trait] : []);
+      person.projects = Array.isArray(person.projects) ? person.projects : [];
+      person.publications = Array.isArray(person.publications) ? person.publications : [];
+      person.fieldLevels = person.fieldLevels && typeof person.fieldLevels === "object" ? person.fieldLevels : {};
+      if (!person.stats) person.stats = {};
+      for (const key of D.STAT_KEYS) person.stats[key] = Number(person.stats[key]) || 20;
+    }
+    for (const project of state.projects) {
+      project.status = project.status || "active";
+      project.team = Array.isArray(project.team) ? project.team : [];
+      project.milestones = Array.isArray(project.milestones) ? project.milestones : [];
+      project.paperPreviews = project.paperPreviews || {};
+      project.authorIds = Array.isArray(project.authorIds) ? project.authorIds : [];
+    }
+    for (const instrument of state.instruments) {
+      if (!instrument.key && instrument.id) instrument.key = instrument.id;
+      instrument.roomSlot = Number(instrument.roomSlot) || 0;
+    }
+    state.nickname = state.nickname || "";
+    return state;
+  }
+
   function saveGame(state, storage) {
     const target = storage || (typeof localStorage !== "undefined" ? localStorage : null);
     if (!target) return false;
     try {
-      target.setItem("riceLabManagerSaveV2", JSON.stringify(state));
+      state.version = SAVE_VERSION;
+      target.setItem("riceLabManagerSaveV3", JSON.stringify(state));
       return true;
     } catch (error) {
       return false;
@@ -7644,10 +8880,22 @@ h3 {
     const target = storage || (typeof localStorage !== "undefined" ? localStorage : null);
     if (!target) return null;
     try {
-      const raw = target.getItem("riceLabManagerSaveV2");
+      let raw = target.getItem("riceLabManagerSaveV3");
+      let legacy = false;
+      if (!raw) {
+        raw = target.getItem("riceLabManagerSaveV2");
+        legacy = Boolean(raw);
+      }
       if (!raw) return null;
-      const state = JSON.parse(raw);
-      if (!state || state.version !== 2) return null;
+      const state = migrateState(JSON.parse(raw));
+      if (!state) return null;
+      if (legacy) {
+        try {
+          target.setItem("riceLabManagerSaveV3", JSON.stringify(state));
+        } catch (error) {
+          // ignore legacy migration write failures
+        }
+      }
       return state;
     } catch (error) {
       return null;
@@ -7684,6 +8932,7 @@ h3 {
   return {
     MONTH_NAMES,
     MILESTONES,
+    SAVE_VERSION,
     clamp,
     round,
     rand,
@@ -7704,6 +8953,9 @@ h3 {
     getRoom,
     roomInfo,
     instrumentInfo,
+    instrumentVariants,
+    vendorInfo,
+    instrumentBids,
     labScale,
     labCapacity,
     recruiterBonus,
@@ -7752,6 +9004,12 @@ h3 {
     roomCapacity,
     buyInstrument,
     bookExternalInstrument,
+    consumableInfo,
+    consumableStatus,
+    consumablePrice,
+    buyConsumable,
+    consumeSupplies,
+    fluctuateConsumablePrices,
     projectTemplatesAvailable,
     startProject,
     approveProposal,
@@ -7774,6 +9032,11 @@ h3 {
     makeBreakdownEvent,
     makePoachEvent,
     makeCollaborationEvent,
+    makeVendorEvent,
+    makeVendorCounterEvent,
+    makeBiosafetyEvent,
+    makeBiosafetyFollowUp,
+    makeTrainingChoiceEvent,
     generateMonthlyEvents,
     resolveEvent,
     checkEndConditions,
@@ -7781,6 +9044,7 @@ h3 {
     advanceMonth,
     preparePaper,
     submitPaper,
+    migrateState,
     saveGame,
     loadGame,
     newEndingState,
@@ -8161,6 +9425,11 @@ h3 {
     loginEditing: false,
 
     init() {
+      try {
+        if (localStorage.getItem("riceLabFitUI") === "1") document.documentElement.classList.add("fit-ui");
+      } catch (error) {
+        // ignore localStorage errors
+      }
       const loaded = C.loadGame();
       this.state = loaded || C.newGame(Math.floor(Date.now() / 1000) >>> 0);
       if (!this.state.seenIntro) this.state.seenIntro = false;
@@ -8192,9 +9461,6 @@ h3 {
     saveGame() {
       if (!this.state) return;
       C.saveGame(this.state);
-      if (this.nickname && this.state.seenIntro && this.state.phase === "playing") {
-        this.scheduleCommunitySync();
-      }
     },
 
     scheduleCommunitySync() {
@@ -8380,10 +9646,10 @@ h3 {
       const reader = new FileReader();
       reader.onload = () => {
         try {
-          const imported = JSON.parse(String(reader.result || ""));
+          const rawImported = JSON.parse(String(reader.result || ""));
+          const imported = C.migrateState(rawImported);
           if (
             !imported ||
-            imported.version !== 2 ||
             !Array.isArray(imported.people) ||
             !Array.isArray(imported.projects) ||
             !imported.lab ||
@@ -8393,6 +9659,7 @@ h3 {
           }
           if (!window.confirm("导入会覆盖当前浏览器里的实验室存档，继续吗？")) return;
           imported.seenIntro = true;
+          imported.nickname = imported.nickname || this.nickname;
           for (const project of imported.projects) project.paperPreviews = project.paperPreviews || {};
           this.state = imported;
           this.selected = { type: "lab", id: null };
@@ -8907,12 +10174,14 @@ h3 {
       const apBreakdown = $("#apBreakdown");
       if (apBreakdown) apBreakdown.innerHTML = apBreakdownHtml(state);
       const readyPapers = state.projects.reduce((sum, project) => sum + (project.milestones || []).filter((milestone) => milestone.ready).length, 0);
+      const lowSupplies = C.consumableStatus(state).filter((item) => item.low);
       let hint = "把学生安排进课题，再结束这个月。";
       if (state.phase !== "playing") hint = "这一局已经结束。";
       else if (state.pendingEvents.length) hint = "有手写便条放在你桌上，先处理待办事件。";
       else if (readyPapers) hint = `有 ${readyPapers} 个数据窗口可以投稿，别让数据在硬盘里过夜。`;
       else if (state.ap === 0) hint = "行动点用完了。可以结束本月，让实验自己跑一会儿。";
       else if (!state.projects.some((project) => project.team.length) && state.people.length) hint = "把成员放进课题，实验室才会出数据。";
+      else if (lowSupplies.length) hint = `${lowSupplies.map((item) => item.name).join("、")}库存偏低，去仪器采购页补耗材，否则下月课题效率会下降。`;
       else if (state.funds < 100000) hint = "经费有点紧，考虑申请基金或发表论文换版面费。";
       $("#actionHint").textContent = hint;
       $("#advanceDate").textContent = `推进到 ${nextInfo.monthName}`;
@@ -9090,7 +10359,8 @@ h3 {
         <div style="display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px;">
           <button class="button button-primary" data-action="refresh-free" ${freeLeft <= 0 ? "disabled" : ""}>免费刷新 · 还剩 ${freeLeft} 次</button>
           <button class="button button-ghost" data-action="refresh-candidates">付费刷新 · ${money(25000)} / 1AP</button>
-          <span class="meta-pill" style="align-self:center;">免费次数每学期恢复</span>
+          <button class="button button-ghost" data-action="upload-custom-people">上传人员名单</button>
+          <span class="meta-pill" style="align-self:center;">已上传 ${(state.customPeople || []).length} 人 · 免费次数每学期恢复</span>
         </div>
         ${state.candidates.length ? `<div class="candidate-grid">${state.candidates.map((candidate) => this.candidateCard(candidate)).join("")}</div>` : `<div class="empty-state">候选池空了。等待下一次刷新，或投广告。</div>`}
       `;
@@ -9124,19 +10394,38 @@ h3 {
           <div><div class="report-date">EQUIPMENT / INVENTORY</div><div class="report-title">让数据跑得快一点</div><div class="panel-subtitle" style="margin-top:4px;">仪器必须放进对应房间，并占用仪器位；买不起的设备可以去公共平台按次预约。</div></div>
           <div style="text-align:right;"><div class="report-net" style="font-size:17px;">${state.instruments.length}<small>台仪器</small></div></div>
         </div>
+        <div class="consumable-grid">
+          ${C.consumableStatus(state).map((item) => `<div class="consumable-card ${item.low ? "is-low" : ""}">
+            <div class="consumable-top"><span>${item.icon}</span><b>${escapeHtml(item.name)}</b><small>${item.stock}/${item.capacity} ${escapeHtml(item.unit)}</small></div>
+            <div class="mini-track"><i style="width:${Math.min(100, (item.stock / Math.max(1, item.capacity)) * 100)}%;background:${item.low ? "#b85e50" : "#7ea36e"};"></i></div>
+            <div class="consumable-bottom"><span>当前 ${money(item.price)} / ${escapeHtml(item.unit)}${item.low ? " · 偏低" : ""}</span><span><button class="button button-tiny" data-action="buy-consumable" data-key="${item.id}" data-packs="1">买 1</button><button class="button button-tiny button-ghost" data-action="buy-consumable" data-key="${item.id}" data-packs="3">买 3</button></span></div>
+          </div>`).join("")}
+        </div>
+        <div class="modal-section-title" style="margin-top:18px;">INSTRUMENTS · 仪器与厂商</div>
         <div class="instrument-grid">
           ${D.INSTRUMENTS.map((item) => {
             const field = fieldOf(item.field);
             const owned = state.instruments.filter((instrument) => instrument.key === item.id).length;
             const room = D.ROOM_TYPES.find((candidate) => candidate.id === item.requiresRoom);
-            return `<article class="shop-card">
-              <div class="shop-card-head"><span class="shop-icon">${item.icon}</span><div><div class="shop-name">${escapeHtml(item.name)}</div><div class="shop-meta">${field.name} · 设备加成 +${item.bonus} · 论文 +${Math.round((item.paperBonus || 0) * 100)}%</div></div></div>
-              <div class="shop-desc">${escapeHtml(item.buff || item.desc)}</div>
+            const variants = C.instrumentVariants(item.id);
+            const rows = (variants.length ? variants : [item]).map((variant) => {
+              const price = variant.price || item.price;
+              const vendor = variant.vendorId ? D.VENDORS.find((company) => company.id === variant.vendorId) : null;
+              return `<div class="vendor-offer">
+                <div class="vendor-offer-copy"><b>${escapeHtml(variant.name || item.name)}</b><small>${vendor ? escapeHtml(vendor.name) : "基础配置"} · 加成 +${variant.bonus || item.bonus} · 论文 +${Math.round((variant.paperBonus || item.paperBonus || 0) * 100)}%</small><em>${escapeHtml(variant.buff || item.buff || item.desc)}</em></div>
+                <div class="vendor-offer-buy"><b>${money(price)}</b>${item.major ? `<button class="button button-tiny button-gold" data-action="open-tender" data-key="${item.id}">招标</button>` : `<button class="button button-tiny" data-action="buy-instrument" data-key="${item.id}" data-variant="${variant.id || ""}">采购·1AP</button>`}</div>
+              </div>`;
+            }).join("");
+            return `<article class="shop-card shop-card-wide">
+              <div class="shop-card-head"><span class="shop-icon">${item.icon}</span><div><div class="shop-name">${escapeHtml(item.name)} ${item.major ? `<span class="major-pill">大型设备 · 招标</span>` : ""}</div><div class="shop-meta">${field.name} · 已拥有 ${owned} 台</div></div></div>
               <div class="shop-requires">需要房间：${room ? `${room.icon} ${escapeHtml(room.name)}` : "无"}</div>
-              <div class="shop-bottom"><div class="shop-price">${money(item.price)}<small>维护 ${money(item.upkeep)}/月 · 已拥有 ${owned} 台</small></div><button class="button button-small" data-action="buy-instrument" data-key="${item.id}">采购·1AP</button></div>
+              <div class="vendor-offer-list">${rows}</div>
             </article>`;
           }).join("")}
         </div>
+        <div class="modal-section-title" style="margin-top:18px;">COMPANY MARKET · 市场公司 <span>不同公司有不同强项</span></div>
+        <div class="platform-grid">${D.VENDORS.map((vendor) => `<div class="platform-card"><span class="shop-icon">${vendor.icon}</span><div><b>${escapeHtml(vendor.name)}</b><small>${escapeHtml(vendor.type)} · ${escapeHtml(vendor.desc)}</small></div></div>`).join("")}</div>
+        <div class="empty-state" style="text-align:left;margin-top:10px;">普通仪器可以直接采购；标有“大型设备”的仪器必须先发起招标，招标需要 2AP 和 ¥5,000 服务费，再从 2–3 家投标方案中选择。</div>
         <div class="modal-section-title" style="margin-top:18px;">SHARED PLATFORM · 公共平台 <span>没有仪器也能做</span></div>
         <div class="platform-grid">${D.EXTERNAL_PLATFORM.map((item) => `<div class="platform-card"><span class="shop-icon">${item.icon}</span><div><b>${escapeHtml(item.name)}</b><small>${escapeHtml(item.desc)}</small></div><span class="platform-fee">${money(item.fee)}<small>/次</small></span></div>`).join("")}</div>
         <div class="empty-state" style="text-align:left;margin-top:10px;">在具体课题的详情页里点“公共平台预约”，为那个课题租用一个月；预约可替代该课题要求的仪器，但房间仍然必须是自有房间。</div>
@@ -9154,8 +10443,8 @@ h3 {
         ${trainingPeople.length ? `<div class="empty-state" style="text-align:left;padding:10px 12px;margin-bottom:10px;">正在培训：${trainingPeople.map((person) => `${escapeHtml(person.name)} · ${escapeHtml(person.training.name)}`).join(" / ")}</div>` : ""}
         <div class="training-grid">
           ${state.trainingOffers.map((offer) => `<article class="training-card">
-            <div class="training-head"><span class="training-icon">${offer.icon}</span><div><div class="training-title">${escapeHtml(offer.name)}</div><div class="training-meta">${fieldOf(offer.field).name} · ${offer.weeks} 个月 · ${money(offer.cost)}</div></div></div>
-            <div class="training-desc">${escapeHtml(offer.desc)}</div>
+            <div class="training-head"><span class="training-icon">${offer.icon}</span><div><div class="training-title">${escapeHtml(offer.name)} <span class="meta-pill">${offer.kind === "respec" ? "洗点 / 换特质" : "能力成长"}</span></div><div class="training-meta">${fieldOf(offer.field).name} · ${offer.weeks} 个月 · ${money(offer.cost)}</div></div></div>
+            <div class="training-desc">${escapeHtml(offer.desc)}${offer.kind === "respec" ? "<br><b>结束后从 3 个候选特质中选一个尝试替换，有成功率，也可能洗出负面特质。</b>" : "<br><b>结束后从 3 项基础能力中选一项额外成长。</b>"}</div>
             <div class="training-effects">${(C.trainingEffectText(offer) || "").split(" · ").map((text) => `<span class="effect-pill">${escapeHtml(text)}</span>`).join("")}${offer.reputation ? `<span class="effect-pill">声望 +${offer.reputation}</span>` : ""}</div>
             <div class="training-bottom"><span class="project-reward">需要 1AP</span><button class="button button-small button-primary" data-action="open-training-offer" data-offer="${offer.id}">指派成员</button></div>
           </article>`).join("")}
@@ -9232,6 +10521,30 @@ h3 {
       `;
     },
 
+    openTender(key) {
+      const result = C.instrumentBids(this.state, key);
+      if (!result.ok) {
+        this.toast(result.message, "bad");
+        return;
+      }
+      const base = result.base;
+      const room = D.ROOM_TYPES.find((item) => item.id === base.requiresRoom);
+      const content = `<div class="paper-preview"><div class="paper-preview-kicker">PUBLIC TENDER · 大型仪器招标</div><div class="paper-preview-title">${escapeHtml(base.name)}</div><div class="paper-preview-meta"><span>需要 ${room ? escapeHtml(room.name) : "对应房间"}</span><span>招标 2AP + ¥5,000 服务费</span><span>选择一家投标方案</span></div></div>
+        <div class="tender-list">${result.bids.map((bid) => `<div class="tender-bid"><div><b>${escapeHtml(bid.name)}</b><small>${escapeHtml(bid.vendorName)} · 加成 +${bid.bonus} · 论文 +${Math.round(bid.paperBonus * 100)}% · 交付 ${bid.delivery} 月</small><em>${escapeHtml(bid.reason)}</em></div><div style="text-align:right;"><b>${money(bid.price)}</b><button class="button button-small button-primary" data-action="award-tender" data-key="${escapeHtml(key)}" data-variant="${escapeHtml(bid.variantId)}" data-price="${bid.price}">中标</button></div></div>`).join("")}</div>
+        <div class="empty-state" style="text-align:left;margin-top:10px;">招标费用和仪器款会一次性扣除；仪器必须有对应房间和空余仪器位。当前资金 ${money(this.state.funds)}。</div>`;
+      this.openModal({
+        type: "tender",
+        panel: "tender",
+        kicker: "INSTRUMENT TENDER",
+        title: "大型仪器招标",
+        subtitle: "至少两家供应商投标，选择价格、性能和服务最合适的一家。",
+        content,
+        wide: true,
+        locked: true,
+        footer: `<button class="button" data-action="close-tender">取消招标</button>`
+      });
+    },
+
     openBuildPanel(slot) {
       const state = this.state;
       const content = `<div class="candidate-grid">${D.ROOM_TYPES.map((type) => {
@@ -9285,6 +10598,49 @@ h3 {
         content,
         footer: `<button class="button" data-action="close-modal">取消</button><button class="button button-primary" data-action="save-team" data-project="${project.id}">确认小组</button>`
       });
+    },
+
+    async handleCustomPeopleFile(event) {
+      const input = event.target;
+      const file = input.files && input.files[0];
+      if (!file) return;
+      try {
+        let rows = [];
+        if (window.XLSX) {
+          const buffer = await file.arrayBuffer();
+          const workbook = window.XLSX.read(buffer, { type: "array" });
+          const sheet = workbook.Sheets[workbook.SheetNames[0]];
+          rows = window.XLSX.utils.sheet_to_json(sheet, { header: 1, raw: false, defval: "" });
+        } else {
+          const text = await file.text();
+          rows = text.split(/\r?\n/).map((line) => line.split(/[,\t，]/));
+        }
+        const people = [];
+        for (const row of rows) {
+          if (!Array.isArray(row)) continue;
+          const name = String(row[0] == null ? "" : row[0]).trim().replace(/\s+/g, "");
+          if (!name || name === "人员姓名" || name === "姓名" || name === "name") continue;
+          if (name.length > 12) continue;
+          const genderRaw = String(row[1] == null ? "" : row[1]).trim();
+          const gender = genderRaw === "女" || genderRaw.toLowerCase() === "female" ? "女"
+            : genderRaw === "男" || genderRaw.toLowerCase() === "male" ? "男" : "";
+          if (!people.some((person) => person.name === name)) people.push({ name, gender });
+        }
+        if (!people.length) {
+          this.toast("没有从文件里读到姓名。支持第一列姓名、第二列性别的 Excel/CSV。", "bad");
+          return;
+        }
+        const existing = new Set((this.state.customPeople || []).map((person) => person.name));
+        const added = people.filter((person) => !existing.has(person.name));
+        this.state.customPeople = (this.state.customPeople || []).concat(added).slice(0, 200);
+        this.saveGame();
+        this.openPanel("recruitment");
+        this.toast(`已上传 ${added.length} 个名字；之后刷新候选池时，有概率作为「上传名单」候选出现。`, "good");
+      } catch (error) {
+        this.toast(`读取人员名单失败：${error.message}`, "bad");
+      } finally {
+        input.value = "";
+      }
     },
 
     openTrainingForOffer(offerId) {
@@ -9444,6 +10800,9 @@ h3 {
       const projectRows = report.projectProgress.map((item) => `<div class="report-project"><div class="report-project-head"><span>${escapeHtml(item.title)}</span><b>${item.completed ? "已结题" : `+${item.added} 数据`}</b></div><div class="report-project-track"><i style="width:${Math.min(100, (item.data / item.dataGoal) * 100)}%"></i></div></div>`).join("");
       const trainingRows = report.trainingCompleted.map((item) => `<div class="log-entry kind-good">${escapeHtml(item.personName)} 从「${escapeHtml(item.offerName)}」回来：${escapeHtml(item.text || "")}</div>`).join("");
       const paperRows = report.paperOpportunities.map((item) => `<div class="log-entry kind-paper">${escapeHtml(item.projectTitle)} · ${item.milestone}% 数据已可投稿</div>`).join("");
+      const supplyRows = report.supply && report.supply.shortages.length
+        ? `<div class="log-entry kind-bad">耗材不足：${report.supply.shortages.map((item) => `${item.name} 缺 ${item.missing}`).join("、")}；本月研究效率下降。</div>`
+        : `<div class="log-entry kind-good">耗材库存足够，本月按正常效率推进。</div>`;
       const taskLine = report.taskUpdate && report.taskUpdate.completed
         ? `<div class="log-entry kind-good">导师任务完成：${escapeHtml(report.taskUpdate.task.title)}</div>`
         : report.taskUpdate && report.taskUpdate.failed
@@ -9461,6 +10820,8 @@ h3 {
         </div>
         <div class="modal-section-title" style="margin-top:16px;">实验进展 <span>自动推进</span></div>
         <div class="report-list">${projectRows || `<div class="empty-state" style="padding:12px;">没有人参与课题，这个月没有新数据。</div>`}</div>
+        <div class="modal-section-title" style="margin-top:14px;">耗材结算 <span>库存消耗</span></div>
+        ${supplyRows}
         ${trainingRows ? `<div class="modal-section-title" style="margin-top:14px;">培训归来 <span>能力提升</span></div>${trainingRows}` : ""}
         ${paperRows ? `<div class="modal-section-title" style="margin-top:14px;">投稿窗口 <span>别错过</span></div>${paperRows}` : ""}
         <div class="modal-section-title" style="margin-top:14px;">导师 / 走廊 <span>notes</span></div>
@@ -9558,7 +10919,7 @@ h3 {
       const directionCards = D.RESEARCH_DIRECTIONS.map((item) => `
         <button class="setup-card setup-direction ${draft.directionId === item.id ? "is-selected" : ""}" data-action="setup-direction" data-value="${item.id}">
           <span class="setup-card-icon" style="background:${item.color}22;">${item.icon}</span>
-          <span class="setup-card-copy"><b>${escapeHtml(item.name)}</b><small>${item.fields.map((field) => fieldOf(field).short).join(" · ")}</small><em>${escapeHtml(item.desc)}</em></span>
+          <span class="setup-card-copy"><b>${escapeHtml(item.name)} ${item.organism ? `<span class="special-pill">${escapeHtml(item.organism)}</span>` : ""}</b><small>${item.kingdom ? `${escapeHtml(item.kingdom)} · ` : ""}${item.fields.map((field) => fieldOf(field).short).join(" · ")}</small><em>${escapeHtml(item.desc)}</em></span>
         </button>`).join("");
       const roomCards = D.ROOM_TYPES.map((room) => `
         <button class="setup-card ${roomSelected(room.id) ? "is-selected" : ""}" data-action="setup-room" data-value="${room.id}">
@@ -9704,6 +11065,16 @@ h3 {
         }
         case "community": {
           this.openCommunity(true);
+          return true;
+        }
+        case "fit-screen": {
+          document.documentElement.classList.toggle("fit-ui");
+          try {
+            localStorage.setItem("riceLabFitUI", document.documentElement.classList.contains("fit-ui") ? "1" : "0");
+          } catch (error) {
+            // ignore
+          }
+          this.toast(document.documentElement.classList.contains("fit-ui") ? "已切换到紧凑适屏模式。" : "已恢复标准显示。", "good");
           return true;
         }
         case "login-community": {
@@ -9871,9 +11242,11 @@ h3 {
           }
           this.state = C.newGame(Math.floor(Date.now() / 1000) >>> 0, validation.setup);
           this.state.seenIntro = true;
+          this.state.nickname = this.nickname;
           this.selected = { type: "lab", id: null };
           this.setupDraft = null;
           this.saveGame();
+          this.scheduleCommunitySync();
           this.closeModal(true);
           this.render();
           this.toast(`新的「${this.state.directionName}」实验室开张了。`, "gold");
@@ -9919,8 +11292,8 @@ h3 {
           this.finishMutation("房间升级完成。", "good");
           return true;
         }
-        case "buy-instrument": {
-          const result = C.buyInstrument(this.state, dataset.key);
+        case "buy-consumable": {
+          const result = C.buyConsumable(this.state, dataset.key, Number(dataset.packs) || 1);
           if (!result.ok) {
             this.toast(result.message, "bad");
             return true;
@@ -9928,7 +11301,43 @@ h3 {
           this.saveGame();
           this.render();
           this.openPanel("shop");
-          this.toast(`采购完成：${result.room.name}里多了一台新仪器。`, "good");
+          this.toast(`已补货 ${result.quantity} ${result.item.unit}${result.item.name}。`, "good");
+          return true;
+        }
+        case "buy-instrument": {
+          const result = C.buyInstrument(this.state, dataset.key, null, dataset.variant || null);
+          if (!result.ok) {
+            this.toast(result.message, "bad");
+            return true;
+          }
+          this.saveGame();
+          this.render();
+          this.openPanel("shop");
+          this.toast(`采购完成：${result.room.name}里多了一台 ${result.info.name}。`, "good");
+          return true;
+        }
+        case "open-tender": {
+          this.openTender(dataset.key);
+          return true;
+        }
+        case "award-tender": {
+          const result = C.buyInstrument(this.state, dataset.key, null, dataset.variant, {
+            tender: true,
+            price: Number(dataset.price)
+          });
+          if (!result.ok) {
+            this.toast(result.message, "bad");
+            return true;
+          }
+          this.saveGame();
+          this.closeModal(true);
+          this.render();
+          this.openPanel("shop");
+          this.toast(`招标完成：${result.info.name} 已中标并进入实验室。`, "gold");
+          return true;
+        }
+        case "close-tender": {
+          this.closeModal(true);
           return true;
         }
         case "refresh-free": {
@@ -10083,6 +11492,11 @@ h3 {
           this.finishMutation("一杯咖啡的时间，关系近了一点。", "good");
           return true;
         }
+        case "upload-custom-people": {
+          const input = document.getElementById("customPeopleInput");
+          if (input) input.click();
+          return true;
+        }
         case "open-training-for": {
           this.openTrainingForPerson(dataset.person);
           return true;
@@ -10187,6 +11601,7 @@ h3 {
             return true;
           }
           this.saveGame();
+          this.scheduleCommunitySync();
           this.render();
           this.openMonthReport(report);
           return true;
@@ -10282,6 +11697,8 @@ h3 {
 
   const importInput = document.getElementById("importSaveInput");
   if (importInput) importInput.addEventListener("change", (event) => App.importSaveFromFile(event));
+  const customPeopleInput = document.getElementById("customPeopleInput");
+  if (customPeopleInput) customPeopleInput.addEventListener("change", (event) => App.handleCustomPeopleFile(event));
 
   const ACTION_TIPS = {
     save: "手动保存到当前浏览器。游戏也会自动存档。",
@@ -10289,6 +11706,12 @@ h3 {
     "import-save": "导入 JSON 存档；会覆盖当前浏览器里的进度。",
     help: "打开玩法手册：学生培养、特质/羁绊、行动点、房间/仪器、投稿费和院士投票。",
     "new-game": "重新选择方向、3 间房、2 台仪器和 2 个起步课题。",
+    community: "打开联机大厅，查看其他人的实验室。",
+    "fit-screen": "在手机或小窗口下切换紧凑适屏模式。",
+    "upload-custom-people": "上传 Excel/CSV 人员名单，之后有概率出现在候选池。",
+    "open-tender": "为大型仪器发起招标，比较 2–3 家供应商。",
+    "award-tender": "选择中标方案；扣除仪器款、服务费和 2AP。",
+    "buy-consumable": "补充耗材库存，价格会随月份轻微波动。",
     advance: "推进一个月：研究自动结算、发工资/维护费，并恢复行动点。",
     "refresh-free": "使用本学期的一次免费候选池刷新；每学期恢复 2 次。",
     "refresh-candidates": "花 ¥25,000 + 1AP 投放招聘广告，刷新候选池并略微提升质量。",
