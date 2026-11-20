@@ -4161,6 +4161,56 @@ html.fit-ui body { zoom:0.86; }
   .headcount-summary { grid-template-columns:repeat(2,minmax(0,1fr)); }
   .task-board-list { grid-template-columns:1fr; }
 }
+/* ===== v0.6 Supabase auth + private lobby + chat ===== */
+.auth-shell { display:flex;flex-direction:column;gap:8px;align-items:stretch; }
+.auth-mark { width:52px;height:52px;border-radius:50%;background:#f1dfb4;display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 2px;border:1px solid #d8c191; }
+.auth-title { font-family:var(--serif);font-size:22px;text-align:center;color:var(--ink); }
+.auth-copy { font-size:9px;line-height:1.7;color:var(--muted);text-align:center;margin-bottom:4px; }
+.auth-tabs { display:flex;border:1px solid var(--line);border-radius:5px;overflow:hidden;background:#fffaf0; }
+.auth-tabs button { flex:1;border:0;background:transparent;padding:7px;font:inherit;font-size:9px;color:var(--muted);cursor:pointer; }
+.auth-tabs button.is-active { background:var(--forest);color:#fff8e8; }
+.auth-field { display:flex;flex-direction:column;gap:3px;font-size:8px;color:var(--muted); }
+.auth-field input { border:1px solid var(--line);border-radius:4px;background:#fffdf8;padding:7px 8px;font:inherit;font-size:11px;color:var(--ink);outline:none; }
+.auth-field input:focus { border-color:#b99753;box-shadow:0 0 0 2px rgba(185,151,83,.15); }
+.auth-error { border:1px solid #d8b1a5;background:#fbefea;color:#a4503f;padding:6px 8px;border-radius:4px;font-size:8px;line-height:1.5; }
+.auth-note { font-size:7px;line-height:1.7;color:var(--muted);border-top:1px dashed var(--line);padding-top:7px; }
+.auth-footer-note { font-size:8px;color:var(--muted);margin-right:auto; }
+.account-card { display:flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:6px;background:#faf3e3;padding:9px; }
+.account-avatar { width:38px;height:38px;border-radius:50%;background:#f1dfb4;display:flex;align-items:center;justify-content:center;font-size:22px; }
+.account-card > div:nth-child(2) { flex:1;min-width:0; }
+.account-name { font-family:var(--serif);font-size:17px;color:var(--ink); }
+.account-meta { font-size:8px;color:var(--muted); }
+.lobby-create-grid { display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px; }
+.lobby-create-box { border:1px solid var(--line);border-radius:6px;background:#fffaf0;padding:9px;display:flex;flex-direction:column;gap:5px; }
+.lobby-create-box p { font-size:8px;line-height:1.55;color:var(--muted);margin:0; }
+.lobby-create-box .button { align-self:flex-start; }
+.lobby-list { display:flex;flex-direction:column;gap:5px; }
+.lobby-card { display:flex;align-items:center;gap:8px;width:100%;border:1px solid var(--line);border-radius:5px;background:#fffaf0;padding:8px;font:inherit;text-align:left;cursor:pointer;color:var(--ink); }
+.lobby-card:hover { border-color:#c7a86a;background:#faf3e3; }
+.lobby-card-icon { font-size:16px; }
+.lobby-card-copy { display:flex;flex-direction:column;gap:1px;flex:1;min-width:0; }
+.lobby-card-copy b { font-size:10px; }
+.lobby-card-copy small { font-size:7px;color:var(--muted); }
+.lobby-card-enter { color:#8c6a30;font-size:8px;white-space:nowrap; }
+.chat-messages { height:320px;overflow-y:auto;display:flex;flex-direction:column;gap:7px;padding:2px; }
+.chat-message { display:flex;align-items:flex-start;gap:6px;max-width:88%; }
+.chat-message.is-mine { align-self:flex-end;flex-direction:row-reverse; }
+.chat-avatar { width:24px;height:24px;border-radius:50%;background:#f1dfb4;display:flex;align-items:center;justify-content:center;font-size:14px;flex:0 0 auto; }
+.chat-message > div { display:flex;flex-direction:column;gap:2px;min-width:0; }
+.chat-message-meta { display:flex;gap:6px;align-items:baseline;font-size:7px;color:var(--muted); }
+.chat-message-meta b { font-size:8px;color:var(--ink); }
+.chat-message.is-mine .chat-message-meta { justify-content:flex-end; }
+.chat-bubble { border:1px solid var(--line);border-radius:7px;background:#fffaf0;padding:6px 8px;font-size:9px;line-height:1.55;color:var(--ink);word-break:break-word; }
+.chat-message.is-mine .chat-bubble { background:#e8f1e4;border-color:#c6d8bf; }
+.chat-compose { display:flex;gap:5px;align-items:center;flex:1;justify-content:flex-end; }
+.chat-compose input { border:1px solid var(--line);border-radius:4px;background:#fffdf8;padding:7px 8px;font:inherit;font-size:10px;color:var(--ink);min-width:190px;outline:none; }
+.chat-compose input:focus { border-color:#b99753; }
+@media (max-width: 900px) { .lobby-create-grid { grid-template-columns:1fr; } .chat-messages { height:46vh; } .chat-compose input { min-width:0;flex:1; } .account-card { flex-wrap:wrap; } }
+.cloud-save-row { display:flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:6px;background:#f3f7ef;padding:8px;margin-top:11px; }
+.cloud-save-row > div { display:flex;flex-direction:column;gap:1px;flex:1;min-width:0; }
+.cloud-save-row b { font-size:9px;color:var(--ink); }
+.cloud-save-row small { font-size:7px;color:var(--muted);line-height:1.5; }
+@media (max-width:900px){.cloud-save-row{flex-wrap:wrap}.cloud-save-row .button{margin-left:0}}
 
 </style>
 </head>
@@ -4204,7 +4254,7 @@ html.fit-ui body { zoom:0.86; }
       <div class="top-actions">
         <button class="icon-button" data-action="save" title="手动存档" data-tip="手动保存到当前浏览器。游戏也会自动存档。" aria-label="手动存档">▣</button>
         <button class="icon-button" data-action="export-save" title="导出存档" data-tip="导出一份 JSON 存档，换电脑或清缓存前使用。" aria-label="导出存档">⤓</button>
-        <button class="top-text-button" data-action="community" title="联机大厅 / 参观其他实验室" data-tip="用昵称登录联机大厅，查看其他人的方向、进度、人员和课题。">大厅</button>
+        <button class="top-text-button" data-action="account" title="账号 / 私密大厅 / 聊天" data-tip="Supabase 账号登录；创建或加入私密大厅，只有成员能读聊天。">账号</button>
         <button class="top-text-button" data-action="help" title="玩法说明、按钮解释与存档备份" data-tip="随时打开玩法手册：学生会延毕、特质与羁绊、行动点、房间/仪器、投稿费和院士投票。">玩法</button>
         <button class="top-text-button" data-action="new-game" title="重新选择方向和研究起点" data-tip="重新选择研究方向、3 间房、2 台仪器和 2 个起步课题；当前存档会被覆盖。">重开</button>
       </div>
@@ -4234,7 +4284,7 @@ html.fit-ui body { zoom:0.86; }
         </section>
 
         <div class="rail-footer">
-          <span>V0.5 · 联机测试</span>
+          <span>V0.6 · 账号测试</span>
           <span>H5 · 可保存</span>
         </div>
       </aside>
@@ -4288,7 +4338,7 @@ html.fit-ui body { zoom:0.86; }
   </div>
 
   <nav class="mobile-dock" aria-label="移动端快捷操作">
-    <button data-action="community">大厅</button>
+    <button data-action="account">账号</button>
     <button data-action="help">玩法</button>
     <button data-action="save">存档</button>
     <button data-action="export-save">下载</button>
@@ -4304,6 +4354,7 @@ html.fit-ui body { zoom:0.86; }
   <noscript><div class="noscript">请启用 JavaScript 后再进入实验室。</div></noscript>
 
   <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
 (function (root, factory) {
   if (typeof module === "object" && module.exports) module.exports = factory();
@@ -9430,12 +9481,29 @@ html.fit-ui body { zoom:0.86; }
     return state;
   }
 
+  let activeAccountId = null;
+
+  function setAccountId(id) {
+    activeAccountId = id ? String(id) : null;
+  }
+
+  function accountSaveKey() {
+    return activeAccountId ? `riceLabManagerSaveV3:${activeAccountId}` : "riceLabManagerSaveV3";
+  }
+
   function saveGame(state, storage) {
     const target = storage || (typeof localStorage !== "undefined" ? localStorage : null);
     if (!target) return false;
     try {
       state.version = SAVE_VERSION;
-      target.setItem("riceLabManagerSaveV3", JSON.stringify(state));
+      if (activeAccountId) {
+        state.accountId = activeAccountId;
+        target.setItem(accountSaveKey(), JSON.stringify(state));
+        // The guest save has been adopted by this account; do not let another account inherit it.
+        target.removeItem("riceLabManagerSaveV3");
+      } else {
+        target.setItem(accountSaveKey(), JSON.stringify(state));
+      }
       return true;
     } catch (error) {
       return false;
@@ -9446,9 +9514,21 @@ html.fit-ui body { zoom:0.86; }
     const target = storage || (typeof localStorage !== "undefined" ? localStorage : null);
     if (!target) return null;
     try {
-      let raw = target.getItem("riceLabManagerSaveV3");
+      let raw = target.getItem(accountSaveKey());
       let legacy = false;
-      if (!raw) {
+      if (!raw && activeAccountId) {
+        // First account on this browser may adopt the pre-account local save once.
+        const guestRaw = target.getItem("riceLabManagerSaveV3");
+        if (guestRaw) {
+          try {
+            const guest = JSON.parse(guestRaw);
+            if (!guest.accountId || guest.accountId === activeAccountId) raw = guestRaw;
+          } catch (error) {
+            // ignore malformed guest save
+          }
+        }
+      }
+      if (!raw && !activeAccountId) {
         raw = target.getItem("riceLabManagerSaveV2");
         legacy = Boolean(raw);
       }
@@ -9457,7 +9537,8 @@ html.fit-ui body { zoom:0.86; }
       if (!state) return null;
       if (legacy) {
         try {
-          target.setItem("riceLabManagerSaveV3", JSON.stringify(state));
+          if (activeAccountId) state.accountId = activeAccountId;
+          target.setItem(accountSaveKey(), JSON.stringify(state));
         } catch (error) {
           // ignore legacy migration write failures
         }
@@ -9638,6 +9719,7 @@ html.fit-ui body { zoom:0.86; }
     migrateState,
     saveGame,
     loadGame,
+    setAccountId,
     commercializeLab,
     newEndingState,
     projectTeam,
@@ -9855,6 +9937,188 @@ html.fit-ui body { zoom:0.86; }
 (function () {
   "use strict";
 
+  const SUPABASE_URL = "https://rigoojllqzopmmildpeh.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_ANDZ0vVZ0pBAVKXSBxcudQ_2C9qOROx";
+  if (!window.supabase || !window.supabase.createClient) {
+    window.LabCloud = null;
+    return;
+  }
+
+  const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
+    auth: {
+      persistSession: true,
+      autoRefreshToken: true,
+      detectSessionInUrl: true
+    },
+    realtime: { params: { eventsPerSecond: 5 } }
+  });
+
+  let channel = null;
+  let channelLobbyId = null;
+
+  function friendly(error) {
+    if (!error) return "未知错误";
+    const message = String(error.message || error);
+    if (/Invalid login credentials/i.test(message)) return "邮箱或密码不正确。";
+    if (/User already registered/i.test(message)) return "这个邮箱已经注册过，请直接登录。";
+    if (/nickname/i.test(message) && /occup|duplicate|unique/i.test(message)) return "这个昵称已经被占用，换一个。";
+    if (/Password should be at least/i.test(message)) return "密码至少需要 6 位。";
+    if (/Unable to validate email address/i.test(message)) return "邮箱格式不正确。";
+    if (/Email not confirmed/i.test(message)) return "邮箱尚未确认；当前项目已关闭确认，请刷新后重试。";
+    if (/登录|邀请码|昵称|大厅/.test(message)) return message;
+    return message;
+  }
+
+  const Cloud = {
+    client,
+    async init() {
+      const { data, error } = await client.auth.getSession();
+      if (error) throw new Error(friendly(error));
+      return data.session || null;
+    },
+    async getProfile() {
+      const { data: userData, error: userError } = await client.auth.getUser();
+      if (userError) throw new Error(friendly(userError));
+      if (!userData.user) return null;
+      const { data, error } = await client.from("profiles").select("id,nickname,avatar").eq("id", userData.user.id).maybeSingle();
+      if (error) throw new Error(friendly(error));
+      return data || { id: userData.user.id, nickname: "研究员", avatar: "🧑‍🔬" };
+    },
+    async nicknameAvailable(nickname) {
+      const { data, error } = await client.rpc("nickname_available", { p_nickname: nickname });
+      if (error) throw new Error(friendly(error));
+      return Boolean(data);
+    },
+    async signUp(email, password, nickname) {
+      const { data, error } = await client.auth.signUp({
+        email: email.trim(),
+        password,
+        options: { data: { nickname: nickname.trim(), avatar: "🧑‍🔬" } }
+      });
+      if (error) throw new Error(friendly(error));
+      if (!data.session) throw new Error("注册成功，但需要邮箱确认。请检查邮箱后再登录。");
+      return Cloud.getProfile();
+    },
+    async signIn(email, password) {
+      const { data, error } = await client.auth.signInWithPassword({ email: email.trim(), password });
+      if (error) throw new Error(friendly(error));
+      if (!data.session) throw new Error("登录没有返回会话，请重试。");
+      return Cloud.getProfile();
+    },
+    async signOut() {
+      if (channel) {
+        await client.removeChannel(channel);
+        channel = null;
+        channelLobbyId = null;
+      }
+      const { error } = await client.auth.signOut();
+      if (error) throw new Error(friendly(error));
+    },
+    async listLobbies() {
+      const { data, error } = await client
+        .from("lobby_members")
+        .select("lobby_id,lobby_role,lobbies(id,name,code,created_at)")
+        .order("joined_at", { ascending: true });
+      if (error) throw new Error(friendly(error));
+      return (data || []).map((row) => ({
+        id: row.lobby_id,
+        role: row.lobby_role,
+        name: row.lobbies ? row.lobbies.name : "私密大厅",
+        code: row.lobbies ? row.lobbies.code : ""
+      }));
+    },
+    async createLobby(name) {
+      const { data, error } = await client.rpc("create_lobby", { p_name: name.trim() });
+      if (error) throw new Error(friendly(error));
+      return data && data[0];
+    },
+    async joinLobby(code) {
+      const { data, error } = await client.rpc("join_lobby", { p_code: code.trim() });
+      if (error) throw new Error(friendly(error));
+      return data && data[0];
+    },
+    async messages(lobbyId) {
+      const { data, error } = await client
+        .from("messages")
+        .select("id,content,user_id,created_at")
+        .eq("lobby_id", lobbyId)
+        .order("created_at", { ascending: true })
+        .limit(100);
+      if (error) throw new Error(friendly(error));
+      return data || [];
+    },
+    async profilesByIds(ids) {
+      const unique = [...new Set((ids || []).filter(Boolean))];
+      if (!unique.length) return {};
+      const { data, error } = await client.from("profiles").select("id,nickname,avatar").in("id", unique);
+      if (error) throw new Error(friendly(error));
+      const map = {};
+      for (const profile of data || []) map[profile.id] = profile;
+      return map;
+    },
+    async sendMessage(lobbyId, userId, content) {
+      const text = content.trim();
+      if (!text) throw new Error("消息不能为空。");
+      if (text.length > 500) throw new Error("消息最多 500 字。");
+      const { data, error } = await client
+        .from("messages")
+        .insert({ lobby_id: lobbyId, user_id: userId, content: text })
+        .select("id,content,user_id,created_at")
+        .single();
+      if (error) throw new Error(friendly(error));
+      return data;
+    },
+    subscribe(lobbyId, onMessage) {
+      if (channel) {
+        client.removeChannel(channel);
+        channel = null;
+      }
+      channelLobbyId = lobbyId;
+      channel = client
+        .channel("lobby:" + lobbyId)
+        .on("postgres_changes", { event: "INSERT", schema: "public", table: "messages", filter: "lobby_id=eq." + lobbyId }, (payload) => {
+          if (payload && payload.new) onMessage(payload.new);
+        })
+        .subscribe();
+      return channel;
+    },
+    unsubscribe() {
+      if (channel) client.removeChannel(channel);
+      channel = null;
+      channelLobbyId = null;
+    },
+    async saveState(state) {
+      const user = await Cloud.currentUser();
+      if (!user) throw new Error("请先登录。");
+      const { error } = await client.from("saves").upsert({
+        user_id: user.id,
+        state,
+        updated_at: new Date().toISOString()
+      }, { onConflict: "user_id" });
+      if (error) throw new Error(friendly(error));
+      return true;
+    },
+    async loadState() {
+      const user = await Cloud.currentUser();
+      if (!user) throw new Error("请先登录。");
+      const { data, error } = await client.from("saves").select("state,updated_at").eq("user_id", user.id).maybeSingle();
+      if (error) throw new Error(friendly(error));
+      return data || null;
+    },
+    async currentUser() {
+      const { data } = await client.auth.getUser();
+      return data.user || null;
+    }
+  };
+
+  window.LabCloud = Cloud;
+})();
+
+</script>
+  <script>
+(function () {
+  "use strict";
+
   const D = window.LabData;
   const C = window.LabCore;
 
@@ -10029,14 +10293,41 @@ html.fit-ui body { zoom:0.86; }
       if (loaded && !this.state.paperPreviews) {
         for (const project of this.state.projects) project.paperPreviews = project.paperPreviews || {};
       }
-      this.nickname = window.LabCommunity ? window.LabCommunity.getNickname() : "";
       this.saveGame();
       this.render();
+      if (window.LabCloud) {
+        this.initCloud();
+        return;
+      }
+      this.nickname = window.LabCommunity ? window.LabCommunity.getNickname() : "";
       if (!this.nickname) {
         this.showLogin();
         return;
       }
       this.afterLogin();
+    },
+
+    async initCloud() {
+      this.cloud = window.LabCloud;
+      try {
+        const session = await this.cloud.init();
+        if (session) {
+          const profile = await this.cloud.getProfile();
+          this.cloudProfile = profile;
+          this.cloudUser = { id: profile.id };
+          this.nickname = profile ? profile.nickname : "研究员";
+          C.setAccountId(profile.id);
+          this.state = C.loadGame() || C.newGame(Math.floor(Date.now() / 1000) >>> 0);
+          this.state.accountId = profile.id;
+          this.saveGame();
+          this.render();
+          this.afterLogin();
+          return;
+        }
+      } catch (error) {
+        this.toast(`账号服务连接失败：${error.message}`, "bad");
+      }
+      this.showAuth();
     },
 
     afterLogin() {
@@ -10057,6 +10348,7 @@ html.fit-ui body { zoom:0.86; }
     },
 
     scheduleCommunitySync() {
+      if (this.cloud) return;
       if (!this.nickname || !window.LabCommunity) return;
       if (this.syncTimer) clearTimeout(this.syncTimer);
       this.syncTimer = setTimeout(() => {
@@ -10075,6 +10367,262 @@ html.fit-ui body { zoom:0.86; }
         if (showToast) this.toast(`联机同步失败：${error.message}`, "bad");
         return false;
       }
+    },
+
+    showAuth(mode, message) {
+      if (!this.cloud) this.cloud = window.LabCloud;
+      if (!this.cloud) {
+        this.showLogin();
+        return;
+      }
+      this.authMode = mode || this.authMode || "login";
+      this.authError = message || "";
+      const isRegister = this.authMode === "register";
+      const content = `<div class="auth-shell">
+        <div class="auth-mark">🌾</div>
+        <div class="auth-title">${isRegister ? "建立你的实验室账号" : "回到你的实验室"}</div>
+        <div class="auth-copy">${isRegister ? "邮箱只用于登录；昵称是联机大厅里的唯一名字。" : "邮箱 + 密码登录。账号只用于私密大厅和聊天，游戏存档仍在本机。"}</div>
+        <div class="auth-tabs"><button class="${!isRegister ? "is-active" : ""}" data-action="auth-mode" data-mode="login">登录</button><button class="${isRegister ? "is-active" : ""}" data-action="auth-mode" data-mode="register">注册</button></div>
+        <label class="auth-field"><span>邮箱</span><input id="authEmail" type="email" autocomplete="email" placeholder="you@example.com"></label>
+        <label class="auth-field"><span>密码</span><input id="authPassword" type="password" autocomplete="${isRegister ? "new-password" : "current-password"}" placeholder="至少 6 位"></label>
+        ${isRegister ? `<label class="auth-field"><span>唯一昵称</span><input id="authNickname" maxlength="12" autocomplete="nickname" placeholder="例如：江州小满"></label>` : ""}
+        ${this.authError ? `<div class="auth-error">${escapeHtml(this.authError)}</div>` : ""}
+        <div class="auth-note">这是真正的 Supabase 账号：密码不会进入游戏存档；私密大厅和聊天由数据库 RLS 控制。请勿使用与其它网站相同的密码。</div>
+      </div>`;
+      this.openModal({
+        type: "auth",
+        panel: "auth",
+        kicker: "ACCOUNT · SUPABASE AUTH",
+        title: isRegister ? "注册账号" : "登录账号",
+        subtitle: "邮箱 + 密码 · 唯一昵称",
+        content,
+        narrow: true,
+        locked: true,
+        footer: `<span class="auth-footer-note">${isRegister ? "注册会立即登录" : "没有账号？点上方注册"}</span><button class="button button-primary" data-action="auth-submit">${isRegister ? "注册并进入" : "登录"}</button>`
+      });
+    },
+
+    async authSubmit() {
+      const email = ($("#authEmail") && $("#authEmail").value || "").trim();
+      const password = ($("#authPassword") && $("#authPassword").value) || "";
+      const nickname = ($("#authNickname") && $("#authNickname").value || "").trim();
+      if (!email || !password) {
+        this.toast("请填写邮箱和密码。", "bad");
+        return;
+      }
+      if (password.length < 6) {
+        this.toast("密码至少需要 6 位。", "bad");
+        return;
+      }
+      if (this.authMode === "register" && (nickname.length < 2 || nickname.length > 12)) {
+        this.toast("昵称需要 2–12 个字符。", "bad");
+        return;
+      }
+      this.toast(this.authMode === "register" ? "正在建立账号..." : "正在登录...", "normal");
+      try {
+        if (this.authMode === "register") {
+          const available = await this.cloud.nicknameAvailable(nickname);
+          if (!available) {
+            this.showAuth("register", "这个昵称已经被占用，换一个。");
+            return;
+          }
+        }
+        const profile = this.authMode === "register"
+          ? await this.cloud.signUp(email, password, nickname)
+          : await this.cloud.signIn(email, password);
+        this.cloudProfile = profile;
+        this.cloudUser = { id: profile.id };
+        this.nickname = profile.nickname;
+        C.setAccountId(profile.id);
+        this.state = C.loadGame() || C.newGame(Math.floor(Date.now() / 1000) >>> 0);
+        this.state.accountId = profile.id;
+        this.closeModal(true);
+        this.saveGame();
+        this.render();
+        this.afterLogin();
+        this.toast(`欢迎，${profile.nickname}。`, "gold");
+      } catch (error) {
+        this.showAuth(this.authMode, error.message);
+      }
+    },
+
+    async openAccount() {
+      if (!this.cloudProfile) {
+        this.showAuth();
+        return;
+      }
+      this.openModal({
+        type: "account",
+        panel: "account",
+        kicker: "ACCOUNT · PRIVATE LOBBY",
+        title: "账号与私密大厅",
+        subtitle: "只有大厅成员能读到聊天和进度；邀请码就是私密入口。",
+        content: `<div class="empty-state">正在读取你的私密大厅...</div>`,
+        wide: true,
+        footer: `<button class="button" data-action="auth-signout">退出账号</button><button class="button button-primary" data-action="account-refresh">刷新</button>`
+      });
+      try {
+        const lobbies = await this.cloud.listLobbies();
+        const cards = lobbies.map((lobby) => `<button class="lobby-card" data-action="open-lobby" data-lobby="${lobby.id}" data-name="${escapeHtml(lobby.name)}" data-code="${escapeHtml(lobby.code)}">
+          <span class="lobby-card-icon">🔒</span><span class="lobby-card-copy"><b>${escapeHtml(lobby.name)}</b><small>${lobby.role === "owner" ? "我创建的" : "我加入的"} · 邀请码 ${escapeHtml(lobby.code)}</small></span><span class="lobby-card-enter">进入聊天 →</span>
+        </button>`).join("");
+        this.renderAccountPanel(lobbies, cards);
+      } catch (error) {
+        this.toast(error.message, "bad");
+        this.renderAccountPanel([], `<div class="empty-state">读取大厅失败：${escapeHtml(error.message)}</div>`);
+      }
+    },
+
+    renderAccountPanel(lobbies, cards) {
+      if (!this.cloudProfile) return;
+      const content = `<div class="account-card">
+        <div class="account-avatar">${this.cloudProfile.avatar || "🧑‍🔬"}</div>
+        <div><div class="account-name">${escapeHtml(this.cloudProfile.nickname)}</div><div class="account-meta">Supabase 账号 · 唯一昵称 · 本机存档</div></div>
+        <span class="meta-pill">已登录</span>
+      </div>
+      <div class="lobby-create-grid">
+        <div class="lobby-create-box"><div class="modal-section-title">创建私密大厅</div><p>邀请码只给朋友；数据库只允许成员读取。</p><label class="auth-field"><span>大厅名称</span><input id="lobbyName" maxlength="40" placeholder="例如：水稻夜班小组"></label><button class="button button-primary" data-action="lobby-create">创建并生成邀请码</button></div>
+        <div class="lobby-create-box"><div class="modal-section-title">用邀请码加入</div><p>输入朋友给你的 6 位邀请码。</p><label class="auth-field"><span>邀请码</span><input id="lobbyCode" maxlength="12" placeholder="例如：A1B2C3" style="text-transform:uppercase;"></label><button class="button button-ghost" data-action="lobby-join">加入私密大厅</button></div>
+      </div>
+      <div class="modal-section-title" style="margin-top:18px;">我的大厅 <span>${lobbies.length} 个</span></div>
+      <div class="lobby-list">${cards || `<div class="empty-state">还没有大厅。创建一个，或输入朋友的邀请码。</div>`}</div>
+      <div class="cloud-save-row"><div><b>云端存档</b><small>只有本账号能读写；不会覆盖本机存档，除非你主动读取。</small></div><button class="button button-small" data-action="cloud-save">保存到云端</button><button class="button button-small button-ghost" data-action="cloud-load">读取云存档</button></div>
+      <div class="auth-note" style="margin-top:12px;">大厅是私密的：不在成员表中的账号无法读取大厅、成员或消息。账号密码只交给 Supabase Auth，不写进游戏存档。</div>`;
+      this.openModal({
+        type: "account",
+        panel: "account",
+        kicker: "ACCOUNT · PRIVATE LOBBY",
+        title: "账号与私密大厅",
+        subtitle: "只有大厅成员能读到聊天和进度；邀请码就是私密入口。",
+        content,
+        wide: true,
+        footer: `<button class="button" data-action="auth-signout">退出账号</button><button class="button button-primary" data-action="account-refresh">刷新</button>`
+      });
+    },
+
+    async lobbyCreate() {
+      const name = ($("#lobbyName") && $("#lobbyName").value || "").trim();
+      if (!name) {
+        this.toast("给大厅起一个名字。", "bad");
+        return;
+      }
+      try {
+        const lobby = await this.cloud.createLobby(name);
+        this.toast(`大厅已创建，邀请码：${lobby.code}`, "gold");
+        await this.openAccount();
+      } catch (error) {
+        this.toast(error.message, "bad");
+      }
+    },
+
+    async lobbyJoin() {
+      const code = ($("#lobbyCode") && $("#lobbyCode").value || "").trim();
+      if (!code) {
+        this.toast("输入邀请码。", "bad");
+        return;
+      }
+      try {
+        const lobby = await this.cloud.joinLobby(code);
+        this.toast(`已加入「${lobby.name}」。`, "good");
+        await this.openAccount();
+      } catch (error) {
+        this.toast(error.message, "bad");
+      }
+    },
+
+    async openChat(lobbyId, name, code) {
+      this.chatLobby = { id: lobbyId, name, code };
+      this.chatMessages = [];
+      this.chatProfiles = {};
+      this.chatLoading = true;
+      this.openModal({
+        type: "chat",
+        panel: "chat",
+        kicker: "PRIVATE CHAT · RLS",
+        title: name || "私密大厅",
+        subtitle: `邀请码 ${code || "—"} · 只有成员可见`,
+        content: `<div id="chatMessages" class="chat-messages"><div class="empty-state">正在打开私密聊天...</div></div>`,
+        wide: true,
+        locked: true,
+        footer: `<button class="button button-ghost" data-action="close-chat">返回大厅</button><div class="chat-compose"><input id="chatInput" maxlength="500" placeholder="说点什么…（Enter 发送）"><button class="button button-primary" data-action="chat-send">发送</button></div>`
+      });
+      try {
+        const user = await this.cloud.currentUser();
+        this.cloudUser = user;
+        this.chatMessages = await this.cloud.messages(lobbyId);
+        await this.loadChatProfiles(this.chatMessages.map((message) => message.user_id));
+        this.chatLoading = false;
+        this.renderChatMessages();
+        this.cloud.subscribe(lobbyId, async (message) => {
+          if (!this.chatLobby || this.chatLobby.id !== lobbyId) return;
+          if (!this.chatProfiles[message.user_id]) {
+            await this.loadChatProfiles([message.user_id]);
+          }
+          if (!this.chatMessages.some((item) => item.id === message.id)) this.chatMessages.push(message);
+          this.renderChatMessages();
+        });
+        setTimeout(() => {
+          const input = $("#chatInput");
+          if (input) input.focus();
+        }, 50);
+      } catch (error) {
+        this.toast(error.message, "bad");
+        this.closeModal(true);
+      }
+    },
+
+    async loadChatProfiles(ids) {
+      const profiles = await this.cloud.profilesByIds(ids);
+      this.chatProfiles = Object.assign({}, this.chatProfiles, profiles);
+    },
+
+    renderChatMessages() {
+      const box = $("#chatMessages");
+      if (!box) return;
+      if (this.chatLoading) return;
+      if (!this.chatMessages.length) {
+        box.innerHTML = `<div class="empty-state">这里还没有消息。先打个招呼。</div>`;
+        return;
+      }
+      const myId = this.cloudUser ? this.cloudUser.id : "";
+      box.innerHTML = this.chatMessages.map((message) => {
+        const profile = this.chatProfiles[message.user_id];
+        const nickname = profile ? profile.nickname : "成员";
+        const avatar = profile ? profile.avatar : "🧑‍🔬";
+        const mine = message.user_id === myId;
+        const time = message.created_at ? new Date(message.created_at).toLocaleTimeString("zh-CN", { hour: "2-digit", minute: "2-digit" }) : "";
+        return `<div class="chat-message ${mine ? "is-mine" : ""}"><span class="chat-avatar">${avatar}</span><div><div class="chat-message-meta"><b>${escapeHtml(nickname)}</b><time>${time}</time></div><div class="chat-bubble">${escapeHtml(message.content)}</div></div></div>`;
+      }).join("");
+      box.scrollTop = box.scrollHeight;
+    },
+
+    async sendChat() {
+      const input = $("#chatInput");
+      if (!input || !this.chatLobby) return;
+      const content = input.value.trim();
+      if (!content) return;
+      input.value = "";
+      try {
+        const message = await this.cloud.sendMessage(this.chatLobby.id, this.cloudUser.id, content);
+        if (!this.chatMessages.some((item) => item.id === message.id)) this.chatMessages.push(message);
+        this.renderChatMessages();
+      } catch (error) {
+        this.toast(error.message, "bad");
+      }
+    },
+
+    async signOutCloud() {
+      try {
+        await this.cloud.signOut();
+      } catch (error) {
+        // ignore network errors; local session is cleared anyway
+      }
+      this.cloudProfile = null;
+      this.cloudUser = null;
+      this.nickname = "";
+      C.setAccountId(null);
+      this.closeModal(true);
+      this.showAuth();
     },
 
     showLogin(editing) {
@@ -11116,7 +11664,7 @@ html.fit-ui body { zoom:0.86; }
       const breakdown = C.actionPointBreakdown(state);
       return `
         <div class="event-hero">
-          <div class="event-kicker">HOW TO KEEP THE LIGHTS ON · V0.5</div>
+          <div class="event-kicker">HOW TO KEEP THE LIGHTS ON · V0.6</div>
           <div class="event-title">你不是来做实验的，你是来让实验发生的。</div>
           <div class="event-desc">每月行动点有限。把成员安排进课题，结束本月后自动推进数据；数据到 30/60/100% 可以投稿，论文带来经费、声望和院士提名积分。资金为负或人员走光会失败。院士提名达到 100% 后，还要通过学部投票。</div>
         </div>
@@ -11137,6 +11685,10 @@ html.fit-ui body { zoom:0.86; }
         <div class="modal-section-title" style="margin-top:16px;">PROJECTS · 课题来源与兼组</div>
         <div class="panel-body" style="padding:0 0 4px;">
           <p class="panel-subtitle">开局从方向课题池选 2 个；后期可以自主开题、接导师任务，也会遇到学生提案。学生提案先进入“待立项”，需要 1AP 开题讨论。一个人可以同时参与多个课题，但每个课题效率按 1 / (1 + 0.35 × 额外课题数) 下降。</p>
+        </div>
+        <div class="modal-section-title" style="margin-top:16px;">ACCOUNT & PRIVATE LOBBY · 账号</div>
+        <div class="panel-body" style="padding:0 0 4px;">
+          <p class="panel-subtitle">v0.6 使用 Supabase 邮箱/密码账号和唯一昵称。点右上角「账号」创建或加入私密大厅；邀请码只给朋友，聊天和成员由数据库 RLS 保护。账号存档按账号隔离；可在账号面板手动保存/读取云存档。</p>
         </div>
         <div class="modal-section-title" style="margin-top:16px;">TASKS & HEADCOUNT · 任务与编制</div>
         <div class="panel-body" style="padding:0 0 4px;">
@@ -11771,6 +12323,73 @@ html.fit-ui body { zoom:0.86; }
             // ignore
           }
           this.toast(document.documentElement.classList.contains("fit-ui") ? "已切换到紧凑适屏模式。" : "已恢复标准显示。", "good");
+          return true;
+        }
+        case "account": {
+          this.openAccount();
+          return true;
+        }
+        case "auth-mode": {
+          this.showAuth(dataset.mode);
+          return true;
+        }
+        case "auth-submit": {
+          this.authSubmit();
+          return true;
+        }
+        case "auth-signout": {
+          this.signOutCloud();
+          return true;
+        }
+        case "account-refresh": {
+          this.openAccount();
+          return true;
+        }
+        case "cloud-save": {
+          this.cloud.saveState(this.state).then(() => this.toast("已保存到云端存档。", "good")).catch((error) => this.toast(error.message, "bad"));
+          return true;
+        }
+        case "cloud-load": {
+          if (!window.confirm("读取云存档会覆盖当前本机进度，确定吗？")) return true;
+          this.cloud.loadState().then((row) => {
+            if (!row || !row.state) {
+              this.toast("云端还没有存档。", "bad");
+              return;
+            }
+            const loaded = C.migrateState(row.state);
+            if (!loaded) {
+              this.toast("云存档版本无法读取。", "bad");
+              return;
+            }
+            this.state = loaded;
+            this.saveGame();
+            this.closeModal(true);
+            this.render();
+            this.afterLogin();
+            this.toast("已读取云存档。", "good");
+          }).catch((error) => this.toast(error.message, "bad"));
+          return true;
+        }
+        case "lobby-create": {
+          this.lobbyCreate();
+          return true;
+        }
+        case "lobby-join": {
+          this.lobbyJoin();
+          return true;
+        }
+        case "open-lobby": {
+          this.openChat(dataset.lobby, dataset.name, dataset.code);
+          return true;
+        }
+        case "close-chat": {
+          if (this.cloud) this.cloud.unsubscribe();
+          this.chatLobby = null;
+          this.openAccount();
+          return true;
+        }
+        case "chat-send": {
+          this.sendChat();
           return true;
         }
         case "login-community": {
@@ -12416,6 +13035,14 @@ html.fit-ui body { zoom:0.86; }
 
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") App.closeModal();
+    if (event.key === "Enter" && event.target && event.target.id === "chatInput") {
+      event.preventDefault();
+      App.sendChat();
+    }
+    if (event.key === "Enter" && event.target && (event.target.id === "authEmail" || event.target.id === "authPassword" || event.target.id === "authNickname")) {
+      event.preventDefault();
+      App.authSubmit();
+    }
   });
 
   const importInput = document.getElementById("importSaveInput");
