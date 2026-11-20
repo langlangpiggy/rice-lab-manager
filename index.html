@@ -4113,6 +4113,54 @@ html.fit-ui body { zoom:0.86; }
 @media (hover: none) {
   .hover-tip { display:none !important; }
 }
+/* ===== v0.5 tasks, headcount, journal, revision ===== */
+.headcount-summary { display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;margin-bottom:10px; }
+.headcount-item { border:1px solid var(--line);border-radius:5px;background:#faf3e3;padding:6px 7px;display:flex;flex-direction:column;gap:3px;font-size:8px;color:#6d5b43; }
+.headcount-item span { color:var(--muted); }
+.headcount-item b { font-size:12px;color:var(--ink); }
+.headcount-item .button { font-size:7px;padding:2px 4px;align-self:flex-start; }
+.headcount-item.is-total { background:#edf4e8; }
+.headcount-item small { font-size:6px;color:var(--muted); }
+.task-board-list { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:12px; }
+.task-board-card { border:1px solid var(--line);border-radius:6px;background:#fffaf0;padding:9px; }
+.task-board-card.is-short { border-left:4px solid #c79739; }
+.task-board-card.is-long { border-left:4px solid #4f7a5e; }
+.task-board-head { display:flex;justify-content:space-between;align-items:center;font-size:7px;color:var(--muted); }
+.task-type-pill { padding:1px 5px;border-radius:999px;background:#f3e7c8;color:#8c6a30;font-size:7px; }
+.task-board-card.is-long .task-type-pill { background:#e1efe6;color:#4f6f57; }
+.task-board-title { font-family:var(--serif);font-size:15px;color:var(--ink);margin-top:3px; }
+.task-board-desc { font-size:8px;line-height:1.6;color:var(--muted);margin-top:3px; }
+.journal-article-list { display:flex;flex-direction:column;gap:4px; }
+.journal-article-row { display:flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:5px;background:#fffaf0;padding:6px 8px; }
+.journal-article-row > div:nth-child(2) { display:flex;flex-direction:column;gap:1px;min-width:0;flex:1; }
+.journal-article-row b { font-size:9px;color:var(--ink); }
+.journal-article-row small { font-size:7px;color:var(--muted); }
+.journal-article-field { flex:0 0 auto;min-width:38px;padding:2px 4px;border-radius:3px;background:#f3e7c8;color:#8c6a30;font-size:7px;text-align:center; }
+.journal-article-if { color:#8c6a30;font-size:9px;font-weight:700;white-space:nowrap; }
+.journal-desk-list { display:flex;flex-direction:column;gap:4px; }
+.journal-desk-row { display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:5px;background:#fffaf0;padding:6px 8px; }
+.journal-desk-row > div:first-child { display:flex;flex-direction:column;gap:1px;min-width:0;flex:1; }
+.journal-desk-row b { font-size:8px;color:var(--ink); }
+.journal-desk-row small { font-size:7px;color:var(--muted); }
+.journal-desk-if { color:#8c6a30;font-size:10px;font-weight:700;white-space:nowrap; }
+.journal-desk-if small,.journal-desk-rate small { display:block;font-size:6px;color:var(--muted);font-weight:400; }
+.journal-desk-rate { color:#6d8f61;font-size:9px;font-weight:700;white-space:nowrap; }
+.revision-options { display:flex;flex-direction:column;gap:6px;margin-top:11px; }
+.revision-option { display:flex;align-items:center;gap:10px;width:100%;text-align:left;border:1px solid var(--line);border-radius:6px;background:#fffaf0;padding:9px;color:var(--ink);font:inherit;cursor:pointer; }
+.revision-option:hover { border-color:#c7a86a;background:#faf3e3; }
+.revision-option > span:first-child { display:flex;flex-direction:column;gap:2px;flex:1; }
+.revision-option b { font-size:10px; }
+.revision-option small { font-size:8px;color:var(--muted);line-height:1.55; }
+.revision-cost { display:flex;flex-direction:column;align-items:flex-end;gap:1px;color:#8c6a30;font-size:8px;white-space:nowrap; }
+.revision-cost b { font-size:10px; }
+.revision-pending-list { display:flex;flex-direction:column;gap:4px; }
+.revision-pending { display:flex;justify-content:space-between;gap:8px;border:1px solid var(--line);border-radius:4px;background:#faf3e3;padding:5px 7px;font-size:8px; }
+.revision-pending b { color:#8c6a30;font-weight:600; }
+
+@media (max-width: 900px) {
+  .headcount-summary { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .task-board-list { grid-template-columns:1fr; }
+}
 
 </style>
 </head>
@@ -4173,7 +4221,8 @@ html.fit-ui body { zoom:0.86; }
           <button class="nav-item" data-panel="recruitment" data-tip="招生与招聘。每学期 2 次免费刷新，之后花 ¥25,000 + 1AP。招募成本由身份、能力和特质决定。"><span class="nav-icon">✦</span><span>招生招聘</span><small id="navCandidateCount">5</small></button>
           <button class="nav-item" data-panel="shop" data-tip="仪器采购。仪器必须放进对应房间，占仪器位；每台都有领域/论文 Buff。"><span class="nav-icon">⚗</span><span>仪器采购</span><small>SHOP</small></button>
           <button class="nav-item" data-panel="training" data-tip="交流培训。花经费换六项能力、领域经验和好感；培训期间不能参与课题。"><span class="nav-icon">✈</span><span>交流培训</span><small>GROW</small></button>
-          <button class="nav-item" data-panel="tasks" data-tip="导师任务。完成拿经费、声望和信任；逾期会扣好感，并影响院士提名。"><span class="nav-icon">✉</span><span>导师任务</span><small id="navTaskState">进行中</small></button>
+          <button class="nav-item" data-panel="tasks" data-tip="导师任务。短期保命，长期布局；最多同时保留 3 件。"><span class="nav-icon">✉</span><span>导师任务</span><small id="navTaskState">进行中</small></button>
+          <button class="nav-item" data-panel="journal" data-tip="本月期刊文章、影响因子和接收率趋势。"><span class="nav-icon">📰</span><span>期刊</span><small>JOURNALS</small></button>
         </nav>
 
         <section class="rail-note">
@@ -4185,7 +4234,7 @@ html.fit-ui body { zoom:0.86; }
         </section>
 
         <div class="rail-footer">
-          <span>V0.4 · 联机测试</span>
+          <span>V0.5 · 联机测试</span>
           <span>H5 · 可保存</span>
         </div>
       </aside>
@@ -5386,6 +5435,22 @@ html.fit-ui body { zoom:0.86; }
       requiredRoom: "microbe",
       requiredInstrument: "sequencer",
       desc: "对临床/环境耐药菌做全基因组测序，追踪耐药基因和传播克隆。"
+    },
+    {
+      id: "high_fidelity_enzyme",
+      title: "高保真 DNA 聚合酶定向进化",
+      field: "molecular",
+      tier: "A",
+      dataGoal: 190,
+      teamCap: 3,
+      difficulty: 1.25,
+      baseIF: 6.5,
+      grant: 230000,
+      minRep: 25,
+      directions: ["molecular", "microbe"],
+      requiredRoom: "molecular",
+      requiredInstrument: "protein",
+      desc: "通过定向进化和高通量筛选，获得保真度更高、扩增速度更快的 DNA 聚合酶；有产业化潜力。"
     }
   ];
 
@@ -6279,10 +6344,57 @@ html.fit-ui body { zoom:0.86; }
     return state.rooms.length + state.instruments.length + roomLevels;
   }
 
+  function positionCaps(state) {
+    const base = { staff: 3, students: 4, postdocs: 2 };
+    return Object.assign(base, state.positionCaps || {});
+  }
+
+  function positionCategory(person) {
+    if (person.roleId === "postdoc") return "postdocs";
+    if (person.kind === "student") return "students";
+    return "staff";
+  }
+
+  function headcountSummary(state) {
+    const caps = positionCaps(state);
+    const people = activePeople(state);
+    const counts = { staff: 0, students: 0, postdocs: 0 };
+    for (const person of people) counts[positionCategory(person)] += 1;
+    return {
+      caps,
+      counts,
+      total: people.length,
+      capacity: caps.staff + caps.students + caps.postdocs
+    };
+  }
+
   function labCapacity(state) {
-    const offices = state.rooms.filter((room) => room.type === "office").length;
-    const meetings = state.rooms.filter((room) => room.type === "meeting").length;
-    return 6 + offices * 2 + meetings;
+    const caps = positionCaps(state);
+    return caps.staff + caps.students + caps.postdocs;
+  }
+
+  function positionSlotCost(state, category) {
+    const caps = positionCaps(state);
+    const bases = { staff: 3, students: 4, postdocs: 2 };
+    const baseCosts = { staff: 120000, students: 80000, postdocs: 180000 };
+    return Math.round(baseCosts[category] * (1 + Math.max(0, caps[category] - bases[category]) * 0.65) / 1000) * 1000;
+  }
+
+  function buyPositionSlot(state, category) {
+    if (state.phase !== "playing") return { ok: false, message: "这局已经结束。" };
+    if (["staff", "students", "postdocs"].indexOf(category) < 0) return { ok: false, message: "未知的编制类型。" };
+    if (state.ap < 1) return { ok: false, message: "购买编制需要 1 点行动点。" };
+    const caps = positionCaps(state);
+    const maxes = { staff: 6, students: 8, postdocs: 4 };
+    if (caps[category] >= maxes[category]) return { ok: false, message: "这一类编制已经达到上限。" };
+    const cost = positionSlotCost(state, category);
+    if (!canAfford(state, cost)) return { ok: false, message: `扩充这类编制需要 ¥${cost.toLocaleString()}。` };
+    spend(state, cost);
+    spendAP(state, 1);
+    caps[category] += 1;
+    state.positionCaps = caps;
+    log(state, `实验室编制扩充：${category === "staff" ? "工作人员" : category === "students" ? "学生" : "博士后"} +1。`, "good");
+    return { ok: true, category, cost, caps };
   }
 
   function recruiterBonus(state) {
@@ -6324,7 +6436,11 @@ html.fit-ui body { zoom:0.86; }
       return sum + instrumentInfo(instrument).upkeep;
     }, 0);
     const roomCost = state.rooms.reduce((sum, room) => sum + roomInfo(room).upkeep, 0);
-    return staffCost + instrumentCost + roomCost;
+    const overhead = Math.round(staffCost * 0.12 + instrumentCost * 0.08 + roomCost * 0.08);
+    const compliance = state.rooms
+      .filter((room) => room.type === "animal" || room.type === "microbe")
+      .reduce((sum, room) => sum + 12000 * room.level, 0);
+    return staffCost + instrumentCost + roomCost + overhead + compliance;
   }
 
   function refreshAtmosphere(state) {
@@ -6910,6 +7026,43 @@ html.fit-ui body { zoom:0.86; }
         penalty: { favor: 7 }
       }
     };
+    Object.assign(definitions, {
+      talk: {
+        title: "组会之外也要见人",
+        desc: "导师希望你不要只在报表里认识成员。找几位成员单独谈心。",
+        targetLabel: "谈心次数",
+        reward: { funds: 50000, reputation: 1, favor: 7 },
+        penalty: { favor: 4 }
+      },
+      training: {
+        title: "把骨干送出去",
+        desc: "让至少一个人出去开会或培训，别让实验室变成封闭的井。",
+        targetLabel: "培训人次",
+        reward: { funds: 70000, reputation: 2, favor: 7 },
+        penalty: { favor: 5 }
+      },
+      supply: {
+        title: "别让耗材断顿",
+        desc: "枪头、培养皿和培养基的库存已经需要盯一盯了。补几次耗材。",
+        targetLabel: "补货次数",
+        reward: { funds: 55000, reputation: 1, favor: 6 },
+        penalty: { favor: 6 }
+      },
+      headcount: {
+        title: "把队伍撑起来",
+        desc: "实验室不能永远只有几张熟面孔。扩大在岗人数，形成稳定梯队。",
+        targetLabel: "在岗人数",
+        reward: { funds: 120000, reputation: 3, favor: 8 },
+        penalty: { favor: 6 }
+      },
+      graduate: {
+        title: "把学生送出师门",
+        desc: "导师要看到培养闭环：学生毕业或博士后出站，而不是一直延毕。",
+        targetLabel: "毕业/出站人数",
+        reward: { funds: 140000, reputation: 4, favor: 10 },
+        penalty: { favor: 7 }
+      }
+    });
     const def = definitions[type] || definitions.recruit;
     return {
       id: uid(state, "task"),
@@ -6919,6 +7072,7 @@ html.fit-ui body { zoom:0.86; }
       targetLabel: def.targetLabel,
       target,
       deadline: deadline || 6,
+      category: (deadline || 6) <= 4 ? "short" : "long",
       createdAt: state.month,
       progress: 0,
       rewarded: false,
@@ -6929,9 +7083,40 @@ html.fit-ui body { zoom:0.86; }
         papers: state.papers.length,
         totalIF: state.totalIF,
         rooms: state.rooms.length,
-        projectsCompleted: state.stats.projectsCompleted
+        projectsCompleted: state.stats.projectsCompleted,
+        talks: state.stats.talks || 0,
+        trainings: state.stats.trainings || 0,
+        consumablesBought: state.stats.consumablesBought || 0,
+        alumni: state.stats.alumni || 0
       }
     };
+  }
+
+  function makeTaskSet(state) {
+    return [
+      makeTask(state, "recruit", 1, 4),
+      makeTask(state, "publish", 1, 10)
+    ];
+  }
+
+  function makeReplacementTask(state, category) {
+    if (category === "short") {
+      const cycle = ["supply", "talk", "training", "atmosphere", "recruit"];
+      const type = cycle[state.stats.tasksDone % cycle.length];
+      if (type === "supply") return makeTask(state, type, 2, 3);
+      if (type === "talk") return makeTask(state, type, 2, 3);
+      if (type === "training") return makeTask(state, type, 1, 4);
+      if (type === "atmosphere") return makeTask(state, type, Math.min(88, state.lab.atmosphere + 7), 4);
+      return makeTask(state, "recruit", 1, 4);
+    }
+    const cycle = ["paper_if", "reputation", "build", "project", "headcount", "graduate"];
+    const type = cycle[state.stats.tasksDone % cycle.length];
+    if (type === "paper_if") return makeTask(state, type, Math.max(5, Math.round(4 + state.papers.length * 1.5)), 10);
+    if (type === "reputation") return makeTask(state, type, Math.min(85, Math.max(20, state.reputation + 12)), 10);
+    if (type === "build") return makeTask(state, type, 1, 10);
+    if (type === "project") return makeTask(state, type, 1, 12);
+    if (type === "headcount") return makeTask(state, type, Math.min(labCapacity(state), state.people.length + 2), 12);
+    return makeTask(state, "graduate", 1, 12);
   }
 
   function chooseNextTask(state) {
@@ -6955,6 +7140,11 @@ html.fit-ui body { zoom:0.86; }
     if (task.type === "build") return Math.max(0, state.rooms.length - task.start.rooms);
     if (task.type === "atmosphere") return state.lab.atmosphere;
     if (task.type === "project") return Math.max(0, state.stats.projectsCompleted - task.start.projectsCompleted);
+    if (task.type === "talk") return Math.max(0, (state.stats.talks || 0) - (task.start.talks || 0));
+    if (task.type === "training") return Math.max(0, (state.stats.trainings || 0) - (task.start.trainings || 0));
+    if (task.type === "supply") return Math.max(0, (state.stats.consumablesBought || 0) - (task.start.consumablesBought || 0));
+    if (task.type === "headcount") return state.people.length;
+    if (task.type === "graduate") return Math.max(0, (state.stats.alumni || 0) - (task.start.alumni || 0));
     return 0;
   }
 
@@ -7093,6 +7283,7 @@ html.fit-ui body { zoom:0.86; }
       namedSeen: [],
       customPeople: [],
       customSeen: [],
+      positionCaps: { staff: 3, students: 4, postdocs: 2 },
       consumables: defaultConsumables(),
       consumablePrices: defaultConsumablePrices(),
       supplyPenalty: 1,
@@ -7100,12 +7291,14 @@ html.fit-ui body { zoom:0.86; }
       trainingOffers: [],
       trainingHistory: [],
       papers: [],
+      revisions: [],
       totalIF: 0,
       freeRefreshLeft: 2,
       externalBookings: [],
       voteFailures: 0,
       votePenalty: 0,
       voteCooldownUntil: -1,
+      patents: 0,
       tasksDone: 0,
       stats: {
         peopleHired: 2,
@@ -7115,7 +7308,9 @@ html.fit-ui body { zoom:0.86; }
         trainings: 0,
         alumni: 0,
         rejected: 0,
-        tasksDone: 0
+        tasksDone: 0,
+        talks: 0,
+        consumablesBought: 0
       },
       pendingEvents: [],
       log: [],
@@ -7123,6 +7318,8 @@ html.fit-ui body { zoom:0.86; }
       lastGrantMonth: -99,
       phase: "playing",
       task: null,
+      tasks: [],
+      journalFeed: null,
       projectIdeas: [],
       lastReport: null,
       campaignMonths: D.CAMPAIGN_MONTHS,
@@ -7172,7 +7369,9 @@ html.fit-ui body { zoom:0.86; }
       const template = D.PROJECT_TEMPLATES.find((item) => item.id === projectId);
       if (template) createProject(state, template, "开局课题池");
     }
-    state.task = makeTask(state, "recruit", 1, 6);
+    state.tasks = makeTaskSet(state);
+    state.task = state.tasks[0] || null;
+    state.journalFeed = generateJournalFeed(state);
     state.candidates = generateCandidatePool(state, 5, false);
     state.trainingOffers = generateTrainingOffers(state, 3);
     state.lab.atmosphere = atmosphere(state);
@@ -7190,9 +7389,15 @@ html.fit-ui body { zoom:0.86; }
     const index = state.candidates.findIndex((candidate) => candidate.id === candidateId);
     if (index < 0) return { ok: false, message: "这位候选人已经不在池子里了。" };
     if (activePeople(state).length >= labCapacity(state)) {
-      return { ok: false, message: "实验室编制满了，先扩建办公室或会议室。" };
+      return { ok: false, message: "实验室总编制满了，先购买新的编制额度。" };
     }
     const candidate = state.candidates[index];
+    const category = positionCategory(candidate);
+    const summary = headcountSummary(state);
+    if (summary.counts[category] >= summary.caps[category]) {
+      const label = category === "staff" ? "工作人员" : category === "students" ? "学生" : "博士后";
+      return { ok: false, message: `${label}编制已满；在人员面板购买对应编制后再招。` };
+    }
     const signing = candidate.signingCost || (candidate.kind === "staff" ? candidate.salary : candidate.salary * 2);
     if (!canAfford(state, signing)) {
       return { ok: false, message: `需要 ¥${signing.toLocaleString()} 入职安置费，资金不够。` };
@@ -7217,6 +7422,7 @@ html.fit-ui body { zoom:0.86; }
     state.people.push(person);
     state.candidates.splice(index, 1);
     state.stats.peopleHired += 1;
+    state.stats.talks = Number(state.stats.talks) || 0;
     updateResearchFields(state);
     refreshAtmosphere(state);
     const beforeMax = state.maxAp;
@@ -7427,6 +7633,7 @@ html.fit-ui body { zoom:0.86; }
     spend(state, price);
     current.stock += buyQuantity;
     state.consumables[id] = current;
+    state.stats.consumablesBought = (state.stats.consumablesBought || 0) + 1;
     log(state, `采购${item.name} ${buyQuantity} ${item.unit}，支出 ¥${price.toLocaleString()}。`, "normal");
     return { ok: true, item, quantity: buyQuantity, cost: price, stock: current.stock };
   }
@@ -7598,6 +7805,7 @@ html.fit-ui body { zoom:0.86; }
     person.favor = clamp(person.favor + 5, 0, 100);
     person.morale = clamp(person.morale + 5, 0, 100);
     person.lastTalkMonth = state.month;
+    state.stats.talks = (state.stats.talks || 0) + 1;
     refreshAtmosphere(state);
     log(state, `你和小${person.name.slice(-1)}在楼下走了两圈。好感度与士气提升了。`, "good");
     return { ok: true, person };
@@ -7678,6 +7886,10 @@ html.fit-ui body { zoom:0.86; }
       const person = getPerson(state, id);
       return sum + (person ? person.paperBonus || 0 : 0);
     }, 0);
+    if (project.templateId === "high_fidelity_enzyme") {
+      state.patents = (state.patents || 0) + 1;
+      log(state, "高保真聚合酶完成验证，课题组拿到一项可转化的专利候选。", "gold");
+    }
     state.funds += project.grant;
     state.reputation = clamp(state.reputation + 2, 0, 100);
     state.stats.projectsCompleted += 1;
@@ -8065,6 +8277,63 @@ html.fit-ui body { zoom:0.86; }
     };
   }
 
+  function makeJobOfferEvent(state) {
+    if (state.month < 18 || state.reputation < 42) return null;
+    const school = pick(state, ["江州大学", "华南农业大学", "南京农业大学", "西北农林科技大学", "省农科院"]);
+    const offer = 600000 + Math.round(state.reputation * 6000);
+    return {
+      id: uid(state, "event"),
+      type: "job_offer",
+      category: "career",
+      title: `${school}想挖你过去`,
+      desc: `${school}的院长约你喝咖啡，开出一个独立课题组和 ¥${offer.toLocaleString()} 启动经费的条件。周老师还没有退休，实验室也刚有起色。`,
+      options: [
+        { id: "stay", label: "留在原组", desc: "导师好感 +8，声望 +2；放弃这次外部机会。", tone: "good" },
+        { id: "negotiate", label: "留下，但要资源", desc: "导师同意加经费/编制；导师好感 -2，实验室获得 ¥120,000。", tone: "normal" },
+        { id: "leave", label: "接受 offer，离开", desc: "本局以“被挖走”结束；也许这是另一种成功。", tone: "bad" }
+      ],
+      offer,
+      school
+    };
+  }
+
+  function makeDataChallengeEvent(state) {
+    if (!state.papers.length) return null;
+    const paper = state.papers[state.papers.length - 1];
+    return {
+      id: uid(state, "event"),
+      type: "data_challenge",
+      category: "integrity",
+      title: "有人质疑你的论文数据",
+      desc: `一位同行在 PubPeer 上指出《${paper.title}》的图 3 统计方法可能有问题。审稿人要求补充原始数据和重复实验。`,
+      options: [
+        { id: "reproduce", label: "补实验并公开原始数据", desc: "花 ¥60,000，耗时 2 个月；通过后声望 +3，论文保留。", tone: "good" },
+        { id: "correct", label: "主动更正图注与统计", desc: "声望 -2，但风险可控；论文保留。", tone: "normal" },
+        { id: "ignore", label: "不回应，等风头过去", desc: "声望 -8，导师好感 -4；之后可能继续发酵。", tone: "bad" }
+      ],
+      paperId: paper.id
+    };
+  }
+
+  function makeScoopEvent(state) {
+    const project = state.projects.find((item) => item.status === "active" && item.data >= item.dataGoal * 0.55);
+    if (!project) return null;
+    const journal = pick(state, D.JOURNALS).name;
+    return {
+      id: uid(state, "event"),
+      type: "scoop",
+      category: "research",
+      title: "有人抢在你前面发了",
+      desc: `一个竞争组在 ${journal} 上发表了与你《${project.title}》高度重叠的结果。你的数据还差最后一段，但审稿人可能会问“与已发表工作的区别”。`,
+      options: [
+        { id: "rush", label: "加速冲刺，先投出去", desc: "本月项目数据 +15，但论文质量 -8；抢先投稿。", tone: "normal" },
+        { id: "pivot", label: "换一个角度重做", desc: "项目数据 -20，获得 +8 创新加成，避开正面竞争。", tone: "good" },
+        { id: "drop", label: "暂时搁置，先做别的", desc: "项目推进停滞，团队士气 -6。", tone: "bad" }
+      ],
+      projectId: project.id
+    };
+  }
+
   function eventChance(state, threshold) {
     return rand(state) < threshold;
   }
@@ -8100,6 +8369,15 @@ html.fit-ui body { zoom:0.86; }
     } else if (eventChance(state, 0.06)) {
       const biosafety = makeBiosafetyEvent(state);
       if (biosafety) events.push(biosafety);
+    } else if (eventChance(state, 0.05)) {
+      const job = makeJobOfferEvent(state);
+      if (job) events.push(job);
+    } else if (eventChance(state, 0.05)) {
+      const challenge = makeDataChallengeEvent(state);
+      if (challenge) events.push(challenge);
+    } else if (eventChance(state, 0.05)) {
+      const scoop = makeScoopEvent(state);
+      if (scoop) events.push(scoop);
     }
     return events;
   }
@@ -8354,6 +8632,66 @@ html.fit-ui body { zoom:0.86; }
         resolution = "你选择继续冒险。检查员走了，实验室里却多了一层不安。";
         log(state, resolution, "bad");
       }
+    } else if (event.type === "job_offer") {
+      if (optionId === "leave") {
+        state.phase = "lost";
+        state.ending = {
+          type: "poached",
+          title: "你被别的学校挖走了",
+          desc: `${event.school}给了你独立课题组和启动经费。你带着在这里学到的东西离开，周老师的实验室留在身后。`,
+          score: academicianStatus(state)
+        };
+        resolution = "你接受了外部 offer，离开了这间实验室。";
+        log(state, resolution, "normal");
+      } else if (optionId === "negotiate") {
+        state.funds += 120000;
+        state.supervisorFavor = clamp(state.supervisorFavor - 2, 0, 100);
+        resolution = "你留下了，但争取到了一笔额外资源和编制空间。";
+        log(state, resolution, "good");
+      } else {
+        state.supervisorFavor = clamp(state.supervisorFavor + 8, 0, 100);
+        state.reputation = clamp(state.reputation + 2, 0, 100);
+        resolution = "你拒绝了外部 offer，周老师没有多说什么，但把更多事交给了你。";
+        log(state, resolution, "good");
+      }
+    } else if (event.type === "data_challenge") {
+      if (optionId === "reproduce") {
+        if (!spend(state, 60000)) return { ok: false, message: "补实验需要 ¥60,000，经费不够。" };
+        state.reputation = clamp(state.reputation + 3, 0, 100);
+        resolution = "你补做了实验并公开原始数据，质疑暂时平息，声望反而上升。";
+        log(state, resolution, "good");
+      } else if (optionId === "correct") {
+        state.reputation = clamp(state.reputation - 2, 0, 100);
+        resolution = "你主动更正了图注与统计方法，论文保住了，但声望受了一点影响。";
+        log(state, resolution, "normal");
+      } else {
+        state.reputation = clamp(state.reputation - 8, 0, 100);
+        state.supervisorFavor = clamp(state.supervisorFavor - 4, 0, 100);
+        resolution = "你没有回应质疑。走廊里的议论没有停，导师的脸色也很难看。";
+        log(state, resolution, "bad");
+      }
+    } else if (event.type === "scoop") {
+      const project = getProject(state, event.projectId);
+      if (optionId === "rush") {
+        if (project) {
+          project.data = Math.min(project.dataGoal, project.data + 15);
+          project.quality = Math.max(15, (project.quality || 50) - 8);
+        }
+        resolution = "你决定抢时间，把现有数据先写成论文；质量会打折，但至少不是空白。";
+        log(state, resolution, "normal");
+      } else if (optionId === "pivot") {
+        if (project) {
+          project.data = Math.max(0, project.data - 20);
+          project.quality = (project.quality || 50) + 8;
+        }
+        resolution = "你换了一个角度重做，进度退了，但故事更独特。";
+        log(state, resolution, "good");
+      } else {
+        if (project) project.data = Math.max(0, project.data - 5);
+        state.lab.conflicts = clamp((state.lab.conflicts || 0) + 1, 0, 4);
+        resolution = "项目被搁置了。组里有人觉得你放弃了最好的机会。";
+        log(state, resolution, "bad");
+      }
     } else if (event.type === "vendor" || event.type === "vendor_counter") {
       if (optionId === "decline") {
         resolution = "你婉拒了这次推销，销售留下资料离开了。";
@@ -8413,33 +8751,103 @@ html.fit-ui body { zoom:0.86; }
     return state.phase;
   }
 
+  function updateSupervisorTasks(state) {
+    if (!Array.isArray(state.tasks)) {
+      state.tasks = state.task ? [state.task] : [];
+    }
+    const completed = [];
+    const failed = [];
+    const remaining = [];
+    for (const task of state.tasks) {
+      if (!task) continue;
+      task.createdAt = Number.isFinite(task.createdAt) ? task.createdAt : state.month;
+      task.deadline = Number(task.deadline) || 6;
+      task.category = task.category || (task.deadline <= 4 ? "short" : "long");
+      const progress = taskProgress(state, task);
+      task.progress = progress;
+      if (progress >= task.target) {
+        const reward = task.reward || { funds: 50000, reputation: 1, favor: 5 };
+        state.funds += reward.funds || 0;
+        state.reputation = clamp(state.reputation + (reward.reputation || 0), 0, 100);
+        state.supervisorFavor = clamp(state.supervisorFavor + (reward.favor || 0), 0, 100);
+        state.stats.tasksDone += 1;
+        completed.push(task);
+        log(state, `导师任务完成：${task.title}。经费 +¥${(reward.funds || 0).toLocaleString()}，声望 +${reward.reputation || 0}。`, "good");
+      } else if (state.month >= task.createdAt + task.deadline) {
+        const penalty = task.penalty || { favor: 4 };
+        state.supervisorFavor = clamp(state.supervisorFavor - (penalty.favor || 4), 0, 100);
+        failed.push(task);
+        log(state, `导师任务逾期：${task.title}。导师好感 -${penalty.favor || 4}。`, "bad");
+      } else {
+        remaining.push(task);
+      }
+    }
+    for (const task of completed.concat(failed)) {
+      remaining.push(makeReplacementTask(state, task.category || "long"));
+    }
+    state.tasks = remaining.slice(0, 3);
+    state.task = state.tasks[0] || null;
+    return {
+      completed: completed.length > 0,
+      failed: failed.length > 0,
+      completedTasks: completed,
+      failedTasks: failed,
+      tasks: state.tasks,
+      task: state.task
+    };
+  }
+
   function updateSupervisorTask(state) {
-    if (!state.task) return { completed: false, failed: false };
-    const progress = taskProgress(state, state.task);
-    state.task.progress = progress;
-    const target = state.task.target;
-    if (progress >= target) {
-      state.funds += state.task.reward.funds;
-      state.reputation = clamp(state.reputation + state.task.reward.reputation, 0, 100);
-      state.supervisorFavor = clamp(state.supervisorFavor + state.task.reward.favor, 0, 100);
-      state.stats.tasksDone += 1;
-      log(state, `导师任务完成：${state.task.title}。经费 +¥${state.task.reward.funds.toLocaleString()}，声望 +${state.task.reward.reputation}。`, "good");
-      state.task = chooseNextTask(state);
-      return { completed: true, task: state.task };
-    }
-    if (state.month >= state.task.createdAt + state.task.deadline) {
-      state.supervisorFavor = clamp(state.supervisorFavor - state.task.penalty.favor, 0, 100);
-      log(state, `导师任务逾期：${state.task.title}。导师好感 -${state.task.penalty.favor}。`, "bad");
-      state.task = chooseNextTask(state);
-      return { failed: true, task: state.task };
-    }
-    return { completed: false, failed: false };
+    const result = updateSupervisorTasks(state);
+    return {
+      completed: result.completed,
+      failed: result.failed,
+      task: result.task,
+      tasks: result.tasks
+    };
   }
 
   function trainingCompletedThisMonth(state, offer) {
     return {
       offer,
       text: trainingEffectText(offer)
+    };
+  }
+
+  function generateJournalFeed(state) {
+    const fields = ["blast", "genomics", "bioinfo", "field", "molecular", "immunology", "microbiology"];
+    const articles = [];
+    for (let i = 0; i < 8; i += 1) {
+      const field = fields[Math.floor(rand(state) * fields.length)];
+      const titles = D.PAPER_TITLE_PARTS[field] || D.PAPER_TITLE_PARTS.blast;
+      const journal = D.JOURNALS[Math.floor(rand(state) * D.JOURNALS.length)];
+      const monthInfoValue = monthInfo(state.month);
+      articles.push({
+        id: `journal_${state.month}_${i}`,
+        title: pick(state, titles),
+        journal: journal.name,
+        journalId: journal.id,
+        impact: round(journal.multiplier * (3.2 + rand(state) * 7), 1),
+        field,
+        authors: `${pick(state, D.SURNAMES)}${pick(state, D.GIVEN_NAMES)} 等`,
+        month: monthInfoValue.calendar
+      });
+    }
+    const journals = D.JOURNALS.map((journal) => ({
+      id: journal.id,
+      name: journal.name,
+      tier: journal.tier,
+      acceptance: journal.acceptance,
+      fee: journal.fee,
+      impact: round(journal.multiplier * 4.8, 1),
+      trend: rand(state) < 0.5 ? "up" : "down",
+      minTier: journal.minTier
+    }));
+    return {
+      month: state.month,
+      calendar: monthInfo(state.month).calendar,
+      articles,
+      journals
     };
   }
 
@@ -8538,6 +8946,8 @@ html.fit-ui body { zoom:0.86; }
 
     state.month += 1;
     fluctuateConsumablePrices(state);
+    const publishedRevisions = processRevisions(state);
+    report.revisionsPublished = publishedRevisions;
     const completedTraining = finishTraining(state);
     report.trainingCompleted = completedTraining.map((item) => ({
       personName: item.person.name,
@@ -8545,8 +8955,14 @@ html.fit-ui body { zoom:0.86; }
       text: trainingEffectText(item.offer)
     }));
     refreshAtmosphere(state);
-    const taskUpdate = updateSupervisorTask(state);
-    report.taskUpdate = taskUpdate;
+    const taskUpdate = updateSupervisorTasks(state);
+    report.taskUpdates = taskUpdate;
+    report.taskUpdate = {
+      completed: taskUpdate.completed,
+      failed: taskUpdate.failed,
+      task: taskUpdate.task,
+      tasks: taskUpdate.tasks
+    };
 
     state.externalBookings = (state.externalBookings || []).filter((booking) => Number(booking.expiresMonth) > state.month);
     if (state.month % 6 === 0) {
@@ -8555,6 +8971,7 @@ html.fit-ui body { zoom:0.86; }
       state.freeRefreshLeft = 2;
       log(state, "新学期开始，人才市场与培训项目刷新了；免费刷新次数恢复为 2 次。", "system");
     }
+    state.journalFeed = generateJournalFeed(state);
     refreshMaxAp(state);
     state.ap = state.maxAp;
     const trainingEvents = completedTraining.map((item) => makeTrainingChoiceEvent(state, item.person, item.offer));
@@ -8693,6 +9110,7 @@ html.fit-ui body { zoom:0.86; }
   function pickPaperTitle(state, field) {
     const titles = D.PAPER_TITLE_PARTS[field] || D.PAPER_TITLE_PARTS.blast;
     const base = pick(state, titles);
+    if (field === "immunology" || field === "microbiology") return base;
     const gene = pick(state, ["Pik", "Pi9", "Pita", "Pib", "Pid2", "Pikm", "NLR"]);
     return `${base}：${gene} 视角`;
   }
@@ -8764,6 +9182,68 @@ html.fit-ui body { zoom:0.86; }
     };
     project.authorIds = paper.authorIds.slice();
     project.firstAuthorId = paper.firstAuthorId;
+    const grant = Math.round((option.impact * 20000) / 1000) * 1000;
+    const repGain = Math.max(1, Math.round(option.impact * 1.1));
+    const favorGain = Math.min(5, 1 + Math.round(option.impact / 4));
+    const needsRevision = option.impact >= 4 && rand(state) < 0.5;
+    if (needsRevision) {
+      const revision = {
+        id: uid(state, "revision"),
+        status: "choice",
+        paper,
+        projectId: project.id,
+        projectTitle: project.title,
+        milestoneValue,
+        grant,
+        repGain,
+        favorGain,
+        createdAt: state.month,
+        options: [
+          {
+            id: "supplement",
+            label: "补关键实验",
+            months: 3,
+            cost: Math.round((30000 + option.fee * 0.5) / 1000) * 1000,
+            impact: option.impact,
+            desc: "3 个月；补最关键的一组实验，保留完整 IF。"
+          },
+          {
+            id: "data",
+            label: "补数据与统计",
+            months: 1,
+            cost: Math.round((12000 + option.fee * 0.25) / 1000) * 1000,
+            impact: round(option.impact * 0.9, 1),
+            desc: "1 个月；补原始数据和统计，IF 约降低 10%。"
+          },
+          {
+            id: "direct",
+            label: "拒绝补实验，直接发表",
+            months: 0,
+            cost: 0,
+            impact: round(option.impact * 0.78, 1),
+            desc: "立即发表，但 IF 约降低 22%，审稿人意见保留在记录里。"
+          }
+        ]
+      };
+      state.revisions.push(revision);
+      milestone.published = true;
+      milestone.ready = false;
+      if (project.paperPreviews) delete project.paperPreviews[milestoneValue];
+      log(state, `《${paper.title}》被接收，但审稿人要求补实验/补数据；论文进入修回流程。`, "normal");
+      return {
+        ok: true,
+        accepted: true,
+        revisionRequired: true,
+        revision,
+        paper,
+        project,
+        milestone,
+        option,
+        prepared,
+        fee: option.fee || 0,
+        message: `接收，但需要补实验或补数据。修回会消耗 1–3 个月。`
+      };
+    }
     state.papers.push(paper);
     state.totalIF = round(state.totalIF + option.impact, 1);
     state.stats.papersPublished += 1;
@@ -8782,10 +9262,9 @@ html.fit-ui body { zoom:0.86; }
         projectTitle: project.title
       });
     }
-    const grant = Math.round((option.impact * 20000) / 1000) * 1000;
     state.funds += grant;
-    state.reputation = clamp(state.reputation + Math.max(1, Math.round(option.impact * 1.1)), 0, 100);
-    state.supervisorFavor = clamp(state.supervisorFavor + Math.min(5, 1 + Math.round(option.impact / 4)), 0, 100);
+    state.reputation = clamp(state.reputation + repGain, 0, 100);
+    state.supervisorFavor = clamp(state.supervisorFavor + favorGain, 0, 100);
     log(state, `论文《${paper.title}》发表于 ${paper.journal}（IF ${paper.impact}）。第一作者：${paper.firstAuthor || "—"}；经费 +¥${grant.toLocaleString()}。`, "good");
     return {
       ok: true,
@@ -8799,6 +9278,77 @@ html.fit-ui body { zoom:0.86; }
       fee: option.fee || 0,
       message: `接收！${paper.journal}，影响因子 ${paper.impact}。第一作者：${paper.firstAuthor || "—"}。`
     };
+  }
+
+  function publishRevision(state, revision, impact) {
+    const paper = Object.assign({}, revision.paper, {
+      impact,
+      month: state.month
+    });
+    state.papers.push(paper);
+    state.totalIF = round(state.totalIF + impact, 1);
+    state.stats.papersPublished += 1;
+    state.funds += revision.grant || 0;
+    state.reputation = clamp(state.reputation + (revision.repGain || 1), 0, 100);
+    state.supervisorFavor = clamp(state.supervisorFavor + (revision.favorGain || 1), 0, 100);
+    for (const personId of paper.authorIds || []) {
+      const person = getPerson(state, personId);
+      if (!person || person.status !== "active") continue;
+      if (!Array.isArray(person.publications)) person.publications = [];
+      person.publications.push({
+        paperId: paper.id,
+        title: paper.title,
+        journal: paper.journal,
+        impact,
+        firstAuthor: personId === paper.firstAuthorId,
+        month: state.month,
+        projectTitle: paper.projectTitle
+      });
+    }
+    log(state, `修回完成，论文《${paper.title}》正式发表于 ${paper.journal}（IF ${impact}）。`, "good");
+    state.revisions = (state.revisions || []).filter((item) => item.id !== revision.id);
+    return paper;
+  }
+
+  function chooseRevision(state, revisionId, optionId) {
+    if (state.phase !== "playing") return { ok: false, message: "这局已经结束。" };
+    const revision = (state.revisions || []).find((item) => item.id === revisionId);
+    if (!revision) return { ok: false, message: "这条修回记录不存在。" };
+    if (revision.status !== "choice") return { ok: false, message: "修回方案已经选过了。" };
+    const option = (revision.options || []).find((item) => item.id === optionId);
+    if (!option) return { ok: false, message: "没有这个修回方案。" };
+    if (!canAfford(state, option.cost || 0)) return { ok: false, message: `修回需要 ¥${Number(option.cost || 0).toLocaleString()}。` };
+    spend(state, option.cost || 0);
+    if (option.months <= 0) {
+      const paper = publishRevision(state, revision, option.impact);
+      return { ok: true, published: true, paper, message: `论文直接发表，影响因子 ${paper.impact}。` };
+    }
+    revision.status = "pending";
+    revision.publishMonth = state.month + option.months;
+    revision.impact = option.impact;
+    revision.chosen = option.id;
+    revision.cost = option.cost || 0;
+    log(state, `论文进入 ${option.months} 个月修回期；预计在第 ${revision.publishMonth + 1} 个月正式发表。`, "normal");
+    return {
+      ok: true,
+      published: false,
+      revision,
+      message: `已安排修回，${option.months} 个月后见刊。`
+    };
+  }
+
+  function processRevisions(state) {
+    const published = [];
+    const pending = [];
+    for (const revision of state.revisions || []) {
+      if (revision.status === "pending" && state.month >= revision.publishMonth) {
+        published.push(publishRevision(state, revision, revision.impact));
+      } else {
+        pending.push(revision);
+      }
+    }
+    state.revisions = pending;
+    return published;
   }
 
   function migrateState(raw) {
@@ -8817,11 +9367,26 @@ html.fit-ui body { zoom:0.86; }
     state.instruments = Array.isArray(state.instruments) ? state.instruments : [];
     state.candidates = Array.isArray(state.candidates) ? state.candidates : [];
     state.papers = Array.isArray(state.papers) ? state.papers : [];
+    state.revisions = Array.isArray(state.revisions) ? state.revisions : [];
     state.pendingEvents = Array.isArray(state.pendingEvents) ? state.pendingEvents : [];
     state.externalBookings = Array.isArray(state.externalBookings) ? state.externalBookings : [];
+    state.stats = state.stats && typeof state.stats === "object" ? state.stats : {};
+    state.stats.talks = Number(state.stats.talks) || 0;
+    state.stats.consumablesBought = Number(state.stats.consumablesBought) || 0;
+    state.stats.tasksDone = Number(state.stats.tasksDone) || 0;
+    state.tasks = Array.isArray(state.tasks) && state.tasks.length
+      ? state.tasks
+      : (state.task ? [state.task] : []);
+    if (state.tasks.length === 1) {
+      const firstCategory = state.tasks[0].category || ((state.tasks[0].deadline || 6) <= 4 ? "short" : "long");
+      state.tasks.push(makeReplacementTask(state, firstCategory === "short" ? "long" : "short"));
+    }
+    state.task = state.tasks[0] || null;
+    state.journalFeed = state.journalFeed || generateJournalFeed(state);
     state.namedSeen = Array.isArray(state.namedSeen) ? state.namedSeen : [];
     state.customPeople = Array.isArray(state.customPeople) ? state.customPeople : [];
     state.customSeen = Array.isArray(state.customSeen) ? state.customSeen : [];
+    state.positionCaps = Object.assign({ staff: 3, students: 4, postdocs: 2 }, state.positionCaps || {});
     state.consumables = state.consumables && typeof state.consumables === "object"
       ? Object.assign(defaultConsumables(), state.consumables)
       : defaultConsumables();
@@ -8832,6 +9397,7 @@ html.fit-ui body { zoom:0.86; }
     state.voteFailures = Number(state.voteFailures) || 0;
     state.votePenalty = Number(state.votePenalty) || 0;
     state.voteCooldownUntil = Number.isFinite(state.voteCooldownUntil) ? state.voteCooldownUntil : -1;
+    state.patents = Number(state.patents) || 0;
     state.directionId = state.directionId || (state.setup && state.setup.directionId) || "resistance";
     const direction = directionInfo(state.directionId);
     state.directionName = state.directionName || direction.name;
@@ -8902,6 +9468,20 @@ html.fit-ui body { zoom:0.86; }
     }
   }
 
+  function commercializeLab(state) {
+    if (state.phase !== "playing") return { ok: false, message: "这局已经结束。" };
+    if ((state.patents || 0) <= 0) return { ok: false, message: "还没有可转化的专利候选。" };
+    state.phase = "transformed";
+    state.ending = {
+      type: "industry",
+      title: "从实验室到生物公司",
+      text: "高保真聚合酶通过验证，你们拿到第一笔产业投资。实验室没有关灯，而是从课题组长成了一家生物技术公司。",
+      score: academicianStatus(state)
+    };
+    log(state, "实验室完成产业化转型，成立生物技术公司。", "gold");
+    return { ok: true, ending: state.ending };
+  }
+
   function newEndingState(state) {
     return {
       phase: state.phase,
@@ -8958,6 +9538,11 @@ html.fit-ui body { zoom:0.86; }
     instrumentBids,
     labScale,
     labCapacity,
+    positionCaps,
+    positionCategory,
+    headcountSummary,
+    positionSlotCost,
+    buyPositionSlot,
     recruiterBonus,
     atmosphere,
     refreshAtmosphere,
@@ -9036,17 +9621,24 @@ html.fit-ui body { zoom:0.86; }
     makeVendorCounterEvent,
     makeBiosafetyEvent,
     makeBiosafetyFollowUp,
+    makeJobOfferEvent,
+    makeDataChallengeEvent,
+    makeScoopEvent,
     makeTrainingChoiceEvent,
     generateMonthlyEvents,
     resolveEvent,
     checkEndConditions,
     updateSupervisorTask,
+    updateSupervisorTasks,
     advanceMonth,
     preparePaper,
     submitPaper,
+    chooseRevision,
+    processRevisions,
     migrateState,
     saveGame,
     loadGame,
+    commercializeLab,
     newEndingState,
     projectTeam,
     personProjects,
@@ -9055,7 +9647,8 @@ html.fit-ui body { zoom:0.86; }
     studentProgress,
     actionPointBreakdown,
     refreshMaxAp,
-    updateResearchFields
+    updateResearchFields,
+    generateJournalFeed
   };
 });
 
@@ -9720,7 +10313,8 @@ html.fit-ui body { zoom:0.86; }
 
     renderSupervisor() {
       const state = this.state;
-      const task = state.task;
+      const tasks = state.tasks && state.tasks.length ? state.tasks : (state.task ? [state.task] : []);
+      const task = tasks[0];
       const progress = task ? C.taskProgress(state, task) : 0;
       const target = task ? task.target : 1;
       const percent = task ? C.clamp((progress / target) * 100, 0, 100) : 0;
@@ -9738,7 +10332,7 @@ html.fit-ui body { zoom:0.86; }
           <div class="mini-track"><i style="width:${state.supervisorFavor}%"></i></div>
         </div>
         <div class="supervisor-task">
-          <div class="supervisor-task-kicker">SUPERVISOR'S ASK · 还有 ${taskDeadline} 个月</div>
+          <div class="supervisor-task-kicker">SUPERVISOR'S ASK · ${task ? (task.category === "short" ? "短期" : "长期") : "待办"} · 还有 ${taskDeadline} 个月${tasks.length > 1 ? ` · 另有 ${tasks.length - 1} 件` : ""}</div>
           <span class="supervisor-task-title">${task ? escapeHtml(task.title) : "暂时没有新的任务"}</span>
           <span class="supervisor-task-desc">${task ? escapeHtml(task.desc) : "先让实验室运转起来。"}</span>
           <div class="task-progress-row">
@@ -9760,7 +10354,7 @@ html.fit-ui body { zoom:0.86; }
       $("#navPeopleCount").textContent = C.activePeople(state).length;
       $("#navProjectCount").textContent = activeProjectOptions(state).length;
       $("#navCandidateCount").textContent = state.candidates.length;
-      $("#navTaskState").textContent = state.task ? "进行中" : "空闲";
+      $("#navTaskState").textContent = (state.tasks && state.tasks.length) ? `${state.tasks.length} 件` : "空闲";
       $("#labScaleLabel").textContent = C.labScale(state);
     },
 
@@ -9950,6 +10544,7 @@ html.fit-ui body { zoom:0.86; }
               <div style="display:flex;gap:6px;margin-top:9px;flex-wrap:wrap;">
                 <button class="button button-small" data-action="apply-grant">写本子申请基金 · 1AP</button>
                 <button class="button button-small button-ghost" data-action="open-panel-shop">仪器采购</button>
+                ${state.patents > 0 ? `<button class="button button-small button-gold" data-action="consider-commercialize">有 ${state.patents} 项专利候选 · 谈产业化</button>` : ""}
               </div>
             </div>
           </div>
@@ -10254,8 +10849,13 @@ html.fit-ui body { zoom:0.86; }
       } else if (panel === "tasks") {
         title = "导师办公室";
         kicker = "SUPERVISOR'S OFFICE";
-        subtitle = "周启明教授的任务决定经费、信任和院士提名；院士最终还要过学部投票。";
+        subtitle = "短期任务保命，长期任务布局；最多同时保留 3 件。";
         content = this.tasksPanel();
+      } else if (panel === "journal") {
+        title = "期刊阅览室";
+        kicker = "JOURNAL DESK";
+        subtitle = "查看本月期刊文章、影响因子和接收率趋势；论文窗口仍从课题详情进入。";
+        content = this.journalPanel();
       } else {
         title = "实验室手册";
         kicker = "FIELD MANUAL";
@@ -10269,7 +10869,7 @@ html.fit-ui body { zoom:0.86; }
         title,
         subtitle,
         content,
-        wide: panel === "people" || panel === "projects" || panel === "recruitment" || panel === "shop" || panel === "training"
+        wide: panel === "people" || panel === "projects" || panel === "recruitment" || panel === "shop" || panel === "training" || panel === "journal"
       });
     },
 
@@ -10277,6 +10877,9 @@ html.fit-ui body { zoom:0.86; }
       const state = this.state;
       const staffList = C.staff(state);
       const studentList = C.students(state);
+      const summary = C.headcountSummary(state);
+      const postdocList = studentList.filter((person) => person.roleId === "postdoc");
+      const degreeStudents = studentList.filter((person) => person.roleId !== "postdoc");
       const personCard = (person) => {
         const role = roleOf(person);
         const projects = C.personProjects(state, person);
@@ -10288,13 +10891,23 @@ html.fit-ui body { zoom:0.86; }
         </button>`;
       };
       return `
+        <div class="headcount-summary">
+          <div class="headcount-item"><span>工作人员</span><b>${summary.counts.staff} / ${summary.caps.staff}</b><button class="button button-tiny button-ghost" data-action="buy-position" data-category="staff">扩充 · ${money(C.positionSlotCost(state, "staff"))}</button></div>
+          <div class="headcount-item"><span>学生（硕/博）</span><b>${summary.counts.students} / ${summary.caps.students}</b><button class="button button-tiny button-ghost" data-action="buy-position" data-category="students">扩充 · ${money(C.positionSlotCost(state, "students"))}</button></div>
+          <div class="headcount-item"><span>博士后</span><b>${summary.counts.postdocs} / ${summary.caps.postdocs}</b><button class="button button-tiny button-ghost" data-action="buy-position" data-category="postdocs">扩充 · ${money(C.positionSlotCost(state, "postdocs"))}</button></div>
+          <div class="headcount-item is-total"><span>总编制</span><b>${summary.total} / ${summary.capacity}</b><small>购买编制花资金 + 1AP</small></div>
+        </div>
         <div class="people-section">
           <div class="people-section-head"><h3>工作人员 <span>${staffList.length} 人</span></h3><span>技术员、生信、行政、温室与研究员</span></div>
           <div class="people-roster">${staffList.map(personCard).join("") || `<div class="empty-state">没有工作人员。</div>`}</div>
         </div>
         <div class="people-section">
-          <div class="people-section-head"><h3>学生与博后 <span>${studentList.length} 人</span></h3><span>硕士 3 年 · 博士 4 年 · 博后 2 年 · 未达标会延毕</span></div>
-          <div class="people-roster">${studentList.map(personCard).join("") || `<div class="empty-state">还没有招到学生。</div>`}</div>
+          <div class="people-section-head"><h3>学生 <span>${degreeStudents.length} 人</span></h3><span>硕士 3 年 · 博士 4 年 · 未达标会延毕</span></div>
+          <div class="people-roster">${degreeStudents.map(personCard).join("") || `<div class="empty-state">还没有招到学生。</div>`}</div>
+        </div>
+        <div class="people-section">
+          <div class="people-section-head"><h3>博士后 <span>${postdocList.length} 人</span></h3><span>2 年出站 · 可申请留组转聘</span></div>
+          <div class="people-roster">${postdocList.map(personCard).join("") || `<div class="empty-state">还没有博士后。</div>`}</div>
         </div>
       `;
     },
@@ -10454,24 +11067,48 @@ html.fit-ui body { zoom:0.86; }
 
     tasksPanel() {
       const state = this.state;
-      const task = state.task;
-      if (!task) {
+      const tasks = (state.tasks && state.tasks.length ? state.tasks : (state.task ? [state.task] : []));
+      if (!tasks.length) {
         return `<div class="empty-state">导师暂时没有任务。自由发挥，把实验室做大。</div>`;
       }
-      const progress = C.taskProgress(state, task);
-      const percent = C.clamp((progress / task.target) * 100, 0, 100);
-      const deadline = Math.max(0, task.createdAt + task.deadline - state.month);
+      const cards = tasks.map((task) => {
+        const progress = C.taskProgress(state, task);
+        const percent = C.clamp((progress / Math.max(1, task.target)) * 100, 0, 100);
+        const deadline = Math.max(0, task.createdAt + task.deadline - state.month);
+        const isShort = (task.category || (task.deadline <= 4 ? "short" : "long")) === "short";
+        return `<div class="task-board-card ${isShort ? "is-short" : "is-long"}">
+          <div class="task-board-head"><span class="task-type-pill">${isShort ? "短期任务" : "长期任务"}</span><span>剩 ${deadline} 个月</span></div>
+          <div class="task-board-title">${escapeHtml(task.title)}</div>
+          <div class="task-board-desc">${escapeHtml(task.desc)}</div>
+          <div class="task-progress-row" style="margin-top:8px;"><div class="task-track"><i style="width:${percent}%"></i></div><span class="task-progress-text">${progress} / ${task.target}</span></div>
+          <div class="project-meta-row" style="margin-top:6px;"><span class="meta-pill">奖励 ${money(task.reward.funds)}</span><span class="meta-pill">声望 +${task.reward.reputation}</span><span class="meta-pill">导师好感 +${task.reward.favor}</span><span class="meta-pill">逾期 -${task.penalty.favor}</span></div>
+        </div>`;
+      }).join("");
       return `
         <div class="event-hero">
           <div class="event-kicker">SUPERVISOR'S OFFICE · 周启明</div>
-          <div class="event-title">${escapeHtml(task.title)}</div>
-          <div class="event-desc">${escapeHtml(task.desc)}<br><br>“小满，实验室的经费不是天上掉下来的。这个月把这件事办了。”</div>
-          <div class="task-progress-row" style="margin-top:15px;"><div class="task-track"><i style="width:${percent}%"></i></div><span class="task-progress-text">${progress} / ${task.target} · 剩 ${deadline} 个月</span></div>
-          <div class="project-meta-row"><span class="meta-pill">奖励 ${money(task.reward.funds)}</span><span class="meta-pill">声望 +${task.reward.reputation}</span><span class="meta-pill">导师好感 +${task.reward.favor}</span><span class="meta-pill">逾期好感 -${task.penalty.favor}</span></div>
+          <div class="event-title">短期保命，长期布局</div>
+          <div class="event-desc">导师现在同时给你短期和长期任务。短期任务通常 2–4 个月，奖励快、逾期也快；长期任务 8–12 个月，决定实验室能走多远。最多同时保留 3 件。</div>
         </div>
-        <div class="modal-section-title" style="margin-top:18px;">已经完成的任务 <span>${state.stats.tasksDone} 件</span></div>
-        <div class="empty-state" style="text-align:left;">导师任务完成数和你的院士提名积分、经费上限都有关系。不要把每一张便条都留到截止日期。</div>
+        <div class="task-board-list">${cards}</div>
+        <div class="modal-section-title" style="margin-top:18px;">任务记录 <span>已完成 ${state.stats.tasksDone} 件</span></div>
+        <div class="empty-state" style="text-align:left;">导师任务完成数会计入院士提名积分，也影响导师对你的信任。短期任务别拖，长期任务要提前排人手。</div>
       `;
+    },
+
+    journalPanel() {
+      const state = this.state;
+      if (!state.journalFeed) state.journalFeed = C.generateJournalFeed(state);
+      const feed = state.journalFeed;
+      const journalRows = feed.journals.map((journal) => `<div class="journal-desk-row"><div><b>${escapeHtml(journal.name)}</b><small>${journal.tier} 级 · 最低 ${journal.minTier} · 投稿费 ${money(journal.fee)}</small></div><div class="journal-desk-if">${journal.impact}<small>IF · ${journal.trend === "up" ? "↑" : "↓"}</small></div><div class="journal-desk-rate">${Math.round(journal.acceptance * 100)}%<small>基础接收率</small></div></div>`).join("");
+      const articleRows = feed.articles.map((article) => `<div class="journal-article-row"><div class="journal-article-field">${escapeHtml(fieldOf(article.field).short)}</div><div><b>${escapeHtml(article.title)}</b><small>${escapeHtml(article.journal)} · ${escapeHtml(article.authors)}</small></div><span class="journal-article-if">IF ${article.impact}</span></div>`).join("");
+      return `<div class="event-hero"><div class="event-kicker">JOURNAL DESK · ${escapeHtml(feed.calendar)}</div><div class="event-title">这个月，同行们在写什么？</div><div class="event-desc">这里是游戏化的期刊阅览室：可以查看本月虚构文章、各刊影响因子和基础接收率。真实投稿仍从课题的 30/60/100% 数据窗口进入；期刊影响因子会受课题等级、数据完整度、团队写作和设备影响。</div></div>
+        <div class="modal-section-title" style="margin-top:16px;">本月文章 <span>${feed.articles.length} 篇 · 虚构</span></div>
+        <div class="journal-article-list">${articleRows}</div>
+        <div class="modal-section-title" style="margin-top:16px;">期刊影响因子与接收率 <span>按游戏化数值</span></div>
+        <div class="journal-desk-list">${journalRows}</div>
+        ${(state.revisions || []).length ? `<div class="modal-section-title" style="margin-top:16px;">修回中的论文 <span>${state.revisions.length} 篇</span></div><div class="revision-pending-list">${state.revisions.map((revision) => `<div class="revision-pending"><span>${escapeHtml(revision.paper.title)}</span><b>${revision.status === "pending" ? `第 ${revision.publishMonth + 1} 个月见刊` : "等待选择修回方案"}</b></div>`).join("")}</div>` : ""}
+        <div class="empty-state" style="text-align:left;margin-top:10px;">文章、作者、影响因子和接收率都是游戏化虚构，不是真实期刊数据。真实投稿时会按你的课题等级、数据进度、团队写作、设备、声望和期刊 IF 重新计算。</div>`;
     },
 
     helpPanel() {
@@ -10479,7 +11116,7 @@ html.fit-ui body { zoom:0.86; }
       const breakdown = C.actionPointBreakdown(state);
       return `
         <div class="event-hero">
-          <div class="event-kicker">HOW TO KEEP THE LIGHTS ON · V0.2</div>
+          <div class="event-kicker">HOW TO KEEP THE LIGHTS ON · V0.5</div>
           <div class="event-title">你不是来做实验的，你是来让实验发生的。</div>
           <div class="event-desc">每月行动点有限。把成员安排进课题，结束本月后自动推进数据；数据到 30/60/100% 可以投稿，论文带来经费、声望和院士提名积分。资金为负或人员走光会失败。院士提名达到 100% 后，还要通过学部投票。</div>
         </div>
@@ -10501,6 +11138,14 @@ html.fit-ui body { zoom:0.86; }
         <div class="panel-body" style="padding:0 0 4px;">
           <p class="panel-subtitle">开局从方向课题池选 2 个；后期可以自主开题、接导师任务，也会遇到学生提案。学生提案先进入“待立项”，需要 1AP 开题讨论。一个人可以同时参与多个课题，但每个课题效率按 1 / (1 + 0.35 × 额外课题数) 下降。</p>
         </div>
+        <div class="modal-section-title" style="margin-top:16px;">TASKS & HEADCOUNT · 任务与编制</div>
+        <div class="panel-body" style="padding:0 0 4px;">
+          <p class="panel-subtitle">导师任务分短期（2–4 个月）和长期（8–12 个月），最多同时保留 3 件。实验室默认总编制 9 人：工作人员 3、学生 4、博士后 2；可在人员面板花资金 +1AP 扩充单类编制。后期经费会被耗材、管理费、动物房/微生物室合规费和修回成本持续消耗。</p>
+        </div>
+        <div class="modal-section-title" style="margin-top:16px;">JOURNALS & REVISIONS · 期刊与修回</div>
+        <div class="panel-body" style="padding:0 0 4px;">
+          <p class="panel-subtitle">「期刊」面板可以查看本月虚构文章、影响因子和基础接收率。论文即使被接收，也可能要求补实验/补数据：选择 1–3 个月修回，或降低 IF 直接发表。修回期间论文不计入论文数与 IF。</p>
+        </div>
         <div class="modal-section-title" style="margin-top:16px;">ACADEMICIAN · 院士投票</div>
         <div class="panel-body" style="padding:0 0 4px;">
           <p class="panel-subtitle">论文、IF、实验室规模、声望、导师好感和任务积分共同决定提名进度。达到 100% 后提交提名，支付 ${money(D.VOTE_FEE)} + 2AP，进入学部投票；通过则当选，失败扣 42 积分、12 声望、8 好感，并冷却 12 个月。</p>
@@ -10519,6 +11164,23 @@ html.fit-ui body { zoom:0.86; }
           <div class="event-desc" style="margin-top:0;">游戏里的课题组研究稻瘟病抗性：从病圃表型、抗谱鉴定，到 Pik / Pi9 / Pita / Pib 等抗病位点，再到效应子互作、群体基因组和 CRISPR 编辑。期刊、影响因子、公司名和人物均为游戏化处理后使用，不代表真实投稿建议。</div>
         </div>
       `;
+    },
+
+    openRevisionModal(revision) {
+      const options = (revision.options || []).map((option) => `<button class="revision-option" data-action="choose-revision" data-revision="${revision.id}" data-option="${option.id}">
+        <span><b>${escapeHtml(option.label)}</b><small>${escapeHtml(option.desc)}</small></span>
+        <span class="revision-cost">${option.months ? `${option.months} 个月` : "立即"}<b>${option.cost ? money(option.cost) : "免费"}</b><small>IF ${option.impact}</small></span>
+      </button>`).join("");
+      this.openModal({
+        type: "revision",
+        panel: "revision",
+        kicker: "REVISION · 修回",
+        title: "接收了，但还要补实验",
+        subtitle: "这篇论文已经过了审稿，但编辑要求补充实验/数据；修回需要时间、经费，并可能改变影响因子。",
+        content: `<div class="paper-preview"><div class="paper-preview-kicker">REVISION REQUESTED</div><div class="paper-preview-title">${escapeHtml(revision.paper.title)}</div><div class="paper-preview-meta"><span>${escapeHtml(revision.paper.journal)}</span><span>原 IF ${revision.paper.impact}</span><span>投稿费已支付</span></div></div><div class="revision-options">${options}</div><div class="empty-state" style="text-align:left;margin-top:10px;">补实验期间占用的是课题组的月份，不会额外占行动点；成本从经费扣除。修回期内论文不计入 IF/论文数。</div>`,
+        wide: true,
+        locked: true
+      });
     },
 
     openTender(key) {
@@ -10800,13 +11462,17 @@ html.fit-ui body { zoom:0.86; }
       const projectRows = report.projectProgress.map((item) => `<div class="report-project"><div class="report-project-head"><span>${escapeHtml(item.title)}</span><b>${item.completed ? "已结题" : `+${item.added} 数据`}</b></div><div class="report-project-track"><i style="width:${Math.min(100, (item.data / item.dataGoal) * 100)}%"></i></div></div>`).join("");
       const trainingRows = report.trainingCompleted.map((item) => `<div class="log-entry kind-good">${escapeHtml(item.personName)} 从「${escapeHtml(item.offerName)}」回来：${escapeHtml(item.text || "")}</div>`).join("");
       const paperRows = report.paperOpportunities.map((item) => `<div class="log-entry kind-paper">${escapeHtml(item.projectTitle)} · ${item.milestone}% 数据已可投稿</div>`).join("");
+      const revisionRows = (report.revisionsPublished || []).map((paper) => `<div class="log-entry kind-good">修回完成：${escapeHtml(paper.title)} · IF ${paper.impact}</div>`).join("");
       const supplyRows = report.supply && report.supply.shortages.length
         ? `<div class="log-entry kind-bad">耗材不足：${report.supply.shortages.map((item) => `${item.name} 缺 ${item.missing}`).join("、")}；本月研究效率下降。</div>`
         : `<div class="log-entry kind-good">耗材库存足够，本月按正常效率推进。</div>`;
-      const taskLine = report.taskUpdate && report.taskUpdate.completed
-        ? `<div class="log-entry kind-good">导师任务完成：${escapeHtml(report.taskUpdate.task.title)}</div>`
-        : report.taskUpdate && report.taskUpdate.failed
-          ? `<div class="log-entry kind-bad">导师任务逾期，导师好感下降。</div>`
+      const taskUpdate = report.taskUpdates || report.taskUpdate || {};
+      const completedTasks = taskUpdate.completedTasks || (taskUpdate.completed && taskUpdate.task ? [taskUpdate.task] : []);
+      const failedTasks = taskUpdate.failedTasks || [];
+      const taskLine = completedTasks.length
+        ? completedTasks.map((task) => `<div class="log-entry kind-good">导师任务完成：${escapeHtml(task.title)}</div>`).join("")
+        : failedTasks.length
+          ? failedTasks.map((task) => `<div class="log-entry kind-bad">导师任务逾期：${escapeHtml(task.title)}</div>`).join("")
           : `<div class="log-entry">导师任务仍在进行中。</div>`;
       const content = `
         <div class="report-hero">
@@ -10815,13 +11481,14 @@ html.fit-ui body { zoom:0.86; }
         </div>
         <div class="report-finance">
           <div class="report-finance-item">实验室收入<b>+${money(report.income)}</b></div>
-          <div class="report-finance-item">工资 / 维护 / 房间<b>-${money(report.expenses)}</b></div>
+          <div class="report-finance-item">工资 / 维护 / 管理费<b>-${money(report.expenses)}</b></div>
           <div class="report-finance-item">当前经费<b>${money(report.fundsAfter)}</b></div>
         </div>
         <div class="modal-section-title" style="margin-top:16px;">实验进展 <span>自动推进</span></div>
         <div class="report-list">${projectRows || `<div class="empty-state" style="padding:12px;">没有人参与课题，这个月没有新数据。</div>`}</div>
         <div class="modal-section-title" style="margin-top:14px;">耗材结算 <span>库存消耗</span></div>
         ${supplyRows}
+        ${revisionRows ? `<div class="modal-section-title" style="margin-top:14px;">修回发表 <span>本月见刊</span></div>${revisionRows}` : ""}
         ${trainingRows ? `<div class="modal-section-title" style="margin-top:14px;">培训归来 <span>能力提升</span></div>${trainingRows}` : ""}
         ${paperRows ? `<div class="modal-section-title" style="margin-top:14px;">投稿窗口 <span>别错过</span></div>${paperRows}` : ""}
         <div class="modal-section-title" style="margin-top:14px;">导师 / 走廊 <span>notes</span></div>
@@ -10970,7 +11637,7 @@ html.fit-ui body { zoom:0.86; }
         type: state.phase
       };
       const academic = C.academicianStatus(state);
-      const icon = state.phase === "won" ? "🏅" : state.phase === "lost" ? "🕯️" : "🌾";
+      const icon = state.phase === "won" ? "🏅" : state.phase === "lost" ? "🕯️" : state.phase === "transformed" ? "🧬" : "🌾";
       const content = `<div class="ending-scene">
         <div class="ending-icon">${icon}</div>
         <div class="ending-title">${escapeHtml(ending.title)}</div>
@@ -10982,13 +11649,13 @@ html.fit-ui body { zoom:0.86; }
           <div class="ending-stat"><b>${academic.score}</b><span>院士积分</span></div>
           <div class="ending-stat"><b>${state.voteFailures || 0}</b><span>投票失败</span></div>
         </div>
-        ${state.phase === "won" ? `<div class="ending-note">结局已解锁。下一局可以换一个研究方向、换一套房间/仪器/课题组合，走完全不同的路线。</div>` : ""}
+        ${state.phase === "won" || state.phase === "transformed" ? `<div class="ending-note">结局已解锁。下一局可以换一个研究方向、换一套房间/仪器/课题组合，走完全不同的路线。</div>` : ""}
       </div>`;
       this.openModal({
         type: "ending",
         panel: "ending",
-        kicker: state.phase === "won" ? "ELECTION SUCCESS" : state.phase === "lost" ? "LAB CLOSED" : "FIVE YEARS LATER",
-        title: state.phase === "won" ? "周启明教授当选院士" : state.phase === "lost" ? "这间实验室的灯灭了" : "五年之后",
+        kicker: state.phase === "won" ? "ELECTION SUCCESS" : state.phase === "lost" ? "LAB CLOSED" : state.phase === "transformed" ? "LAB TO COMPANY" : "FIVE YEARS LATER",
+        title: state.phase === "won" ? "周启明教授当选院士" : state.phase === "lost" ? "这间实验室的灯灭了" : state.phase === "transformed" ? "生物公司成立了" : "五年之后",
         subtitle: "这个项目的阶段结束。你可以重新开始，换一种研究方向。",
         content,
         wide: true,
@@ -11065,6 +11732,35 @@ html.fit-ui body { zoom:0.86; }
         }
         case "community": {
           this.openCommunity(true);
+          return true;
+        }
+        case "consider-commercialize": {
+          this.openModal({
+            type: "commercialize",
+            panel: "commercialize",
+            kicker: "TRANSLATION · 产业化",
+            title: "把实验室变成一家公司？",
+            subtitle: "这是另一条结局线，不是失败。",
+            content: `<div class="ending-scene"><div class="ending-icon">🧬</div><div class="ending-title">一项酶，另一种活法</div><div class="ending-desc">高保真聚合酶已经通过验证，投资人愿意出第一笔钱。你可以继续冲院士，也可以把实验室转成生物技术公司——失去一部分学术自由，换来产品和现金流。</div><div class="ending-stats"><div class="ending-stat"><b>${this.state.patents}</b><span>专利候选</span></div><div class="ending-stat"><b>${money(this.state.funds)}</b><span>当前经费</span></div><div class="ending-stat"><b>${this.state.papers.length}</b><span>论文</span></div></div></div>`,
+            locked: true,
+            narrow: true,
+            footer: `<button class="button" data-action="close-commercialize">继续做学术</button><button class="button button-gold" data-action="confirm-commercialize">成立生物公司</button>`
+          });
+          return true;
+        }
+        case "close-commercialize": {
+          this.closeModal(true);
+          return true;
+        }
+        case "confirm-commercialize": {
+          const result = C.commercializeLab(this.state);
+          if (!result.ok) {
+            this.toast(result.message, "bad");
+            return true;
+          }
+          this.saveGame();
+          this.closeModal(true);
+          this.showEnding();
           return true;
         }
         case "fit-screen": {
@@ -11340,6 +12036,18 @@ html.fit-ui body { zoom:0.86; }
           this.closeModal(true);
           return true;
         }
+        case "choose-revision": {
+          const result = C.chooseRevision(this.state, dataset.revision, dataset.option);
+          if (!result.ok) {
+            this.toast(result.message, "bad");
+            return true;
+          }
+          this.saveGame();
+          this.closeModal(true);
+          this.render();
+          this.toast(result.message, result.published ? "gold" : "normal");
+          return true;
+        }
         case "refresh-free": {
           const result = C.refreshCandidates(this.state, false);
           if (!result.ok) {
@@ -11492,6 +12200,17 @@ html.fit-ui body { zoom:0.86; }
           this.finishMutation("一杯咖啡的时间，关系近了一点。", "good");
           return true;
         }
+        case "buy-position": {
+          const result = C.buyPositionSlot(this.state, dataset.category);
+          if (!result.ok) {
+            this.toast(result.message, "bad");
+            return true;
+          }
+          this.saveGame();
+          this.openPanel("people");
+          this.toast("编制扩充完成，可以继续招人了。", "gold");
+          return true;
+        }
         case "upload-custom-people": {
           const input = document.getElementById("customPeopleInput");
           if (input) input.click();
@@ -11539,6 +12258,10 @@ html.fit-ui body { zoom:0.86; }
           }
           this.saveGame();
           this.render();
+          if (result.revisionRequired) {
+            this.openRevisionModal(result.revision);
+            return true;
+          }
           if (result.accepted) {
             this.openModal({
               type: "paper-result",
