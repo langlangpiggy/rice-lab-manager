@@ -4211,6 +4211,99 @@ html.fit-ui body { zoom:0.86; }
 .cloud-save-row b { font-size:9px;color:var(--ink); }
 .cloud-save-row small { font-size:7px;color:var(--muted);line-height:1.5; }
 @media (max-width:900px){.cloud-save-row{flex-wrap:wrap}.cloud-save-row .button{margin-left:0}}
+/* ===== v0.7 people, gifts, 2.5D lab ===== */
+.gift-person { display:flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:6px;background:#faf3e3;padding:8px; }
+.gift-avatar { width:38px;height:38px;border-radius:50%;background:#f1dfb4;display:flex;align-items:center;justify-content:center;font-size:22px;flex:0 0 auto; }
+.gift-person > div { display:flex;flex-direction:column;gap:2px;min-width:0; }
+.gift-person b { font-family:var(--serif);font-size:17px;color:var(--ink); }
+.gift-person small { font-size:8px;color:var(--muted); }
+.gift-prefs { display:flex;flex-direction:column;gap:1px;font-size:8px;color:#8c6a30;margin-top:3px; }
+.gift-prefs .is-bad { color:#a4503f; }
+.gift-grid { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin-top:10px; }
+.gift-card { display:flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:6px;background:#fffaf0;padding:7px;text-align:left;color:var(--ink);font:inherit;cursor:pointer; }
+.gift-card:hover { border-color:#c7a86a;background:#faf3e3; }
+.gift-card.is-liked { border-color:#a8c39b;background:#f1f8ed; }
+.gift-card.is-disliked { border-color:#d8b1a5;background:#fdf2ee; }
+.gift-card:disabled { opacity:.55;cursor:not-allowed; }
+.gift-icon { font-size:20px;flex:0 0 auto; }
+.gift-copy { display:flex;flex-direction:column;gap:1px;flex:1;min-width:0; }
+.gift-copy b { font-size:9px; }
+.gift-copy small { font-size:7px;color:var(--muted);line-height:1.4; }
+.gift-copy em { font-style:normal;font-size:7px;color:#8c6a30; }
+.gift-price { color:#8c6a30;font-size:9px;font-weight:700;white-space:nowrap; }
+.gift-card.is-disliked .gift-price { color:#a4503f; }
+@media(max-width:900px){.gift-grid{grid-template-columns:1fr}}
+/* ===== v0.7 2.5D lab + chibi actors ===== */
+.lab-map { perspective: 1400px; perspective-origin: 50% 0%; gap: 9px; }
+.lab-map .room-card { transform: perspective(1100px) rotateX(4.5deg); transform-origin: 50% 100%; box-shadow: 0 9px 0 rgba(13,36,26,.16), 0 18px 24px rgba(13,36,26,.10), inset 0 -14px 26px rgba(52,67,48,.08); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+.lab-map .room-card:hover { transform: perspective(1100px) rotateX(1.5deg) translateY(-4px) scale(1.012); z-index: 8; }
+.room-card::before { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; background-image: linear-gradient(rgba(255,255,255,.16) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.14) 1px, transparent 1px); background-size: 18px 18px; mask-image: linear-gradient(to bottom, transparent 0%, #000 32%, #000 100%); opacity: .5; }
+.room-card > * { position: relative; z-index: 1; }
+.room-3d-wall { position: absolute !important; left: 0 !important; right: 0 !important; top: 0 !important; height: 7px !important; background: linear-gradient(to bottom, rgba(255,255,255,.42), var(--room-accent, #8b9b72) 55%, rgba(0,0,0,.18)) !important; z-index: 3 !important; opacity: .9; }
+.room-card.is-meeting-room { border-color: #e0b45d; box-shadow: 0 9px 0 rgba(13,36,26,.16), 0 0 0 2px rgba(224,180,93,.45), 0 18px 28px rgba(13,36,26,.14); }
+.meeting-ribbon { position: absolute !important; right: 7px; bottom: 7px; z-index: 7 !important; background: #ad8149; color: #fff8e8; font-size: 6px; letter-spacing: .08em; padding: 3px 5px; border-radius: 3px; box-shadow: 0 2px 5px rgba(0,0,0,.18); }
+.actor-layer { position: absolute !important; inset: 0; z-index: 5 !important; pointer-events: none; overflow: hidden; }
+.lab-actor { position: absolute; z-index: 3; width: 30px; height: 40px; border: 0; padding: 0; background: transparent; transform: translate(-50%, -100%); transition: left 1.8s cubic-bezier(.22,1,.36,1), top 1.8s cubic-bezier(.22,1,.36,1); cursor: pointer; pointer-events: auto; font: inherit; }
+.lab-actor:hover { z-index: 15; }
+.actor-figure { position: relative; display: block; width: 22px; height: 32px; margin: 0 auto; animation: actor-bob 2.6s ease-in-out infinite; }
+.actor-shadow { position: absolute; left: 3px; bottom: -3px; width: 17px; height: 5px; border-radius: 50%; background: rgba(21,38,29,.22); filter: blur(1px); }
+.actor-body { position: absolute; left: 4px; bottom: 6px; width: 15px; height: 14px; border-radius: 6px 6px 3px 3px; background: var(--actor-color, #dce6c9); border: 1px solid rgba(38,53,40,.3); box-shadow: inset -3px 0 0 rgba(0,0,0,.08); }
+.actor-body::after { content: ""; position: absolute; left: 4px; top: 4px; width: 6px; height: 5px; border-radius: 2px; background: var(--actor-ink, #4f6f57); opacity: .55; }
+.actor-head { position: absolute; left: 2px; top: 0; width: 18px; height: 18px; border-radius: 50%; background: #f2d6ae; border: 1px solid rgba(38,53,40,.28); display: flex; align-items: center; justify-content: center; font-size: 11px; box-shadow: 0 1px 2px rgba(0,0,0,.12); overflow: hidden; }
+.actor-legs { position: absolute; left: 7px; bottom: 2px; width: 10px; height: 7px; }
+.actor-legs i { position: absolute; bottom: 0; width: 3px; height: 7px; border-radius: 2px; background: #4a5144; }
+.actor-legs i:first-child { left: 1px; } .actor-legs i:last-child { right: 1px; }
+.lab-actor.is-student .actor-head { background: #f5ddb8; }
+.lab-actor.is-staff .actor-body { border-radius: 4px 4px 2px 2px; }
+.actor-label { display: block; margin-top: 2px; padding: 1px 3px; border-radius: 2px; background: rgba(255,250,240,.82); color: #3f4e40; font-size: 6px; line-height: 1.2; white-space: nowrap; text-align: center; text-shadow: 0 1px 0 #fff; }
+.actor-bubble { position: absolute; left: 50%; bottom: calc(100% + 4px); transform: translateX(-50%); z-index: 20; width: max-content; max-width: 145px; padding: 4px 6px; border-radius: 6px; background: #fffaf0; border: 1px solid #d8c191; color: #3f4e40; font-size: 7px; line-height: 1.5; text-align: left; box-shadow: 0 3px 9px rgba(17,35,25,.18); animation: bubble-in .22s ease-out; }
+.actor-bubble::after { content: ""; position: absolute; left: 50%; bottom: -4px; width: 7px; height: 7px; background: #fffaf0; border-right: 1px solid #d8c191; border-bottom: 1px solid #d8c191; transform: translateX(-50%) rotate(45deg); }
+.actor-bubble.is-bad { background: #fbefea; border-color: #d5a79b; color: #914c3d; }
+.actor-bubble.is-bad::after { background: #fbefea; border-color: #d5a79b; }
+.actor-bubble.is-good { background: #f1f8ed; border-color: #b9d0ab; color: #4f6f57; }
+.actor-bubble.is-good::after { background: #f1f8ed; border-color: #b9d0ab; }
+.lab-map-hud { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; min-height: 20px; margin: 0 0 5px; }
+.lab-hud-pill { display: inline-flex; align-items: center; gap: 3px; border: 1px solid var(--line); border-radius: 999px; background: #faf3e3; color: #6d5b43; padding: 2px 7px; font-size: 7px; white-space: nowrap; }
+.lab-hud-pill b { color: var(--ink); }
+.lab-hud-pill.is-live { color: #4f6f57; background: #edf4e8; border-color: #c6d8bf; }
+.lab-hud-pill.is-meeting { color: #8c6a30; background: #f8edcf; border-color: #ddc28a; animation: meeting-pulse 1.8s ease-in-out infinite; }
+.lab-hud-hint { margin-left: auto; color: var(--muted); font-size: 7px; }
+.room-empty-people { position: absolute; left: 50%; top: 62%; transform: translate(-50%, -50%); }
+@keyframes actor-bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }
+@keyframes bubble-in { from { opacity: 0; transform: translate(-50%, 4px) scale(.94); } to { opacity: 1; transform: translate(-50%, 0) scale(1); } }
+@keyframes meeting-pulse { 0%,100% { opacity: .75; } 50% { opacity: 1; } }
+@media (max-width: 900px) {
+  .lab-map { perspective: 900px; gap: 5px; }
+  .lab-map .room-card { transform: perspective(800px) rotateX(3deg); }
+  .actor-bubble { max-width: 105px; font-size: 6px; }
+  .lab-actor { width: 24px; height: 34px; }
+  .actor-figure { transform: scale(.86); transform-origin: bottom center; }
+  .lab-hud-hint { display: none; }
+}
+/* actor scale polish */
+.lab-actor { width: 34px; height: 46px; }
+.actor-figure { width: 27px; height: 39px; }
+.actor-head { left: 3px; top: 0; width: 21px; height: 21px; font-size: 13px; }
+.actor-body { left: 5px; bottom: 7px; width: 17px; height: 16px; }
+.actor-legs { left: 9px; bottom: 2px; }
+.actor-shadow { left: 5px; width: 19px; }
+.actor-label { font-size: 7px; }
+.actor-bubble { max-width: 165px; font-size: 8px; padding: 5px 7px; }
+@media (max-width:900px){ .lab-actor { width: 28px; height: 39px; } .actor-figure { transform: scale(.9); } .actor-bubble { max-width: 120px; font-size: 7px; } }
+/* actor readability + stronger 2.5D */
+.lab-map { perspective: 1150px; }
+.lab-map .room-card { transform: perspective(950px) rotateX(6.5deg); box-shadow: 10px 14px 0 -2px rgba(13,36,26,.18), 0 22px 30px rgba(13,36,26,.14), inset 0 -16px 28px rgba(52,67,48,.10); }
+.lab-map .room-card:hover { transform: perspective(950px) rotateX(3deg) translateY(-5px) scale(1.012); }
+.room-3d-wall { height: 9px !important; }
+.lab-actor { width: 38px; height: 52px; }
+.actor-figure { width: 31px; height: 44px; }
+.actor-head { width: 24px; height: 24px; font-size: 15px; left: 3px; }
+.actor-body { width: 19px; height: 18px; left: 6px; bottom: 8px; }
+.actor-legs { left: 11px; bottom: 2px; }
+.actor-shadow { left: 7px; width: 21px; }
+.actor-label { font-size: 8px; }
+.actor-bubble { max-width: 175px; font-size: 8.5px; padding: 5px 8px; bottom: calc(100% + 3px); }
+@media (max-width:900px){ .lab-map .room-card { transform: perspective(800px) rotateX(4.5deg); } .lab-actor { width: 31px; height: 43px; } .actor-figure { transform: scale(.9); } .actor-bubble { max-width: 120px; font-size: 7px; } }
 
 </style>
 </head>
@@ -4284,7 +4377,7 @@ html.fit-ui body { zoom:0.86; }
         </section>
 
         <div class="rail-footer">
-          <span>V0.6 · 账号测试</span>
+          <span>V0.7 · 2.5D 实验室</span>
           <span>H5 · 可保存</span>
         </div>
       </aside>
@@ -4302,7 +4395,8 @@ html.fit-ui body { zoom:0.86; }
           </div>
         </div>
 
-        <section id="labMap" class="lab-map" aria-label="实验室平面图"></section>
+        <div id="labMapHud" class="lab-map-hud" aria-live="polite"></div>
+        <section id="labMap" class="lab-map" aria-label="实验室 2.5D 俯瞰图"></section>
 
         <section class="map-footer">
           <div class="legend">
@@ -6051,6 +6145,19 @@ html.fit-ui body { zoom:0.86; }
   const VOTE_FEE = 150000;
   const VOTE_AP = 2;
 
+  const GIFTS = [
+    { id: "coffee", name: "手冲咖啡", icon: "☕", price: 280, tags: ["staff", "student", "bioinfo", "night"], desc: "给熬夜跑胶的人续命；也适合办公室闲聊。" },
+    { id: "tea", name: "明前绿茶", icon: "🍵", price: 260, tags: ["staff", "admin", "greenhouse", "calm"], desc: "温和、不出错；适合喜欢安静的人。" },
+    { id: "snack", name: "零食大礼包", icon: "🍪", price: 180, tags: ["student", "social", "night"], desc: "组会和学生休息室永远不嫌多。" },
+    { id: "keyboard", name: "机械键盘", icon: "⌨️", price: 2400, tags: ["bioinfo", "student", "tech"], desc: "生信和写论文的人会懂；敲起来很响。" },
+    { id: "notebook", name: "实验记录本", icon: "📓", price: 320, tags: ["student", "researcher", "careful"], desc: "给实验做得细的人；扉页可以写一句。" },
+    { id: "plant", name: "桌面多肉", icon: "🪴", price: 220, tags: ["greenhouse", "staff", "calm"], desc: "温室组和喜欢安静的人会喜欢。" },
+    { id: "headphones", name: "降噪耳机", icon: "🎧", price: 1800, tags: ["bioinfo", "student", "night"], desc: "在开放工位里保住一点自己的世界。" },
+    { id: "pen", name: "一支好钢笔", icon: "🖋️", price: 900, tags: ["researcher", "staff", "careful"], desc: "写基金、改论文、签实验记录都体面。" },
+    { id: "figurine", name: "实验室手办", icon: "🧸", price: 1200, tags: ["student", "social", "fun"], desc: "桌上多一个不会催进度的伙伴。" },
+    { id: "beer", name: "精酿啤酒", icon: "🍺", price: 380, tags: ["staff", "social", "night"], desc: "适合下班后；不要在实验区打开。" }
+  ];
+
   return {
     FIELDS,
     FIELD_LIST,
@@ -6081,6 +6188,7 @@ html.fit-ui body { zoom:0.86; }
     JOURNALS,
     PAPER_TITLE_PARTS,
     COMPANIES,
+    GIFTS,
     NAMED_PEOPLE,
     START_PEOPLE,
     START_PROJECT,
@@ -6393,6 +6501,86 @@ html.fit-ui body { zoom:0.86; }
   function labScale(state) {
     const roomLevels = state.rooms.reduce((sum, room) => sum + Math.max(0, room.level - 1), 0);
     return state.rooms.length + state.instruments.length + roomLevels;
+  }
+
+  function giftInfo(id) {
+    return D.GIFTS.find((gift) => gift.id === id) || null;
+  }
+
+  function giftPreferenceTags(person) {
+    const tags = new Set();
+    if (person.kind === "student") tags.add("student");
+    if (person.roleId === "postdoc") tags.add("researcher");
+    if (["admin", "bioinfo", "greenhouse"].indexOf(person.roleId) >= 0) tags.add(person.roleId);
+    if (["tech", "researcher", "greenhouse", "bioinfo", "admin"].indexOf(person.roleId) >= 0) tags.add("staff");
+    if (person.roleId === "researcher") tags.add("researcher");
+    if (["bioinfo", "genomics"].indexOf(person.primaryField) >= 0) tags.add("bioinfo");
+    if (person.primaryField === "field") tags.add("greenhouse");
+    for (const trait of traitInfos(person)) {
+      for (const tag of trait.tags || []) tags.add(tag);
+    }
+    return tags;
+  }
+
+  function ensureGiftPreferences(person) {
+    if (Array.isArray(person.giftLikes) && person.giftLikes.length && Array.isArray(person.giftDislikes)) return person;
+    const tags = giftPreferenceTags(person);
+    const seed = Array.from(String(person.id || person.name || "person")).reduce((sum, ch) => sum + ch.charCodeAt(0), 0);
+    const scored = D.GIFTS.map((gift, index) => {
+      const score = (gift.tags || []).reduce((sum, tag) => sum + (tags.has(tag) ? 1 : 0), 0) * 10 + ((seed + index * 7) % 5);
+      return { id: gift.id, score };
+    }).sort((a, b) => b.score - a.score);
+    person.giftLikes = scored.slice(0, 2).map((item) => item.id);
+    const dislikeIndex = 2 + (seed % Math.max(1, scored.length - 2));
+    person.giftDislikes = [scored[Math.min(scored.length - 1, dislikeIndex)].id];
+    person.lastGiftMonth = Number.isFinite(person.lastGiftMonth) ? person.lastGiftMonth : -1;
+    return person;
+  }
+
+  function buyGift(state, personId, giftId) {
+    if (state.phase !== "playing") return { ok: false, message: "这局已经结束。" };
+    const person = getPerson(state, personId);
+    if (!person || person.status !== "active") return { ok: false, message: "这个人已经不在实验室了。" };
+    const gift = giftInfo(giftId);
+    if (!gift) return { ok: false, message: "没有这个礼物。" };
+    ensureGiftPreferences(person);
+    if (person.lastGiftMonth === state.month) return { ok: false, message: `${person.name}这个月已经收过礼物了。` };
+    if (!canAfford(state, gift.price)) return { ok: false, message: `买${gift.name}需要 ¥${gift.price.toLocaleString()}。` };
+    spend(state, gift.price);
+    person.lastGiftMonth = state.month;
+    state.stats.giftsGiven = (state.stats.giftsGiven || 0) + 1;
+    const liked = (person.giftLikes || []).indexOf(gift.id) >= 0;
+    const disliked = (person.giftDislikes || []).indexOf(gift.id) >= 0;
+    let favorDelta = 4;
+    let moraleDelta = 2;
+    let atmosphereDelta = 0.5;
+    if (liked) {
+      favorDelta = 12;
+      moraleDelta = 8;
+      atmosphereDelta = 2;
+      log(state, `你把${gift.name}送给${person.name}，正好戳中喜好。好感 +12，士气 +8。`, "good");
+    } else if (disliked) {
+      favorDelta = -3;
+      moraleDelta = -4;
+      atmosphereDelta = -1;
+      log(state, `你把${gift.name}送给${person.name}，对方礼貌收下，但明显不太喜欢。好感 -3。`, "bad");
+    } else {
+      log(state, `你把${gift.name}送给${person.name}。好感 +4，士气 +2。`, "normal");
+    }
+    person.favor = clamp(person.favor + favorDelta, 0, 100);
+    person.morale = clamp(person.morale + moraleDelta, 0, 100);
+    refreshAtmosphere(state);
+    state.lab.atmosphere = clamp(state.lab.atmosphere + atmosphereDelta, 0, 100);
+    return {
+      ok: true,
+      person,
+      gift,
+      liked,
+      disliked,
+      favorDelta,
+      moraleDelta,
+      message: liked ? `${person.name}很喜欢${gift.name}！` : disliked ? `${person.name}不太喜欢${gift.name}。` : `${person.name}收下了${gift.name}。`
+    };
   }
 
   function positionCaps(state) {
@@ -6866,6 +7054,12 @@ html.fit-ui body { zoom:0.86; }
   }
 
   function generateCandidate(state, forcedKind, boost) {
+    const candidate = generateCandidateBase(state, forcedKind, boost);
+    ensureGiftPreferences(candidate);
+    return candidate;
+  }
+
+  function generateCandidateBase(state, forcedKind, boost) {
     const kind = forcedKind || (rand(state) < 0.6 ? "student" : "staff");
     let roleId;
     if (kind === "student") {
@@ -7361,7 +7555,8 @@ html.fit-ui body { zoom:0.86; }
         rejected: 0,
         tasksDone: 0,
         talks: 0,
-        consumablesBought: 0
+        consumablesBought: 0,
+        giftsGiven: 0
       },
       pendingEvents: [],
       log: [],
@@ -7394,6 +7589,7 @@ html.fit-ui body { zoom:0.86; }
       const copy = JSON.parse(JSON.stringify(person));
       copy.id = uid(state, "person");
       copy.status = "active";
+      ensureGiftPreferences(copy);
       copy.projects = [];
       copy.assignedProject = null;
       copy.training = null;
@@ -9425,6 +9621,7 @@ html.fit-ui body { zoom:0.86; }
     state.stats.talks = Number(state.stats.talks) || 0;
     state.stats.consumablesBought = Number(state.stats.consumablesBought) || 0;
     state.stats.tasksDone = Number(state.stats.tasksDone) || 0;
+    state.stats.giftsGiven = Number(state.stats.giftsGiven) || 0;
     state.tasks = Array.isArray(state.tasks) && state.tasks.length
       ? state.tasks
       : (state.task ? [state.task] : []);
@@ -9465,6 +9662,7 @@ html.fit-ui body { zoom:0.86; }
       person.fieldLevels = person.fieldLevels && typeof person.fieldLevels === "object" ? person.fieldLevels : {};
       if (!person.stats) person.stats = {};
       for (const key of D.STAT_KEYS) person.stats[key] = Number(person.stats[key]) || 20;
+      ensureGiftPreferences(person);
     }
     for (const project of state.projects) {
       project.status = project.status || "active";
@@ -9619,6 +9817,9 @@ html.fit-ui body { zoom:0.86; }
     instrumentBids,
     labScale,
     labCapacity,
+    giftInfo,
+    ensureGiftPreferences,
+    buyGift,
     positionCaps,
     positionCategory,
     headcountSummary,
@@ -10141,6 +10342,10 @@ html.fit-ui body { zoom:0.86; }
     return Math.round(Number(value) || 0).toLocaleString("zh-CN");
   }
 
+  function pickOne(items) {
+    return items[Math.floor(Math.random() * items.length)];
+  }
+
   function fieldOf(id) {
     return D.FIELDS[id] || D.FIELDS.blast;
   }
@@ -10295,6 +10500,7 @@ html.fit-ui body { zoom:0.86; }
       }
       this.saveGame();
       this.render();
+      this.startActorLoop();
       if (window.LabCloud) {
         this.initCloud();
         return;
@@ -10906,25 +11112,192 @@ html.fit-ui body { zoom:0.86; }
       $("#labScaleLabel").textContent = C.labScale(state);
     },
 
+    startActorLoop() {
+      if (this.actorTimer) return;
+      this.actorPositions = this.actorPositions || {};
+      this.actorBubbles = this.actorBubbles || {};
+      this.meetingActive = false;
+      this.meetingUntil = 0;
+      this.lastMeetingAt = Date.now() - 60000;
+      this.actorTimer = setInterval(() => this.tickActors(), 6000);
+    },
+
+    actorRoomForPerson(person) {
+      const state = this.state;
+      const meeting = state.rooms.find((room) => room.type === "meeting") || state.rooms.find((room) => room.type === "office");
+      if (this.meetingActive && meeting) return meeting;
+      const projects = C.personProjects(state, person);
+      const project = projects[0];
+      if (person.roleId === "admin") {
+        return state.rooms.find((room) => room.type === "office") || state.rooms[0] || null;
+      }
+      if (person.roleId === "greenhouse") {
+        return state.rooms.find((room) => room.type === "greenhouse") || state.rooms.find((room) => room.type === "office") || state.rooms[0] || null;
+      }
+      if (person.roleId === "bioinfo") {
+        return state.rooms.find((room) => room.type === "omics") || state.rooms.find((room) => room.type === "office") || state.rooms[0] || null;
+      }
+      if (project) {
+        const byRequired = project.requiredRoom ? state.rooms.find((room) => room.type === project.requiredRoom) : null;
+        if (byRequired) return byRequired;
+        const info = D.ROOM_TYPES.find((type) => type.id === project.requiredRoom);
+        const targetField = project.field;
+        const byField = state.rooms.find((room) => {
+          const roomInfo = D.ROOM_TYPES.find((type) => type.id === room.type);
+          return roomInfo && (roomInfo.field === targetField || roomInfo.field === "all");
+        });
+        if (byField) return byField;
+        if (info) return state.rooms.find((room) => room.type === info.id) || null;
+      }
+      const fieldRoom = state.rooms.find((room) => {
+        const roomInfo = D.ROOM_TYPES.find((type) => type.id === room.type);
+        return roomInfo && (roomInfo.field === person.primaryField || roomInfo.field === "all");
+      });
+      if (fieldRoom) return fieldRoom;
+      if (person.kind === "student") {
+        return state.rooms.find((room) => room.type === "office") || state.rooms[0] || null;
+      }
+      return state.rooms.find((room) => room.type === "office") || state.rooms[0] || null;
+    },
+
+    actorPosition(person, room) {
+      this.actorPositions = this.actorPositions || {};
+      this.actorBubbles = this.actorBubbles || {};
+      const key = person.id;
+      let pos = this.actorPositions[key];
+      if (!pos || pos.slot !== room.slot) {
+        const seed = Array.from(person.id).reduce((sum, ch) => sum + ch.charCodeAt(0), 0);
+        pos = {
+          slot: room.slot,
+          x: 16 + (seed % 58),
+          y: 80 + ((seed * 7) % 8)
+        };
+        this.actorPositions[key] = pos;
+      }
+      return pos;
+    },
+
+    actorHtml(person, room, index, total) {
+      const pos = this.actorPosition(person, room);
+      const field = fieldOf(person.primaryField);
+      const bubble = this.actorBubbles[person.id];
+      const activeBubble = bubble && bubble.until > Date.now() ? bubble : null;
+      const count = total || 1;
+      const idx = Number.isFinite(index) ? index : 0;
+      const x = count > 1 ? 18 + ((idx + 0.5) / count) * 64 + (pos.x - 50) * 0.16 : pos.x;
+      const y = count > 1 ? 80 + (idx % 2) * 5 + (pos.y - 82) * 0.22 : pos.y;
+      const showBubble = activeBubble && (idx === 0 || (!this.meetingActive && idx === 1));
+      return `<button class="lab-actor ${person.kind === "student" ? "is-student" : "is-staff"}" style="left:${x}%;top:${y}%;--actor-color:${field.pale};--actor-ink:${field.ink};" data-action="actor-person" data-person="${person.id}" aria-label="${escapeHtml(person.name)}">
+        ${showBubble ? `<span class="actor-bubble is-${activeBubble.tone || "normal"}">${escapeHtml(activeBubble.text)}</span>` : ""}
+        <span class="actor-figure">
+          <span class="actor-shadow"></span>
+          <span class="actor-legs"><i></i><i></i></span>
+          <span class="actor-body"></span>
+          <span class="actor-head">${person.avatar}</span>
+        </span>
+        <span class="actor-label">${escapeHtml(person.name.slice(-2))}</span>
+      </button>`;
+    },
+
+    actorLine(person, room, state) {
+      const project = C.personProjects(state, person)[0];
+      const low = person.favor < 35 || person.morale < 35;
+      if (this.meetingActive && room && room.type === "meeting") {
+        return { text: pickOne(["组会怎么又轮到我了…", "这个月数据够讲十分钟吗？", "老板又要问下一步了。", "先去会议室占个后排。"]), tone: "normal" };
+      }
+      if (low) {
+        return { text: pickOne(["这个月又白干了…", "为什么活都是我的？", "有点想换个组。", "不想再改这张图了。", "我是不是不适合做科研？"]), tone: "bad" };
+      }
+      if (person.training) {
+        return { text: pickOne([`在${person.training.name}学到不少。`, "回去要 share 一下。", "出差比做实验轻松。"]), tone: "good" };
+      }
+      if (project && project.difficulty >= 1.1) {
+        return { text: pickOne(["这个实验太难了。", "重复了三次还是没结果。", "这个课题真的做得动吗？", "再失败一次就换条件。"]), tone: "normal" };
+      }
+      if (person.roleId === "admin") {
+        return { text: pickOne(["报销单怎么又退回来了。", "这个月的发票还没齐。", "采购流程能不能快一点。"]), tone: "normal" };
+      }
+      if (person.roleId === "bioinfo") {
+        return { text: pickOne(["服务器又满了。", "这个批次质控不过。", "脚本跑了一晚上。"]), tone: "normal" };
+      }
+      if (person.roleId === "greenhouse") {
+        return { text: pickOne(["温室湿度又掉了。", "这批苗长得不错。", "今天要记得补光。"]), tone: "good" };
+      }
+      if (room && room.type === "animal") {
+        return { text: pickOne(["小鼠今天状态不错。", "笼位又不够了。", "动物房的味道…"]), tone: "normal" };
+      }
+      return { text: pickOne(["今天数据还行。", "这个图怎么画都不对。", "下午要去趟温室。", "有人看到我的记号笔了吗？", "这篇文章的图 3 还要改。"]), tone: "good" };
+    },
+
+    renderLabMapHud() {
+      const hud = $("#labMapHud");
+      if (!hud) return;
+      const atmosphere = Math.round(this.state.lab ? this.state.lab.atmosphere : 60);
+      hud.innerHTML = `<span class="lab-hud-pill">🏠 2.5D 实验室</span><span class="lab-hud-pill">气氛 <b>${atmosphere}</b> / 100</span>${this.meetingActive ? `<span class="lab-hud-pill is-meeting">● 组会进行中 · ${this.state.rooms.some((room) => room.type === "meeting") ? "会议室" : "办公室临时组会"}</span>` : `<span class="lab-hud-pill is-live">● 成员在活动</span>`}<span class="lab-hud-hint">点小人可以送礼物</span>`;
+    },
+
+    tickActors() {
+      if (!this.state || this.state.phase !== "playing") return;
+      const now = Date.now();
+      const meetingRoom = this.state.rooms.find((room) => room.type === "meeting") || this.state.rooms.find((room) => room.type === "office");
+      if (this.meetingActive && now >= this.meetingUntil) this.meetingActive = false;
+      if (!this.meetingActive && meetingRoom && now - this.lastMeetingAt > 70000 && Math.random() < 0.35) {
+        this.meetingActive = true;
+        this.meetingUntil = now + 18000;
+        this.lastMeetingAt = now;
+        const meetingPeople = C.activePeople(this.state);
+        if (meetingPeople[0]) {
+          this.actorBubbles[meetingPeople[0].id] = { text: "组会时间，去会议室。", tone: "normal", until: now + 7000 };
+        }
+      }
+      for (const id of Object.keys(this.actorBubbles)) {
+        if (this.actorBubbles[id].until <= now) delete this.actorBubbles[id];
+      }
+      const people = C.activePeople(this.state);
+      if (!this.meetingActive && people.length && Math.random() < 0.8) {
+        const person = pickOne(people);
+        const room = this.actorRoomForPerson(person);
+        this.actorBubbles[person.id] = Object.assign(this.actorLine(person, room, this.state), { until: now + 6500 });
+      }
+      if (people.length >= 2 && Math.random() < (this.state.lab.atmosphere < 55 ? 0.5 : 0.24)) {
+        const a = pickOne(people);
+        const roomA = this.actorRoomForPerson(a);
+        const b = people.find((person) => person.id !== a.id && this.actorRoomForPerson(person).id === roomA.id);
+        if (b) {
+          const bad = this.state.lab.atmosphere < 55;
+          this.actorBubbles[a.id] = { text: bad ? `${b.name.slice(-2)}，你能不能把枪头补一下？` : "中午一起点奶茶吗？", tone: bad ? "bad" : "good", until: now + 7000 };
+          this.actorBubbles[b.id] = { text: bad ? "我也很忙，别总指使我。" : "可以，我要少糖。", tone: bad ? "bad" : "good", until: now + 7000 };
+          if (bad) {
+            this.state.lab.atmosphere = C.clamp(this.state.lab.atmosphere - 1, 0, 100);
+            this.state.lab.conflicts = C.clamp((this.state.lab.conflicts || 0) + 0.05, 0, 4);
+          }
+        }
+      }
+      for (const person of people) {
+        const room = this.actorRoomForPerson(person);
+        if (!room) continue;
+        const pos = this.actorPosition(person, room);
+        if (Math.random() < 0.45) {
+          pos.x = C.clamp(pos.x + (Math.random() * 16 - 8), 10, 84);
+          pos.y = C.clamp(pos.y + (Math.random() * 8 - 4), 77, 88);
+        }
+      }
+      this.renderLabMap();
+    },
+
     renderLabMap() {
       const state = this.state;
       const rooms = state.rooms;
       const roomsBySlot = new Map(rooms.map((room) => [room.slot, room]));
       const peopleByRoom = new Map();
       for (const person of C.activePeople(state)) {
-        let room = null;
-        const project = C.personProject(state, person);
-        const targetField = project ? project.field : person.primaryField;
-        const matching = rooms.find((candidate) => {
-          const info = D.ROOM_TYPES.find((type) => type.id === candidate.type);
-          return info && (info.field === targetField || info.field === "all");
-        });
-        room = matching || rooms.find((candidate) => candidate.type === "office") || rooms[0];
+        const room = this.actorRoomForPerson(person);
         if (room) {
           if (!peopleByRoom.has(room.slot)) peopleByRoom.set(room.slot, []);
           peopleByRoom.get(room.slot).push(person);
         }
       }
+      this.renderLabMapHud();
 
       let html = "";
       for (let slot = 0; slot < 12; slot += 1) {
@@ -10949,11 +11322,11 @@ html.fit-ui body { zoom:0.86; }
           return `<span class="instrument-token" title="${escapeHtml(detail.name)}">${detail.icon}<small>${escapeHtml(detail.name.slice(0, 3))}</small></span>`;
         }).join("");
         const extraInstrument = instruments.length > 4 ? `<span class="room-person-more">+${instruments.length - 4}</span>` : "";
-        const peopleHtml = roomPeople.slice(0, 5).map((person) => {
-          return `<button class="room-person-dot" data-person="${person.id}" title="${escapeHtml(person.name)} · ${roleOf(person).name}" aria-label="${escapeHtml(person.name)}">${person.avatar}</button>`;
-        }).join("");
-        const extraPeople = roomPeople.length > 5 ? `<span class="room-person-more">+${roomPeople.length - 5}</span>` : "";
-        html += `<div class="room-card ${this.selected.type === "room" && Number(this.selected.id) === room.slot ? "is-selected" : ""}" style="${roomStyle(room)}" data-action="select-room" data-slot="${slot}" role="button" tabindex="0" aria-label="${escapeHtml(info.name)}">
+        const actorsHtml = roomPeople.map((person, index) => this.actorHtml(person, room, index, roomPeople.length)).join("");
+        const meetingRoomType = state.rooms.some((item) => item.type === "meeting") ? "meeting" : "office";
+        const isMeeting = this.meetingActive && info.id === meetingRoomType;
+        html += `<div class="room-card ${isMeeting ? "is-meeting-room" : ""} ${this.selected.type === "room" && Number(this.selected.id) === room.slot ? "is-selected" : ""}" style="${roomStyle(room)}" data-action="select-room" data-slot="${slot}" role="button" tabindex="0" aria-label="${escapeHtml(info.name)}">
+          <div class="room-3d-wall"></div>
           <div class="room-top">
             <div class="room-name-row">
               <span class="room-type-icon">${info.icon}</span>
@@ -10961,12 +11334,13 @@ html.fit-ui body { zoom:0.86; }
             </div>
             <span class="room-level">Lv.${room.level}</span>
           </div>
-          <div class="room-sub"><span>${info.field === "all" ? "综合空间" : fieldOf(info.field).name}</span><b>${instruments.length}/${capacity} 台</b></div>
+          <div class="room-sub"><span>${info.field === "all" ? "综合空间" : fieldOf(info.field).name}</span><b>${roomPeople.length} 人 · ${instruments.length}/${capacity} 台</b></div>
           <div class="room-project ${linkedProject ? "" : "is-empty"}">${linkedProject ? `⌁ ${escapeHtml(linkedProject.title)} <b>${linkedPercent.toFixed(0)}%</b>` : "暂无对应课题"}</div>
           <div class="room-content">
             <div class="instrument-shelf">${instrumentHtml || `<span class="empty-instruments">还没有仪器</span>`}${extraInstrument}</div>
-            <div class="room-people">${peopleHtml || `<span class="room-person-more">空位</span>`}${extraPeople}</div>
           </div>
+          <div class="actor-layer">${actorsHtml || `<span class="room-person-more room-empty-people">空位</span>`}</div>
+          ${isMeeting ? `<div class="meeting-ribbon">MEETING · 组会中</div>` : ""}
         </div>`;
       }
       $("#labMap").innerHTML = html;
@@ -11186,6 +11560,7 @@ html.fit-ui body { zoom:0.86; }
           <div class="panel-actions">
             <button class="button button-small" data-action="talk" data-person="${person.id}" ${person.lastTalkMonth === state.month ? "disabled" : ""}>☕ 谈心·1AP</button>
             <button class="button button-small" data-action="open-training-for" data-person="${person.id}" ${person.training ? "disabled" : ""}>✈ 送培</button>
+            <button class="button button-small button-gold" data-action="open-gifts" data-person="${person.id}">🎁 送礼物</button>
           </div>
         </section>
 
@@ -11664,7 +12039,7 @@ html.fit-ui body { zoom:0.86; }
       const breakdown = C.actionPointBreakdown(state);
       return `
         <div class="event-hero">
-          <div class="event-kicker">HOW TO KEEP THE LIGHTS ON · V0.6</div>
+          <div class="event-kicker">HOW TO KEEP THE LIGHTS ON · V0.7</div>
           <div class="event-title">你不是来做实验的，你是来让实验发生的。</div>
           <div class="event-desc">每月行动点有限。把成员安排进课题，结束本月后自动推进数据；数据到 30/60/100% 可以投稿，论文带来经费、声望和院士提名积分。资金为负或人员走光会失败。院士提名达到 100% 后，还要通过学部投票。</div>
         </div>
@@ -11685,6 +12060,10 @@ html.fit-ui body { zoom:0.86; }
         <div class="modal-section-title" style="margin-top:16px;">PROJECTS · 课题来源与兼组</div>
         <div class="panel-body" style="padding:0 0 4px;">
           <p class="panel-subtitle">开局从方向课题池选 2 个；后期可以自主开题、接导师任务，也会遇到学生提案。学生提案先进入“待立项”，需要 1AP 开题讨论。一个人可以同时参与多个课题，但每个课题效率按 1 / (1 + 0.35 × 额外课题数) 下降。</p>
+        </div>
+        <div class="modal-section-title" style="margin-top:16px;">2.5D LAB & GIFTS · 小人、礼物、氛围</div>
+        <div class="panel-body" style="padding:0 0 4px;">
+          <p class="panel-subtitle">中间地图现在是 2.5D 俯瞰：成员会以小人出现在房间、在组会时去会议室（没有会议室时去办公室临时开会），头顶会随机冒泡。低好感/低士气会抱怨，气氛差时两个小人会争吵。点小人或人员详情里的「送礼物」可以购买礼物；每人喜欢和不喜欢的东西不同，送对才有大加成，每人每月只能收一次。</p>
         </div>
         <div class="modal-section-title" style="margin-top:16px;">ACCOUNT & PRIVATE LOBBY · 账号</div>
         <div class="panel-body" style="padding:0 0 4px;">
@@ -11716,6 +12095,34 @@ html.fit-ui body { zoom:0.86; }
           <div class="event-desc" style="margin-top:0;">游戏里的课题组研究稻瘟病抗性：从病圃表型、抗谱鉴定，到 Pik / Pi9 / Pita / Pib 等抗病位点，再到效应子互作、群体基因组和 CRISPR 编辑。期刊、影响因子、公司名和人物均为游戏化处理后使用，不代表真实投稿建议。</div>
         </div>
       `;
+    },
+
+    openGifts(personId) {
+      const person = selectedPerson(this.state, personId);
+      if (!person) return;
+      C.ensureGiftPreferences(person);
+      const likes = (person.giftLikes || []).map((id) => C.giftInfo(id)).filter(Boolean);
+      const dislikes = (person.giftDislikes || []).map((id) => C.giftInfo(id)).filter(Boolean);
+      const already = person.lastGiftMonth === this.state.month;
+      const cards = D.GIFTS.map((gift) => {
+        const liked = (person.giftLikes || []).indexOf(gift.id) >= 0;
+        const disliked = (person.giftDislikes || []).indexOf(gift.id) >= 0;
+        return `<button class="gift-card ${liked ? "is-liked" : ""} ${disliked ? "is-disliked" : ""}" data-action="give-gift" data-person="${person.id}" data-gift="${gift.id}" ${already ? "disabled" : ""}>
+          <span class="gift-icon">${gift.icon}</span>
+          <span class="gift-copy"><b>${escapeHtml(gift.name)}</b><small>${escapeHtml(gift.desc)}</small><em>${liked ? "★ 喜欢" : disliked ? "× 不喜欢" : "普通"}</em></span>
+          <span class="gift-price">${money(gift.price)}</span>
+        </button>`;
+      }).join("");
+      this.openModal({
+        type: "gifts",
+        panel: "gifts",
+        kicker: "GIFT SHOP · 好感与氛围",
+        title: `给${person.name}送点东西`,
+        subtitle: "礼物需要花钱；每人每月只能收一次。送对喜好加成最大，送错会掉好感。",
+        content: `<div class="gift-person"><span class="gift-avatar">${person.avatar}</span><div><b>${escapeHtml(person.name)}</b><small>${escapeHtml(roleOf(person).name)} · 好感 ${Math.round(person.favor)} / 100 · 士气 ${Math.round(person.morale)} / 100</small><div class="gift-prefs"><span>喜欢：${likes.map((gift) => `${gift.icon} ${gift.name}`).join("、") || "—"}</span><span class="is-bad">不喜欢：${dislikes.map((gift) => `${gift.icon} ${gift.name}`).join("、") || "—"}</span></div></div></div><div class="gift-grid">${cards}</div>${already ? `<div class="auth-note">这个月已经送过礼物了。下个月再来。</div>` : ""}`,
+        wide: true,
+        footer: `<button class="button" data-action="close-modal">先不送</button>`
+      });
     },
 
     openRevisionModal(revision) {
@@ -12343,6 +12750,28 @@ html.fit-ui body { zoom:0.86; }
         }
         case "account-refresh": {
           this.openAccount();
+          return true;
+        }
+        case "actor-person": {
+          this.selected = { type: "person", id: dataset.person };
+          this.render();
+          this.openGifts(dataset.person);
+          return true;
+        }
+        case "open-gifts": {
+          this.openGifts(dataset.person);
+          return true;
+        }
+        case "give-gift": {
+          const result = C.buyGift(this.state, dataset.person, dataset.gift);
+          if (!result.ok) {
+            this.toast(result.message, "bad");
+            return true;
+          }
+          this.saveGame();
+          this.render();
+          this.toast(result.message, result.liked ? "gold" : result.disliked ? "bad" : "good");
+          this.openGifts(dataset.person);
           return true;
         }
         case "cloud-save": {
@@ -13130,6 +13559,9 @@ html.fit-ui body { zoom:0.86; }
   window.LabApp = App;
   App.init();
 })();
+
+
+
 
 </script>
 </body>
